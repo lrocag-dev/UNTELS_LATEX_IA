@@ -115,3 +115,8 @@ En el editor, reemplaza el contenido con:
 La ecuación \ref{eq:ohm} representa la Ley de Ohm.
 
 \end{document}
+
+### Compilar el documento
+- El documento se compila automáticamente mientras escribes
+- La vista previa del PDF se actualiza en tiempo real en el panel derecho
+- También puedes compilar manualmente con `Ctrl+Enter`
