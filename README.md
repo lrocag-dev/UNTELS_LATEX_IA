@@ -69,16 +69,16 @@ Overleaf: Seguir setup/configurar_overleaf.md
 | 7       	| Comparación de herramientas IA              | ejercicios/ejercicio7_comparacion.tex | 
 | 8	        | Artículo académico avanzado	                | ejercicios/ejercicio8_avanzado.tex    | 
 # Herramientas Recomendadas
-Herramienta	Función	Enlace	Costo
-|-----------|---------------------------------------------|---------------------------------------|
-| ChatGPT	| Generación de código LaTeX	| chat.openai.com	Gratuito  |
-| GitHub  | Copilot	Autocompletado en VS Code	| github.com/features/copilot	Gratis para estudiantes |
-| Mathpix	| Convertir ecuaciones a LaTeX	| mathpix.com	Freemium |
-| Overleaf	 | Editor online con IA	| overleaf.com	Freemium |
-| Gemini	| Generación de código	| gemini.google.com	Gratuito |
-| Claude	| Análisis documentos largos	| claude.ai	Freemium |
+| Herramienta	| Función	| Enlace	| Costo |
+|-----------|-----------------------------------------|---------------|------------------------|
+| ChatGPT	| Generación de código LaTeX	| chat.openai.com	| Gratuito  |
+| GitHub  | Copilot	Autocompletado en VS Code	| github.com/features/copilot	| Gratis para estudiantes |
+| Mathpix	| Convertir ecuaciones a LaTeX	| mathpix.com	| Freemium |
+| Overleaf	 | Editor online con IA	| overleaf.com	| Freemium |
+| Gemini	| Generación de código	| gemini.google.com	| Gratuito |
+| Claude	| Análisis documentos largos	| claude.ai	| Freemium |
 # Recursos Adicionales
-Recurso	Descripción	Archivo
+| Recurso	| Descripción	| Archivo |
 |-----------|---------------------------------------------|---------------------------------------|
 | Cheatsheet LaTeX	| Referencia rápida de comandos	| recursos/cheatsheet_latex.pdf |
 | Guía de Prompts | 	Cómo escribir prompts efectivos para IA	| recursos/guia_prompts_ia.md |
