@@ -1,0 +1,453 @@
+% ============================================
+% PLANTILLA PARA TESIS UNTELS
+% ============================================
+% Uso: Tesis de pregrado - Ingeniería Electrónica
+% Estilo: Formato institucional UNTELS
+% ============================================
+
+\documentclass[12pt, letterpaper, oneside]{book}
+
+% ============================================
+% PAQUETES REQUERIDOS
+% ============================================
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{cite}
+\usepackage{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{rotating}
+
+% ============================================
+% CONFIGURACIÓN DE MÁRGENES (ESTILO UNTELS)
+% ============================================
+\geometry{
+    left=4.0cm,    % Espacio para encuadernación
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+% ============================================
+% CONFIGURACIÓN DE ESPACIADO
+% ============================================
+\onehalfspacing  % Espaciado 1.5 líneas
+
+% ============================================
+% CONFIGURACIÓN DE ENCABEZADOS
+% ============================================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+
+% ============================================
+% CONFIGURACIÓN DE TÍTULOS DE CAPÍTULOS
+% ============================================
+\titleformat{\chapter}
+    {\normalfont\LARGE\bfseries\centering}
+    {\chaptertitlename\ \thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+
+% ============================================
+% METADATOS DE LA TESIS
+% ============================================
+\title{Título de la Tesis}
+\author{Apellidos y Nombres del Autor}
+\date{\today}
+
+% ============================================
+% INICIO DEL DOCUMENTO
+% ============================================
+\begin{document}
+
+% ============================================
+% PORTADA
+% ============================================
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    \includegraphics[width=0.3\textwidth]{logo_untels.png}
+    \vspace{1cm}
+    
+    {\large \textbf{UNIVERSIDAD NACIONAL TECNOLÓGICA DE LIMA SUR}}
+    \vspace{0.3cm}
+    
+    {\large FACULTAD DE INGENIERÍA ELECTRÓNICA}
+    \vspace{2cm}
+    
+    {\Large \textbf{TESIS}}
+    \vspace{0.5cm}
+    
+    {\LARGE \textbf{Título completo de la tesis de investigación}}
+    \vspace{0.3cm}
+    
+    {\large Presentada para optar el título profesional de:}
+    \vspace{0.3cm}
+    
+    {\large \textbf{INGENIERO ELECTRÓNICO}}
+    \vspace{2cm}
+    
+    {\large \textbf{Autor:}}
+    \vspace{0.2cm}
+    
+    {\large Apellidos y Nombres del Autor}
+    \vspace{0.5cm}
+    
+    {\large \textbf{Asesor:}}
+    \vspace{0.2cm}
+    
+    {\large Nombre del Asesor, Grado Académico}
+    \vspace{1cm}
+    
+    {\large Lima, Perú}
+    \vspace{0.2cm}
+    
+    {\large \today}
+\end{titlepage}
+
+% ============================================
+% DEDICATORIA
+% ============================================
+\newpage
+\thispagestyle{empty}
+\vspace*{8cm}
+\begin{center}
+    \textit{A mis padres, por su apoyo incondicional} \\
+    \textit{A mis profesores, por guiar mi formación} \\
+    \textit{A Dios, por darme fortaleza}
+\end{center}
+
+% ============================================
+% AGRADECIMIENTOS
+% ============================================
+\newpage
+\chapter*{AGRADECIMIENTOS}
+\addcontentsline{toc}{chapter}{AGRADECIMIENTOS}
+
+Agradezco a la Universidad Nacional Tecnológica de Lima Sur por brindarme la formación académica y profesional. A mi asesor, [Nombre], por su guía y paciencia durante el desarrollo de esta investigación. A mis compañeros y amigos, por su apoyo y motivación constante.
+
+% ============================================
+% RESUMEN
+% ============================================
+\newpage
+\chapter*{RESUMEN}
+\addcontentsline{toc}{chapter}{RESUMEN}
+
+Este trabajo de tesis presenta el desarrollo e implementación de [descripción breve del proyecto]. El objetivo principal es [objetivo general]. La metodología empleada incluye [metodología]. Los resultados obtenidos demuestran [resultados principales]. Se concluye que [conclusiones].
+
+\textbf{Palabras clave:} palabra1, palabra2, palabra3, palabra4, palabra5.
+
+\vspace{1cm}
+
+\chapter*{ABSTRACT}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+
+This thesis presents the development and implementation of [brief description]. The main objective is [general objective]. The methodology includes [methodology]. The results demonstrate [main results]. It is concluded that [conclusions].
+
+\textbf{Keywords:} keyword1, keyword2, keyword3, keyword4, keyword5.
+
+% ============================================
+% ÍNDICES
+% ============================================
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+
+% ============================================
+% CAPÍTULO 1: INTRODUCCIÓN
+% ============================================
+\chapter{INTRODUCCIÓN}
+
+\section{Planteamiento del Problema}
+Describir el problema que motiva la investigación.
+
+\subsection{Descripción de la realidad problemática}
+\textbf{Contenido:} Explicar la situación actual, identificar carencias o dificultades.
+
+\subsection{Definición del problema}
+\textbf{Contenido:} Formular el problema de investigación de manera clara y precisa.
+
+\subsection{Justificación e importancia}
+\textbf{Contenido:} Explicar por qué es relevante realizar esta investigación.
+
+\section{Objetivos de la Investigación}
+
+\subsection{Objetivo General}
+Desarrollar un [sistema/método/prototipo] para [aplicación específica].
+
+\subsection{Objetivos Específicos}
+\begin{enumerate}
+    \item Objetivo específico 1
+    \item Objetivo específico 2
+    \item Objetivo específico 3
+    \item Objetivo específico 4
+\end{enumerate}
+
+\section{Hipótesis}
+\textbf{Hipótesis general:} [Formular la hipótesis principal].
+
+\textbf{Hipótesis específicas:}
+\begin{itemize}
+    \item H1: [Hipótesis específica 1]
+    \item H2: [Hipótesis específica 2]
+    \item H3: [Hipótesis específica 3]
+\end{itemize}
+
+\section{Alcance y Limitaciones}
+\subsection{Alcance}
+Describir los límites y cobertura de la investigación.
+
+\subsection{Limitaciones}
+Identificar las restricciones encontradas durante el desarrollo.
+
+% ============================================
+% CAPÍTULO 2: MARCO TEÓRICO
+% ============================================
+\chapter{MARCO TEÓRICO}
+
+\section{Antecedentes de la Investigación}
+\subsection{Investigaciones previas nacionales}
+\subsection{Investigaciones previas internacionales}
+
+\section{Bases Teóricas}
+\subsection{Principios fundamentales}
+La presente investigación se fundamenta en los principios de la electrónica analógica y digital.
+
+\subsection{Leyes y teoremas}
+La Ley de Ohm establece la relación entre voltaje, corriente y resistencia:
+
+\begin{equation}
+    V = I \cdot R
+    \label{eq:ohm}
+\end{equation}
+
+\subsection{Modelos matemáticos}
+El comportamiento de un circuito RC se describe mediante:
+
+\begin{equation}
+    V_c(t) = V_{in} \left(1 - e^{-t/\tau}\right)
+    \label{eq:rc_carga}
+\end{equation}
+
+donde $\tau = RC$ es la constante de tiempo del circuito.
+
+\section{Marco Conceptual}
+\subsection{Definición de términos básicos}
+\begin{itemize}
+    \item \textbf{Voltaje:} Diferencia de potencial eléctrico entre dos puntos.
+    \item \textbf{Corriente:} Flujo de carga eléctrica por unidad de tiempo.
+    \item \textbf{Resistencia:} Oposición al flujo de corriente eléctrica.
+\end{itemize}
+
+\section{Estado del Arte}
+\subsection{Tecnologías existentes}
+\subsection{Tendencias actuales}
+
+% ============================================
+% CAPÍTULO 3: METODOLOGÍA
+% ============================================
+\chapter{METODOLOGÍA}
+
+\section{Tipo y Nivel de Investigación}
+\subsection{Tipo de investigación}
+Aplicada / Básica / Tecnológica.
+
+\subsection{Nivel de investigación}
+Descriptiva / Correlacional / Explicativa.
+
+\section{Diseño de la Investigación}
+\subsection{Diseño experimental / no experimental}
+\subsection{Esquema del diseño}
+
+\section{Población y Muestra}
+
+\section{Técnicas e Instrumentos de Recolección de Datos}
+\subsection{Técnicas empleadas}
+\subsection{Instrumentos utilizados}
+
+\begin{table}[H]
+    \centering
+    \caption{Instrumentos de medición utilizados}
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        \textbf{Instrumento} & \textbf{Marca} & \textbf{Precisión} \\
+        \midrule
+        Osciloscopio & Tektronix & $\pm$0.1\% \\
+        Multímetro & Fluke & $\pm$0.5\% \\
+        Fuente DC & GwInstek & $\pm$0.01\% \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:instrumentos}
+\end{table}
+
+\section{Procedimiento Experimental}
+\subsection{Etapa 1: Diseño y simulación}
+\subsection{Etapa 2: Implementación}
+\subsection{Etapa 3: Pruebas y mediciones}
+
+% ============================================
+% CAPÍTULO 4: DESARROLLO E IMPLEMENTACIÓN
+% ============================================
+\chapter{DESARROLLO E IMPLEMENTACIÓN}
+
+\section{Diseño del Sistema}
+\subsection{Diagrama de bloques}
+\begin{figure}[H]
+    \centering
+    \framebox[0.8\textwidth]{\rule{0pt}{4cm} \textbf{Diagrama de bloques}}
+    \caption{Diagrama de bloques del sistema propuesto}
+    \label{fig:bloques}
+\end{figure}
+
+\subsection{Especificaciones técnicas}
+\begin{table}[H]
+    \centering
+    \caption{Especificaciones del sistema}
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        \textbf{Parámetro} & \textbf{Valor} \\
+        \midrule
+        Voltaje de alimentación & 5 V DC \\
+        Consumo de corriente & 150 mA \\
+        Frecuencia de operación & 16 MHz \\
+        Resolución ADC & 10 bits \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:especificaciones}
+\end{table}
+
+\section{Implementación del Hardware}
+\subsection{Selección de componentes}
+\subsection{Diagrama esquemático}
+\subsection{Diseño de PCB}
+
+\section{Implementación del Software}
+\subsection{Algoritmo principal}
+\begin{lstlisting}[language=C, caption=Código del sistema]
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // Configuración inicial
+    printf("Sistema iniciado\n");
+    
+    // Bucle principal
+    while(1) {
+        // Lectura de sensores
+        // Procesamiento de datos
+        // Control de actuadores
+    }
+    return 0;
+}
+\end{lstlisting}
+
+\subsection{Interfaz de usuario}
+\subsection{Protocolos de comunicación}
+
+% ============================================
+% CAPÍTULO 5: RESULTADOS Y DISCUSIÓN
+% ============================================
+\chapter{RESULTADOS Y DISCUSIÓN}
+
+\section{Presentación de Resultados}
+
+\subsection{Resultados experimentales}
+\begin{table}[H]
+    \centering
+    \caption{Resultados de las mediciones realizadas}
+    \begin{tabular}{@{}cccc@{}}
+        \toprule
+        \textbf{Prueba} & \textbf{Valor teórico} & \textbf{Valor medido} & \textbf{Error (\%)} \\
+        \midrule
+        1 & 5.00 V & 4.98 V & 0.4 \\
+        2 & 10.00 V & 9.95 V & 0.5 \\
+        3 & 15.00 V & 14.92 V & 0.53 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:resultados}
+\end{table}
+
+\subsection{Análisis estadístico}
+\subsection{Gráficas comparativas}
+
+\section{Discusión de Resultados}
+\subsection{Interpretación de resultados}
+\subsection{Comparación con trabajos previos}
+\subsection{Aportes de la investigación}
+
+\section{Validación de Hipótesis}
+\subsection{Verificación de hipótesis general}
+\subsection{Verificación de hipótesis específicas}
+
+% ============================================
+% CAPÍTULO 6: CONCLUSIONES Y RECOMENDACIONES
+% ============================================
+\chapter{CONCLUSIONES Y RECOMENDACIONES}
+
+\section{Conclusiones}
+\begin{enumerate}
+    \item Conclusión derivada del objetivo específico 1
+    \item Conclusión derivada del objetivo específico 2
+    \item Conclusión derivada del objetivo específico 3
+    \item Conclusión derivada del objetivo específico 4
+    \item Conclusión general derivada del objetivo general
+\end{enumerate}
+
+\section{Recomendaciones}
+\begin{enumerate}
+    \item Recomendación para futuras investigaciones
+    \item Recomendación para aplicaciones prácticas
+    \item Recomendación para mejora del sistema
+\end{enumerate}
+
+\section{Aportes de la Investigación}
+\subsection{Aportes teóricos}
+\subsection{Aportes prácticos}
+\subsection{Aportes metodológicos}
+
+% ============================================
+% REFERENCIAS BIBLIOGRÁFICAS
+% ============================================
+\bibliographystyle{ieeetr}
+\bibliography{referencias}
+
+% Si no tienes archivo .bib, usa this:
+% \begin{thebibliography}{99}
+% \bibitem{boylestad2022} R. L. Boylestad and L. Nashelsky, \textit{Electrónica: Teoría de circuitos}, 11th ed. México: Pearson, 2022.
+% \end{thebibliography}
+
+% ============================================
+% APÉNDICES
+% ============================================
+\begin{appendices}
+\chapter{MANUAL DE USUARIO}
+Contenido del manual de usuario del sistema desarrollado.
+
+\chapter{DATOS TÉCNICOS}
+Fichas técnicas de los componentes utilizados.
+
+\chapter{CÓDIGO FUENTE}
+Listado completo del código fuente implementado.
+
+\end{appendices}
+
+\end{document}
