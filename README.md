@@ -1,7 +1,7 @@
 # Curso Taller: Introducción a LaTeX potenciada por IA
 
 ## 📌 Descripción
-Este repositorio contiene todos los materiales del curso taller **"Introducción a LaTeX potenciada por Inteligencia Artificial"** para estudiantes de Ingeniería Electrónica de la UNTELS.
+Este repositorio contiene todos los materiales del curso taller **"Introducción a LaTeX potenciada por Inteligencia Artificial"** para estudiantes de la UNTELS.
 
 ## 🎯 Objetivo
 Capacitar a los estudiantes en el uso de LaTeX para la elaboración de documentos académicos profesionales, aprovechando herramientas de Inteligencia Artificial que faciliten la redacción, corrección y presentación de trabajos.
@@ -39,8 +39,8 @@ Overleaf: Seguir setup/configurar_overleaf.md
 
 | Módulo | Tema                                         | Archivo                       | 
 |--------|----------------------------------------------|-------------------------------|
-| 1      | Fundamentos de LaTeX y Entornos de Trabajo   | guias/modulo1_fundamentos.pdf |
-| 2      | LaTeX Potenciado por Inteligencia Artificial | guias/modulo2_ia_latex.pdf    |
+| 1      | Fundamentos de LaTeX y Entornos de Trabajo   | [Módulo 1](guias/guia_modulo1.pdf) |
+| 2      | LaTeX Potenciado por Inteligencia Artificial | [Módulo 2](guias/guia_modulo2.pdf)    |
 
 ## Contenido del Módulo 1
 - Instalación y configuración de entornos LaTeX (TeXstudio, Overleaf)
