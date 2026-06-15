@@ -24,3 +24,13 @@ Capacitar a los estudiantes en el uso de LaTeX para la elaboración de documento
 ```bash
 git clone https://github.com/lrocag-dev/UNTELS_LATEX_IA.git
 cd UNTELS_LATEX_IA
+```
+### 2. Instalar LaTeX
+Windows: Seguir setup/instalar_miktex_windows.md
+
+Online: Usar Overleaf 
+
+### 3. Configurar entorno
+VS Code + LaTeX Workshop: Seguir setup/configurar_vscode.md
+
+Overleaf: Seguir setup/configurar_overleaf.md
