@@ -34,3 +34,22 @@ Online: Usar Overleaf
 VS Code + LaTeX Workshop: Seguir setup/configurar_vscode.md
 
 Overleaf: Seguir setup/configurar_overleaf.md
+
+# Módulos del Curso
+
+| Módulo | Tema                                         | Archivo                       | 
+|--------|----------------------------------------------|-------------------------------|
+| 1      | Fundamentos de LaTeX y Entornos de Trabajo   | guias/modulo1_fundamentos.pdf |
+| 2      | LaTeX Potenciado por Inteligencia Artificial | guias/modulo2_ia_latex.pdf    |
+
+## Contenido del Módulo 1
+- Instalación y configuración de entornos LaTeX (TeXstudio, Overleaf)
+- Estructura básica de un documento: preámbulo, secciones, capítulos y compilación
+- Comandos esenciales: formato de texto, listas, tablas, imágenes y referencias bibliográficas
+- Inserción de ecuaciones y símbolos matemáticos básicos
+## Contenido del Módulo 2
+- Introducción a la inteligencia artificial y su aplicación en la redacción académica
+- Uso de herramientas de IA, como ChatGPT, para generar código LaTeX, corregir errores y optimizar documentos
+- Integración de IA con LaTeX para crear proyectos aplicativos: informes, artículos y trabajos de investigación
+- Ejercicios prácticos de elaboración de documentos completos combinando texto, imágenes, tablas, ecuaciones y bibliografía
+- Retroalimentación guiada por el instructor y asistida por IA
