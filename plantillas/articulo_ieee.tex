@@ -1,0 +1,246 @@
+% ============================================
+% PLANTILLA PARA ARTÍCULO IEEE
+% ============================================
+% Uso: Artículos científicos para conferencias y revistas IEEE
+% Estilo: IEEE Conference Proceedings
+% ============================================
+
+\documentclass[conference, letterpaper, 10pt]{IEEEtran}
+
+% ============================================
+% PAQUETES REQUERIDOS
+% ============================================
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, english]{babel}  % Bilingüe
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{algorithmic}
+\usepackage{array}
+\usepackage{url}
+
+% Gráficos para TikZ (opcional)
+% \usepackage{tikz}
+% \usetikzlibrary{circuits.ee.IEC}
+
+% ============================================
+% METADATOS DEL ARTÍCULO
+% ============================================
+\title{
+    Título del Artículo en Español \\
+    {\large English Title of the Article}
+}
+
+\author{
+    \IEEEauthorblockN{Primer Autor}
+    \IEEEauthorblockA{\textit{Departamento de Ingeniería Electrónica} \\
+    \textit{Universidad Nacional Tecnológica de Lima Sur}\\
+    Lima, Perú \\
+    email@untels.edu.pe}
+    \and
+    \IEEEauthorblockN{Segundo Autor}
+    \IEEEauthorblockA{\textit{Departamento de Ingeniería Electrónica} \\
+    \textit{Universidad Nacional Tecnológica de Lima Sur}\\
+    Lima, Perú \\
+    email2@untels.edu.pe}
+}
+
+% ============================================
+% INICIO DEL DOCUMENTO
+% ============================================
+\begin{document}
+
+\maketitle
+
+% ============================================
+% RESUMEN (ABSTRACT)
+% ============================================
+\begin{abstract}
+\textbf{Resumen:} Este documento presenta la plantilla para la elaboración de artículos científicos siguiendo el formato de la IEEE (Institute of Electrical and Electronics Engineers). Incluye la estructura estándar de secciones, formato de ecuaciones, tablas, figuras y referencias bibliográficas. Esta plantilla está diseñada para estudiantes de ingeniería electrónica que deseen publicar sus trabajos de investigación en conferencias o revistas indexadas.
+
+\vspace{0.5cm}
+\textbf{Palabras clave:} LaTeX, IEEE, plantilla, artículo científico, ingeniería electrónica.
+
+\vspace{0.5cm}
+\textbf{Abstract:} This document presents a template for preparing scientific articles following the IEEE (Institute of Electrical and Electronics Engineers) format. It includes the standard section structure, formatting for equations, tables, figures, and bibliographic references. This template is designed for electronic engineering students who wish to publish their research work in indexed conferences or journals.
+
+\vspace{0.5cm}
+\textbf{Keywords:} LaTeX, IEEE, template, scientific paper, electronic engineering.
+\end{abstract}
+
+% ============================================
+% INTRODUCCIÓN
+% ============================================
+\section{INTRODUCCIÓN}
+
+Esta plantilla está diseñada para facilitar la elaboración de artículos científicos bajo el formato IEEE. A continuación se presentan las principales secciones que debe contener un artículo académico, junto con ejemplos ilustrativos.
+
+\subsection{Motivación}
+La correcta presentación de los resultados de investigación es fundamental para su difusión y reconocimiento. El formato IEEE es ampliamente utilizado en conferencias y revistas del área de ingeniería eléctrica y electrónica~\cite{ieeestyle2024}.
+
+\subsection{Objetivos del artículo}
+\begin{itemize}
+    \item Presentar los resultados de investigación de manera clara y estructurada
+    \item Demostrar el uso adecuado de la plantilla IEEE
+    \item Facilitar la publicación en conferencias indexadas
+\end{itemize}
+
+% ============================================
+% MARCO TEÓRICO
+% ============================================
+\section{MARCO TEÓRICO}
+
+\subsection{Ecuaciones Matemáticas}
+Las ecuaciones deben ser numeradas y referenciadas correctamente. La siguiente ecuación representa la Ley de Ohm:
+
+\begin{equation}
+    V = I \cdot R
+    \label{eq:ohm}
+\end{equation}
+
+Para ecuaciones más complejas, como la impedancia en un circuito RLC serie:
+
+\begin{equation}
+    Z = \sqrt{R^2 + \left(X_L - X_C\right)^2}
+    \label{eq:impedancia}
+\end{equation}
+
+donde $X_L = 2\pi f L$ es la reactancia inductiva y $X_C = 1/(2\pi f C)$ es la reactancia capacitiva.
+
+\subsection{Transformadas de Laplace}
+En sistemas de control, la transformada de Laplace es fundamental:
+
+\begin{equation}
+    \mathcal{L}\{f(t)\} = F(s) = \int_0^\infty e^{-st} f(t) \, dt
+    \label{eq:laplace}
+\end{equation}
+
+% ============================================
+% METODOLOGÍA
+% ============================================
+\section{METODOLOGÍA}
+
+\subsection{Diseño Experimental}
+La metodología empleada se divide en las siguientes etapas:
+
+\begin{enumerate}
+    \item Diseño del circuito y simulación
+    \item Implementación del prototipo
+    \item Medición y adquisición de datos
+    \item Análisis de resultados
+\end{enumerate}
+
+\subsection{Equipos y Materiales}
+\begin{table}[H]
+    \centering
+    \caption{Lista de equipos utilizados}
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        \textbf{Equipo} & \textbf{Marca} & \textbf{Modelo} \\
+        \midrule
+        Osciloscopio & Tektronix & TBS1102 \\
+        Generador de señales & Rigol & DG1022 \\
+        Fuente DC & GwInstek & GPS-2303 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:equipos}
+\end{table}
+
+% ============================================
+% RESULTADOS
+% ============================================
+\section{RESULTADOS}
+
+\subsection{Resultados Experimentales}
+Las mediciones realizadas se muestran en la Tabla~\ref{tab:resultados}.
+
+\begin{table}[H]
+    \centering
+    \caption{Resultados experimentales}
+    \begin{tabular}{@{}ccc@{}}
+        \toprule
+        \textbf{Voltaje (V)} & \textbf{Corriente (mA)} & \textbf{Potencia (mW)} \\
+        \midrule
+        1.0 & 9.8 & 9.8 \\
+        3.0 & 29.5 & 88.5 \\
+        5.0 & 49.2 & 246.0 \\
+        7.0 & 68.9 & 482.3 \\
+        9.0 & 88.6 & 797.4 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:resultados}
+\end{table}
+
+\subsection{Análisis de Resultados}
+Los resultados muestran una relación lineal entre voltaje y corriente, con un coeficiente de correlación de $R^2 = 0.9997$, validando la Ley de Ohm.
+
+% ============================================
+% DISCUSIÓN
+% ============================================
+\section{DISCUSIÓN}
+
+Los resultados obtenidos son consistentes con la teoría, presentando un error relativo menor al 2\%. La principal fuente de error identificada fue la tolerancia de los componentes utilizados.
+
+% ============================================
+% CONCLUSIONES
+% ============================================
+\section{CONCLUSIONES}
+
+A continuación se presentan las principales conclusiones del trabajo:
+
+\begin{itemize}
+    \item Se verificó experimentalmente la validez de la Ley de Ohm
+    \item El error porcentual entre valores teóricos y medidos fue inferior al 2\%
+    \item La metodología empleada puede ser replicada para otros circuitos electrónicos
+\end{itemize}
+
+% ============================================
+% AGRADECIMIENTOS
+% ============================================
+\section{AGRADECIMIENTOS}
+
+Los autores agradecen a la Universidad Nacional Tecnológica de Lima Sur por el apoyo brindado para la realización de esta investigación.
+
+% ============================================
+% REFERENCIAS
+% ============================================
+
+% NOTA: Este estilo requiere tener el archivo referencias.bib
+% \bibliographystyle{IEEEtran}
+% \bibliography{referencias}
+
+% Si no tienes el archivo .bib, usa el entorno thebibliography:
+
+\begin{thebibliography}{99}
+
+\bibitem{ieeestyle2024}
+    IEEE, \textit{IEEE Editorial Style Manual}, 2024.
+
+\bibitem{boylestad2022}
+    R. L. Boylestad and L. Nashelsky, \textit{Electrónica: Teoría de circuitos}, 11th ed. México: Pearson, 2022.
+
+\bibitem{floyd2020}
+    T. L. Floyd, \textit{Principios de circuitos eléctricos}, 10th ed. México: Pearson, 2020.
+
+\bibitem{sedra2021}
+    A. S. Sedra and K. C. Smith, \textit{Microelectronic Circuits}, 8th ed. New York: Oxford University Press, 2021.
+
+\bibitem{ieeeconf2023}
+    J. García, M. Rodríguez, and A. López, "Aplicación de técnicas de procesamiento de señales en sistemas embebidos," in \textit{Proc. IEEE Int. Conf. Electron. Eng.}, Lima, Perú, 2023, pp. 45-52.
+
+\end{thebibliography}
+
+% ============================================
+% INFORMACIÓN DE LOS AUTORES
+% ============================================
+\newpage
+\section*{Información de los Autores}
+
+\textbf{Primer Autor} es estudiante de la carrera de Ingeniería Electrónica en la Universidad Nacional Tecnológica de Lima Sur (UNTELS). Sus áreas de interés incluyen el procesamiento digital de señales y los sistemas embebidos.
+
+\textbf{Segundo Autor} es profesor del Departamento de Ingeniería Electrónica de la UNTELS. Es Magíster en Ingeniería Electrónica con especialización en sistemas de control.
+
+\end{document}
