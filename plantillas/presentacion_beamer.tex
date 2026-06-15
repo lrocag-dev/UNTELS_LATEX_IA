@@ -1,0 +1,260 @@
+% ============================================
+% PLANTILLA PARA PRESENTACIÓN BEAMER
+% ============================================
+% Uso: Presentaciones académicas en LaTeX
+% Estilo: Tema profesional para ingeniería
+% ============================================
+
+\documentclass[11pt, spanish, aspectratio=169]{beamer}
+
+% ============================================
+% CONFIGURACIÓN DE IDIOMA
+% ============================================
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+% ============================================
+% PAQUETES ADICIONALES
+% ============================================
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{hyperref}
+
+% ============================================
+% CONFIGURACIÓN DE COLORES (TEMA PERSONALIZADO)
+% ============================================
+\definecolor{azuluntels}{RGB}{0, 56, 147}
+\definecolor{azulclaro}{RGB}{41, 128, 185}
+\definecolor{verdeexito}{RGB}{39, 174, 96}
+\definecolor{naranja}{RGB}{230, 126, 34}
+\definecolor{grisfondo}{RGB}{245, 245, 245}
+
+\setbeamercolor{title}{fg=azuluntels}
+\setbeamercolor{frametitle}{fg=azuluntels}
+\setbeamercolor{structure}{fg=azuluntels}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{alerted text}{fg=naranja}
+
+% ============================================
+% CONFIGURACIÓN DEL TEMA
+% ============================================
+\usetheme{Madrid}
+\usecolortheme{whale}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+% ============================================
+% CONFIGURACIÓN DE LISTINGS
+% ============================================
+\lstset{
+    language=C,
+    basicstyle=\tiny\ttfamily,
+    keywordstyle=\color{azuluntels}\bfseries,
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{orange},
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{grisfondo}
+}
+
+% ============================================
+% DATOS DE LA PRESENTACIÓN
+% ============================================
+\title[Diseño de Sistema]{Diseño e Implementación de un Sistema de Adquisición de Datos}
+\subtitle{Trabajo de Investigación - Ingeniería Electrónica}
+
+\author[Autor]{Apellidos, Nombres del Autor}
+\institute[UNTELS]{Universidad Nacional Tecnológica de Lima Sur}
+\date{\today}
+
+% Logo institucional
+\titlegraphic{
+    \includegraphics[width=1.5cm]{logo_untels.png}
+}
+
+% ============================================
+% INICIO DE LA PRESENTACIÓN
+% ============================================
+\begin{document}
+
+% ============================================
+% DIAPOSITIVA DE TÍTULO
+% ============================================
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% ============================================
+% ÍNDICE GENERAL
+% ============================================
+\begin{frame}{Contenido}
+    \tableofcontents
+\end{frame}
+
+% ============================================
+% SECCIÓN 1: INTRODUCCIÓN
+% ============================================
+\section{Introducción}
+
+% ============================================
+\begin{frame}{Contexto del Proyecto}
+    \begin{block}{Problema identificado}
+        En la industria actual, existe la necesidad de sistemas de monitoreo de bajo costo y alta precisión para variables eléctricas.
+    \end{block}
+    
+    \begin{alertblock}{Motivación}
+        Desarrollar una solución accesible para pequeñas y medianas empresas.
+    \end{alertblock}
+    
+    \begin{exampleblock}{Objetivo General}
+        Diseñar e implementar un sistema de adquisición de datos para monitoreo de variables eléctricas.
+    \end{exampleblock}
+\end{frame}
+
+% ============================================
+\begin{frame}{Objetivos Específicos}
+    \begin{enumerate}
+        \item Seleccionar los componentes adecuados para el sistema
+        \item Diseñar el circuito de acondicionamiento de señales
+        \item Implementar el firmware para adquisición de datos
+        \item Validar el sistema mediante pruebas experimentales
+    \end{enumerate}
+\end{frame}
+
+% ============================================
+% SECCIÓN 2: MARCO TEÓRICO
+% ============================================
+\section{Marco Teórico}
+
+% ============================================
+\begin{frame}{Fundamentos Teóricos}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \textbf{Ley de Ohm}
+        \begin{equation}
+            V = I \cdot R
+        \end{equation}
+        
+        \textbf{Potencia eléctrica}
+        \begin{equation}
+            P = V \cdot I
+        \end{equation}
+        
+        \column{0.5\textwidth}
+        \textbf{Impedancia}
+        \begin{equation}
+            Z = \sqrt{R^2 + (X_L - X_C)^2}
+        \end{equation}
+        
+        \textbf{Frecuencia de resonancia}
+        \begin{equation}
+            f_0 = \frac{1}{2\pi\sqrt{LC}}
+        \end{equation}
+    \end{columns}
+\end{frame}
+
+% ============================================
+\begin{frame}{Antecedentes}
+    \begin{table}
+        \centering
+        \caption{Comparación de sistemas existentes}
+        \begin{tabular}{@{}lccc@{}}
+            \toprule
+            \textbf{Sistema} & \textbf{Costo} & \textbf{Precisión} & \textbf{Conectividad} \\
+            \midrule
+            Sistema A & Alto & 0.1\% & Ethernet \\
+            Sistema B & Medio & 0.5\% & USB \\
+            Sistema C & Bajo & 1.0\% & Serial \\
+            \textbf{Propuesto} & \textbf{Bajo} & \textbf{0.2\%} & \textbf{WiFi/Bluetooth} \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+% ============================================
+% SECCIÓN 3: METODOLOGÍA
+% ============================================
+\section{Metodología}
+
+% ============================================
+\begin{frame}{Diagrama de Bloques}
+    \begin{center}
+        \framebox[0.8\textwidth]{\rule{0pt}{3cm} \textbf{Diagrama de bloques del sistema}}
+    \end{center}
+    \begin{itemize}
+        \item \textbf{Sensores:} Medición de voltaje y corriente
+        \item \textbf{Acondicionamiento:} Amplificación y filtrado
+        \item \textbf{ADC:} Conversión analógico-digital
+        \item \textbf{Microcontrolador:} Procesamiento y comunicación
+    \end{itemize}
+\end{frame}
+
+% ============================================
+\begin{frame}{Flujo de Trabajo}
+    \begin{center}
+        \begin{tikzpicture}
+            % Diagrama de flujo simple
+            \draw[->] (0,0) -- (0,-0.5) -- (2,-0.5) -- (2,0) -- (0,0);
+        \end{tikzpicture}
+    \end{center}
+    \begin{enumerate}
+        \item Configuración inicial del sistema
+        \item Adquisición de datos de sensores
+        \item Procesamiento digital de señales
+        \item Transmisión de datos
+        \item Visualización de resultados
+    \end{enumerate}
+\end{frame}
+
+% ============================================
+% SECCIÓN 4: RESULTADOS
+% ============================================
+\section{Resultados}
+
+% ============================================
+\begin{frame}{Resultados Experimentales}
+    \begin{table}
+        \centering
+        \caption{Comparación de mediciones}
+        \begin{tabular}{@{}cccc@{}}
+            \toprule
+            \textbf{Prueba} & \textbf{Teórico} & \textbf{Medido} & \textbf{Error(\%)} \\
+            \midrule
+            1 & 5.00 V & 4.98 V & 0.4 \\
+            2 & 10.00 V & 9.95 V & 0.5 \\
+            3 & 15.00 V & 14.92 V & 0.53 \\
+            4 & 20.00 V & 19.88 V & 0.6 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    
+    \begin{block}{Precisión del sistema}
+        Error promedio: 0.5\% - Cumple con el objetivo (<1\%)
+    \end{block}
+\end{frame}
+
+% ============================================
+\begin{frame}{Análisis de Resultados}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \textbf{Ventajas:}
+        \begin{itemize}
+            \item Bajo costo de implementación
+            \item Alta precisión
+            \item Conectividad inalámbrica
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \textbf{Desventajas:}
+        \begin{itemize}
+            \item Limitación en frecuencia de muestreo
+            \item Dependencia de alimentación externa
+        \end{itemize}
+    \end{columns}
+\end{frame
