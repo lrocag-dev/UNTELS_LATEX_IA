@@ -196,3 +196,103 @@ V = I \cdot R
 
 Ahora genera para: P = V * I
 ```
+### 3. Prompt con Restricciones Negativas
+```text
+Genera código LaTeX para una tabla, pero NO uses:
+
+El paquete booktabs
+
+Columnas con especificador 'p{}'
+
+Líneas verticales (|)
+
+```
+
+### 4. Prompt con Roles Múltiples
+```text
+
+Actúa como un revisor académico y un experto en LaTeX.
+Primero, identifica errores en este documento.
+Luego, sugiere mejoras.
+Finalmente, proporciona el código corregido.
+
+Documento: [pegar código]
+
+```
+
+---
+
+## Errores Comunes al Escribir Prompts
+
+| Error | Explicación | Solución |
+|-------|-------------|----------|
+| Ser demasiado vago | "Haz una tabla" | Especifica número de columnas, filas y contenido |
+| No dar contexto | "Escribe una ecuación" | Menciona "para un documento de electrónica" |
+| Prompt demasiado largo | Una sola instrucción enorme | Divide en varios prompts encadenados |
+| No especificar formato | "Dame el código" | Pide "solo el código, sin explicaciones" |
+| No iterar | Aceptar el primer resultado | Refina el prompt basado en el resultado |
+
+---
+
+## Documentación de Prompts para Entregas
+
+Cuando uses IA en tus ejercicios, debes documentar cada prompt utilizado. Usa esta plantilla:
+
+```latex
+\subsection*{Prompt utilizado para [propósito]}
+
+\begin{verbatim}
+[Texto exacto del prompt copiado de la conversación]
+\end{verbatim}
+
+\subsection*{Respuesta de la IA}
+
+\begin{verbatim}
+[Código o texto generado por la IA]
+\end{verbatim}
+
+\subsection*{Modificaciones realizadas}
+
+\begin{itemize}
+    \item [Lista de cambios manuales que hiciste al código generado]
+    \item [Ejemplo: "Ajusté el formato de la tabla porque no se veía bien"]
+\end{itemize}
+
+\subsection*{Reflexión}
+
+\begin{itemize}
+    \item ¿Qué funcionó bien en este prompt?
+    \item ¿Qué cambiarías para mejorar el resultado?
+    \item ¿Cómo integraste el código generado en tu documento?
+\end{itemize}
+```
+# Banco Rápido de Prompts
+## Para comenzar
+```text
+Actúa como un asistente de LaTeX. Voy a darte instrucciones en español 
+y quiero que me des solo el código LaTeX correspondiente, sin explicaciones 
+adicionales. ¿Entendido?
+```
+## Para ecuaciones
+```text
+Genera código LaTeX para: [descripción de la ecuación]. 
+Usa \begin{equation} y \label{...}.
+```
+## Para tablas
+```text
+Convierte estos datos en una tabla LaTeX: [datos].
+Incluye caption y label.
+```
+## Para corrección rápida
+```text
+Este código no compila. ¿Qué error hay? [pegar código]
+```
+## Para optimización
+```text
+¿Cómo puedo mejorar este código LaTeX? [pegar código]
+```
+# Recursos Adicionales
+- [Learn Prompting - Curso gratuito de ingeniería de prompts](https://learnprompting.org/)
+- [OpenAI Prompt Engineering Guide - Guía oficial](https://platform.openai.com/docs/guides/prompt-engineering)
+- [Prompting Guide de Anthropic - Para Claude](https://docs.anthropic.com/claude/docs/prompt-engineering)
+
