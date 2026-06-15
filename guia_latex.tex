@@ -1,0 +1,811 @@
+\documentclass[11pt,a4paper]{article}
+
+% ============================================
+% PAQUETES PARA MAQUETACIÓN PROFESIONAL
+% ============================================
+
+% Codificación e idioma
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{csquotes}
+\usepackage{fontawesome5}
+% Márgenes y geometría
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm]{geometry}
+
+% Tipografía profesional
+\usepackage{mathptmx}      % Times New Roman para texto
+\usepackage{helvet}        % Helvética para títulos
+\usepackage{courier}       % Courier para código
+\usepackage[T1]{fontenc}
+
+% Colores elegantes
+\usepackage{xcolor}
+\definecolor{azulprofundo}{RGB}{0, 56, 147}
+\definecolor{azulclaro}{RGB}{41, 128, 185}
+\definecolor{grisclaro}{RGB}{236, 240, 241}
+\definecolor{gristexto}{RGB}{52, 73, 94}
+\definecolor{codigo}{RGB}{44, 62, 80}
+
+% Gráficos y figuras
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+
+% Tablas profesionales
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{longtable}
+
+% Código y formato
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+
+% Encabezados y pies de página
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+% Ecuaciones matemáticas
+\usepackage{amsmath, amssymb, amsthm}
+
+% Enlaces y referencias (sin bordes rojos)
+\usepackage[colorlinks=true, linkcolor=azulprofundo, urlcolor=azulprofundo, citecolor=azulprofundo]{hyperref}
+
+% Índice mejorado
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% Notas al pie modernas
+\usepackage[bottom]{footmisc}
+
+% Para evitar líneas huérfanas
+\usepackage[all]{nowidow}
+
+% Letras capitales
+\usepackage{lettrine}
+
+% ============================================
+% CONFIGURACIÓN DE LISTINGS (código)
+% ============================================
+
+\lstset{
+	language=[LaTeX]TeX,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{azulprofundo}\bfseries,
+	commentstyle=\color{gray}\itshape,
+	stringstyle=\color{azulclaro},
+	backgroundcolor=\color{grisclaro},
+	frame=single,
+	framerule=0pt,
+	framesep=5pt,
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=2,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	numbersep=5pt,
+	captionpos=b,
+	xleftmargin=10pt,
+	xrightmargin=5pt,
+	literate={°}{\textdegree}{1} 
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{ñ}{{\~n}}1 {Ñ}{{\~N}}1 {ü}{{\"u}}1 {Ü}{{\"U}}1
+}
+
+% ============================================
+% CONFIGURACIÓN DE ENCABEZADOS
+% ============================================
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{azulprofundo}{\footnotesize GitHub Copilot + LaTeX}}
+\fancyhead[R]{\textcolor{azulprofundo}{\footnotesize \leftmark}}
+\fancyfoot[C]{\textcolor{gray}{\thepage\ / \pageref{LastPage}}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{azulprofundo}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0pt}
+
+% ============================================
+% COMANDOS PERSONALIZADOS
+% ============================================
+
+\newcommand{\titulo}[1]{\textcolor{azulprofundo}{\textbf{\huge #1}}}
+\newcommand{\subtitulo}[1]{\textcolor{azulclaro}{\large \textit{#1}}}
+\newcommand{\nota}[1]{\textcolor{azulclaro}{\textbf{\faPencil* #1}}}
+\newcommand{\advertencia}[1]{\textcolor{red}{\textbf{\faExclamationTriangle #1}}}
+\newcommand{\tip}[1]{\textcolor{azulprofundo}{\textbf{\faLightbulb[regular] #1}}}
+\newcommand{\codigo}[1]{\texttt{\textcolor{codigo}{#1}}}
+\newcommand{\comando}[1]{\textcolor{azulprofundo}{\texttt{#1}}}
+
+% ============================================
+% INICIO DEL DOCUMENTO
+% ============================================
+
+\begin{document}
+	
+	% ============================================
+	% PORTADA
+	% ============================================
+	
+	\begin{titlepage}
+		\centering
+		\vspace*{1cm}
+		
+		\includegraphics[width=0.4\textwidth]{logo_untels.png}
+		\vspace{1cm}
+		
+		{\Huge \textbf{GitHub Copilot}}\\
+		{\LARGE \textcolor{azulclaro}{Potenciado por IA}}\\
+		\vspace{0.5cm}
+		{\Large para \textbf{LaTeX} en VS Code}
+		
+		\vspace{2cm}
+		
+		\rule{0.7\textwidth}{1pt}\\
+		\vspace{0.3cm}
+		{\titulo{Guía para Estudiantes}}
+		\vspace{0.3cm}
+		\rule{0.7\textwidth}{1pt}
+		
+		\vspace{1.5cm}
+		
+	
+		
+		\vspace{1.5cm}
+		
+		\begin{minipage}{0.7\textwidth}
+			\centering
+			\textbf{Autor:}\\
+			Luis Roca Galindo
+		\end{minipage}
+		
+		\vfill
+		
+		{\large \today}
+		
+		\vspace*{1cm}
+	\end{titlepage}
+	
+	% ============================================
+	% TABLA DE CONTENIDO
+	% ============================================
+	
+	\tableofcontents
+	\newpage
+	
+	% ============================================
+	% INTRODUCCIÓN
+	% ============================================
+	
+	\section{Introducción}
+	
+	\lettrine{E}{l} presente documento es una guía práctica para estudiantes de Ingeniería Electrónica que desean aprovechar el poder de \textbf{GitHub Copilot} para crear documentos \textbf{LaTeX} de alta calidad utilizando \textbf{Visual Studio Code}.
+	
+	GitHub Copilot es un asistente de programación impulsado por Inteligencia Artificial que \textbf{autocompleta código en tiempo real}. Funciona como un "programador en pareja" que sugiere líneas completas, fragmentos de código e incluso párrafos enteros basándose en el contexto de tu documento.
+	
+	\subsection*{¿Qué aprenderás en esta guía?}
+	\begin{itemize}
+		\item Instalar y configurar VS Code con LaTeX
+		\item Activar y configurar GitHub Copilot
+		\item Usar Copilot para generar ecuaciones, tablas y diagramas
+		\item Mejores prácticas y trucos avanzados
+		\item Solución de problemas comunes
+	\end{itemize}
+	
+	\begin{center}
+		\fcolorbox{azulprofundo}{grisclaro}{
+			\begin{minipage}{0.85\textwidth}
+				\centering
+				\vspace{0.3cm}
+				\textcolor{azulprofundo}{\textbf{\faBolt Beneficio clave}}
+				\vspace{0.1cm}
+				
+				\textbf{GRATIS para estudiantes} a través del GitHub Student Pack
+				
+				\vspace{0.3cm}
+			\end{minipage}
+		}
+	\end{center}
+	
+	\newpage
+	
+	% ============================================
+	% CAPÍTULO 1: INSTALACIÓN
+	% ============================================
+	
+	\section{Instalación y Configuración}
+	
+	\subsection{Requisitos previos}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lll@{}}
+			\toprule
+			\textbf{Componente} & \textbf{Descripción} & \textbf{Enlace} \\
+			\midrule
+			Windows 11 & Sistema operativo & - \\
+			Visual Studio Code & Editor de código & \href{https://code.visualstudio.com}{code.visualstudio.com} \\
+			MiKTeX & Distribución de LaTeX & \href{https://miktex.org}{miktex.org} \\
+			GitHub Copilot & Extensión + suscripción & \href{https://github.com/features/copilot}{github.com/features/copilot} \\
+			Git & Control de versiones & \href{https://git-scm.com}{git-scm.com} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Requisitos necesarios}
+		\label{tab:requisitos}
+	\end{table}
+	
+	\subsection{Paso 1: Instalar Visual Studio Code}
+	
+	\begin{enumerate}
+		\item Descargar VS Code desde \href{https://code.visualstudio.com}{code.visualstudio.com}
+		\item Ejecutar el instalador \codigo{VSCodeUserSetup-x64-xxx.exe}
+		\item \textbf{Importante:} Marcar las siguientes opciones durante la instalación:
+		\begin{itemize}
+			\item \checkmark Add "Open with Code" action to Windows Explorer file context menu
+			\item \checkmark Add "Open with Code" action to Windows Explorer directory context menu
+			\item \checkmark Register Code as an editor for supported file types
+			\item \checkmark Add to PATH (requiere reiniciar)
+		\end{itemize}
+	\end{enumerate}
+	
+	\subsection{Paso 2: Instalar MiKTeX (LaTeX)}
+	
+	\begin{enumerate}
+		\item Descargar MiKTeX desde \href{https://miktex.org}{miktex.org}
+		\item Ejecutar el instalador \codigo{basic-miktex-xxx.exe}
+		\item Elegir \textbf{"Install for all users"}
+		\item En "Install missing packages on the fly" seleccionar \textbf{"Yes"}
+		\item Completar la instalación y cerrar
+	\end{enumerate}
+	
+	\subsection{Paso 3: Instalar extensiones de VS Code}
+	
+	Abrir VS Code y presionar \comando{Ctrl+Shift+X} para abrir el mercado de extensiones. Instalar las siguientes:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lll@{}}
+			\toprule
+			\textbf{Extensión} & \textbf{ID/Publicador} & \textbf{Función} \\
+			\midrule
+			LaTeX Workshop & James-Yu.latex-workshop & Compilación y previsualización \\
+			GitHub Copilot & GitHub.copilot & Autocompletado con IA \\
+			GitHub Copilot Chat & GitHub.copilot-chat & Chat interactivo con IA \\
+			GitLens & eamodio.gitlens & Gestión avanzada de Git \\
+			\bottomrule
+		\end{tabular}
+		\caption{Extensiones necesarias}
+		\label{tab:extensiones}
+	\end{table}
+	
+	\subsubsection*{Instalación paso a paso:}
+	\begin{enumerate}
+		\item En la barra de búsqueda, escribir "LaTeX Workshop"
+		\item Click en "Install"
+		\item Repetir para "GitHub Copilot"
+		\item Repetir para "GitLens"
+	\end{enumerate}
+	
+	\subsection{Paso 4: Configurar GitHub Copilot}
+	
+	\subsubsection*{Para estudiantes (GRATIS):}
+	\begin{enumerate}
+		\item Ir a \href{https://education.github.com}{education.github.com}
+		\item Verificar estado de estudiante con correo institucional (\codigo{@untels.edu.pe})
+		\item Solicitar \textbf{GitHub Copilot Student Pack}
+	\end{enumerate}
+	
+	\subsubsection*{Para docentes:}
+	\begin{enumerate}
+		\item Ir a GitHub → Settings → Copilot
+		\item Seleccionar plan: \$10 USD/mes o \$100 USD/año
+	\end{enumerate}
+	
+	\subsubsection*{Activar Copilot en VS Code:}
+	\begin{enumerate}
+		\item Abrir VS Code
+		\item Presionar \comando{Ctrl+Shift+P}
+		\item Escribir: \codigo{GitHub Copilot: Sign in}
+		\item Seguir instrucciones en el navegador
+		\item Verificar que el ícono de Copilot aparece en la barra inferior (\faCheck)
+	\end{enumerate}
+	
+	\begin{nota}
+Si el ícono aparece con una línea diagonal, significa que está deshabilitado. Click en él y selecciona \textbf{Enable Completions}.
+	\end{nota}
+	
+	\newpage
+	
+	% ============================================
+	% CAPÍTULO 2: CONFIGURACIÓN AVANZADA
+	% ============================================
+	
+	\section{Configuración Óptima}
+	
+	\subsection{Configuración de LaTeX Workshop}
+	
+	Abrir la paleta de comandos (\comando{Ctrl+Shift+P}) y seleccionar \codigo{Preferences: Open Settings (JSON)}. Agregar la siguiente configuración:
+	
+	\begin{lstlisting}[caption=Configuración de settings.json]
+		{
+			// Configuración de LaTeX Workshop
+			"latex-workshop.latex.autoBuild.run": "onSave",
+			"latex-workshop.latex.outDir": "build",
+			"latex-workshop.latex.clean.enabled": true,
+			
+			// Herramientas de compilación
+			"latex-workshop.latex.tools": [
+			{
+				"name": "latexmk",
+				"command": "latexmk",
+				"args": [
+				"-synctex=1",
+				"-interaction=nonstopmode",
+				"-file-line-error",
+				"-pdf",
+				"-outdir=build",
+				"%DOC%"
+				]
+			}
+			],
+			
+			// Recetas de compilación
+			"latex-workshop.latex.recipes": [
+			{
+				"name": "latexmk",
+				"tools": ["latexmk"]
+			}
+			],
+			
+			// Habilitar Copilot para todos los lenguajes
+			"github.copilot.enable": {
+				"*": true,
+				"plaintext": false
+			},
+			
+			// Deshabilitar autocompletado nativo en LaTeX
+			"[latex]": {
+				"editor.quickSuggestions": {
+					"comments": "off",
+					"strings": "off",
+					"other": "off"
+				},
+				"editor.suggestOnTriggerCharacters": false,
+				"editor.tabCompletion": "off",
+				"editor.formatOnSave": true
+			},
+			
+			"editor.inlineSuggest.enabled": true
+		}
+	\end{lstlisting}
+	
+	\subsection{Crear archivo .gitignore}
+	
+	Crear un archivo \codigo{.gitignore} en la raíz del proyecto:
+	
+	\begin{lstlisting}[caption=.gitignore]
+		# Archivos temporales de LaTeX
+		*.aux
+		*.log
+		*.out
+		*.toc
+		*.synctex.gz
+		*.fls
+		*.fdb_latexmk
+		
+		# Directorio de compilación
+		/build/
+		/out/
+		
+		# Archivos de sistema
+		.DS_Store
+		Thumbs.db
+		desktop.ini
+	\end{lstlisting}
+	
+\tip{El archivo \codigo{.gitignore} evita que subas archivos temporales innecesarios a GitHub.}
+	
+	\newpage
+	
+	% ============================================
+	% CAPÍTULO 3: CÓMO USAR COPILOT
+	% ============================================
+	
+	\section{Uso Práctico de GitHub Copilot}
+	
+	\subsection{¿Cómo funciona?}
+	
+	Copilot analiza el contexto de tu documento (comentarios, código previo, estructura del proyecto) y sugiere el siguiente fragmento de código. Para aceptar una sugerencia, simplemente presiona \comando{Tab}.
+	
+	\begin{figure}[H]
+		\centering
+		\fcolorbox{azulprofundo}{grisclaro}{
+			\begin{minipage}{0.85\textwidth}
+				\centering
+				\vspace{0.5cm}
+				\textcolor{azulprofundo}{\textbf{Ejemplo visual}}
+				\vspace{0.2cm}
+				
+				\codigo{\% Crear una ecuación de la Ley de Ohm} \\
+				\vspace{0.2cm}
+				\textcolor{gray}{[Copilot sugiere:]}
+				
+				\textbf{\textcolor{azulprofundo}{\textbackslash begin\{equation\}}} \\
+				\textbf{\textcolor{azulprofundo}{\quad V = I \textbackslash cdot R}} \\
+				\textbf{\textcolor{azulprofundo}{\textbackslash end\{equation\}}}
+				\vspace{0.5cm}
+			\end{minipage}
+		}
+		\caption{Ejemplo de autocompletado con Copilot}
+		\label{fig:ejemplo}
+	\end{figure}
+	
+	\subsection{Generación de Estructura de Documento}
+	
+	\textbf{Escribe el siguiente comentario:}
+	
+	\begin{lstlisting}
+		% Crear la estructura de un informe de laboratorio de electrónica con:
+		% - Portada con título, autor, fecha
+		% - Índice automático
+		% - Secciones: Introduccion, Marco Teorico, Metodologia, Resultados, Conclusiones
+	\end{lstlisting}
+	
+	\noindent \textbf{Copilot generará automáticamente} el código LaTeX completo con toda la estructura.
+	
+	\subsection{Generación de Ecuaciones Matemáticas}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}p{0.45\textwidth}p{0.45\textwidth}@{}}
+			\toprule
+			\textbf{Escribes} & \textbf{Copilot genera} \\
+			\midrule
+			\codigo{\% Ecuación de la Ley de Ohm:} & 
+			\codigo{\textbackslash begin\{equation\} V = I \textbackslash cdot R \textbackslash end\{equation\}} \\
+			\midrule
+			\codigo{\% Función de transferencia de un filtro pasa bajos:} & 
+			\codigo{\textbackslash begin\{equation\} H(s) = \textbackslash frac\{\textbackslash omega\_0\^2\}\{s\^2 + \textbackslash frac\{\textbackslash omega\_0\}\{Q\}s + \textbackslash omega\_0\^2\} \textbackslash end\{equation\}} \\
+			\midrule
+			\codigo{\% Matriz de admitancias para circuito de 2 nodos:} & 
+			\codigo{\textbackslash begin\{bmatrix\} Y\_1+Y\_2 \& -Y\_2 \textbackslash\textbackslash -Y\_2 \& Y\_2+Y\_3 \textbackslash end\{bmatrix\}} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Generación de ecuaciones con Copilot}
+		\label{tab:ecuaciones}
+	\end{table}
+	
+	\subsection{Generación de Tablas}
+	
+	\textbf{Escribe:}
+	\begin{lstlisting}
+		% Crear una tabla con los resultados de medicion de un experimento de ley de Ohm:
+		% Columnas: Voltaje (V), Corriente (mA), Resistencia Calculada (Ohm)
+		% Datos: 1V,9.8mA,102Ohm; 3V,29.5mA,101.7Ohm; 5V,49.2mA,101.6Ohm; 7V,68.9mA,101.6Ohm; 9V,88.6mA,101.6Ohm
+	\end{lstlisting}
+	
+	\noindent \textbf{Resultado sugerido:}
+	
+	\begin{lstlisting}
+		\begin{table}[H]
+			\centering
+			\caption{Resultados de la ley de Ohm}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				\textbf{Voltaje (V)} & \textbf{Corriente (mA)} & \textbf{Resistencia Calculada (Ohm)} \\
+				\hline
+				1.0 & 9.8 & 102.0 \\
+				3.0 & 29.5 & 101.7 \\
+				5.0 & 49.2 & 101.6 \\
+				7.0 & 68.9 & 101.6 \\
+				9.0 & 88.6 & 101.6 \\
+				\hline
+			\end{tabular}
+			\label{tab:ohm}
+		\end{table}
+	\end{lstlisting}
+	
+	\subsection{Uso del Chat de Copilot}
+	
+	Abrir el chat con \comando{Ctrl+Shift+I} o click en el ícono de Copilot en la barra lateral.
+	
+	\subsubsection*{Ejemplos de preguntas útiles:}
+	
+	\begin{itemize}
+		\item \codigo{¿Cómo escribo una ecuación de matriz de admitancias en LaTeX para un circuito de 3 nodos?}
+		\item \codigo{Corrige este código LaTeX que no compila: [pegar código]}
+		\item \codigo{Genera el código LaTeX para una tabla de verdad de una compuerta AND de 3 entradas}
+		\item \codigo{¿Cómo inserto una figura con caption y label en LaTeX?}
+	\end{itemize}
+	
+\begin{advertencia}
+	El chat web de Copilot (en el navegador) tiene problemas para renderizar ecuaciones LaTeX. \textbf{Siempre usa el chat dentro de VS Code} para trabajar con ecuaciones matemáticas.
+\end{advertencia}
+	
+	\newpage
+	
+	% ============================================
+	% CAPÍTULO 4: EJEMPLOS PRÁCTICOS
+	% ============================================
+	
+	\section{Ejemplos Prácticos para Electrónica}
+	
+	\subsection{Ejemplo 1: Informe de Laboratorio Completo}
+	
+	\textbf{Prompt sugerido para Copilot:}
+	
+	\begin{lstlisting}
+		Crear un informe de laboratorio sobre la Ley de Ohm que incluya:
+		 - Portada con titulo "Laboratorio N° 1: Ley de Ohm"
+		 - Autor: [tu nombre]
+		 - Fecha actual
+		 - Seccion de Introduccion (2 parrafos)
+		 - Seccion de Marco Teorico con la ecuacion V = I * R
+		 - Tabla con 5 mediciones de voltaje y corriente
+		 - Grafico de V vs I referenciado
+		 - Conclusiones
+	\end{lstlisting}
+	
+	\subsection{Ejemplo 2: Circuito con TikZ}
+	
+	\textbf{Prompt sugerido:}
+	
+	\begin{lstlisting}
+		% Dibujar un circuito amplificador operacional inversor usando TikZ
+		% con R1=10kOhm, R2=100kOhm, fuente de entrada Vin y salida Vout
+	\end{lstlisting}
+	
+	\subsection{Ejemplo 3: Sistema de Ecuaciones}
+	
+	\textbf{Prompt sugerido:}
+	
+	\begin{lstlisting}
+		% Escribir el sistema de ecuaciones de nodos para un circuito
+		% con 3 resistencias en configuracion delta a estrella
+	\end{lstlisting}
+	
+	\subsection{Ejemplo 4: Referencias Bibliográficas}
+	
+	\textbf{Prompt sugerido:}
+	
+	\begin{lstlisting}
+		% Crear una referencia bibliografica del libro de Boylestad
+		% "Electronica: Teoria de circuitos", edicion 2022, editorial Pearson
+	\end{lstlisting}
+	
+	\newpage
+	
+	% ============================================
+	% CAPÍTULO 5: MEJORES PRÁCTICAS
+	% ============================================
+	
+	\section{Mejores Prácticas y Trucos}
+	
+	\subsection{Prompts Efectivos}
+	
+	\begin{longtable}{|p{0.3\textwidth}|p{0.6\textwidth}|}
+		\hline
+		\textbf{Tipo de contenido} & \textbf{Prompt sugerido} \\
+		\hline
+		Sección & \codigo{\% Crear una sección sobre análisis de circuitos RLC con ecuación característica} \\
+		\hline
+		Lista & \codigo{\% Crear una lista numerada de los pasos para medir resistencia con un multímetro} \\
+		\hline
+		Figura & \codigo{\% Insertar figura con caption y label, usando la imagen 'circuito.png'} \\
+		\hline
+		Referencia & \codigo{\% Agregar referencia bibliográfica del libro de Boylestad, edición 2022} \\
+		\hline
+		Ecuación & \codigo{\% Escribir la ecuación de la frecuencia de corte de un filtro RC: fc = 1/(2$\pi$RC)} \\
+		\hline
+		Tabla & \codigo{\% Crear tabla de valores de capacitor vs tiempo de carga para $\tau$ = 1ms} \\
+		\hline
+		\caption{Prompts efectivos para cada tipo de contenido}
+		\label{tab:prompts}
+	\end{longtable}
+	
+	\subsection{Ata jos de Teclado Útiles}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}ll@{}}
+			\toprule
+			\textbf{Comando} & \textbf{Función} \\
+			\midrule
+			\comando{Tab} & Aceptar sugerencia de Copilot \\
+			\comando{Esc} & Rechazar sugerencia \\
+			\comando{Ctrl+Shift+I} & Abrir chat de Copilot \\
+			\comando{Ctrl+Alt+B} & Compilar documento LaTeX \\
+			\comando{Ctrl+S} & Guardar y compilar automáticamente \\
+			\comando{Ctrl+Shift+P} & Abrir paleta de comandos \\
+			\bottomrule
+		\end{tabular}
+		\caption{Ata jos de teclado esenciales}
+		\label{tab:atajos}
+	\end{table}
+	
+	\subsection{Flujo de Trabajo Recomendado}
+	
+	\begin{enumerate}
+		\item \textbf{Abrir VS Code} en la carpeta del proyecto
+		\item \textbf{Escribir comentarios} describiendo lo que deseas crear
+		\item \textbf{Aceptar sugerencias} de Copilot presionando \comando{Tab}
+		\item \textbf{Guardar} con \comando{Ctrl+S} (compila automáticamente)
+		\item \textbf{Ver PDF} en la pestaña lateral
+		\item \textbf{Usar chat} con \comando{Ctrl+Shift+I} para preguntas específicas
+	\end{enumerate}
+	
+\tip{Los comentarios en español funcionan muy bien con Copilot. No es necesario escribir en inglés.}
+	
+	\newpage
+	
+	% ============================================
+	% CAPÍTULO 6: SOLUCIÓN DE PROBLEMAS
+	% ============================================
+	
+	\section{Solución de Problemas Comunes}
+	
+	\begin{longtable}{|p{0.35\textwidth}|p{0.6\textwidth}|}
+		\hline
+		\textbf{Problema} & \textbf{Solución} \\
+		\hline
+		Copilot no sugiere nada & Verificar que la extensión está habilitada (ícono en barra inferior debe mostrar \faCheck) \\
+		\hline
+		Error de compilación LaTeX & Verificar que MiKTeX está instalado y en PATH. Abrir terminal y ejecutar \codigo{pdflatex --version} \\
+		\hline
+		PDF no se actualiza & Cerrar y reabrir el PDF en VS Code, o limpiar archivos temporales con \comando{Ctrl+Shift+P} → \codigo{LaTeX Workshop: Clean up} \\
+		\hline
+		Copilot no se autentica & \comando{Ctrl+Shift+P} → \codigo{GitHub Copilot: Sign in} \\
+		\hline
+		Conflictos con autocompletado & Asegurar que la sección \codigo{[latex]} está configurada en \codigo{settings.json} \\
+		\hline
+		Error de espacio en decimales & Revisar código TikZ generado. Reemplazar \codigo{(3. 5cm)} por \codigo{(3.5cm)} \\
+		\hline
+		La compilación es muy lenta & Instalar \codigo{latexmk} adicional. En MiKTeX Console → Packages → buscar "latexmk" → Install \\
+		\hline
+		No se ven las imágenes & Verificar que la ruta de las imágenes es correcta. Usar rutas relativas: \codigo{\textbackslash includegraphics\{figuras/imagen.png\}} \\
+		\hline
+		\caption{Solución de problemas comunes}
+		\label{tab:problemas}
+	\end{longtable}
+	
+	\subsection{Verificación Rápida}
+	
+	Ejecuta este código simple para verificar que todo funciona:
+	
+	\begin{lstlisting}[caption=Prueba de compilación]
+		\documentclass{article}
+		\begin{document}
+			\section{Prueba}
+			\LaTeX\ funciona correctamente.
+			
+			\begin{equation}
+				V = I \cdot R
+			\end{equation}
+		\end{document}
+	\end{lstlisting}
+	
+	\noindent Si ves un PDF correctamente generado, todo está funcionando.
+	
+	\newpage
+	
+	% ============================================
+	% CAPÍTULO 7: REFERENCIAS Y RECURSOS
+	% ============================================
+	
+	\section{Referencias y Recursos Adicionales}
+	
+	\subsection{Documentación Oficial}
+	
+	\begin{itemize}
+		\item \href{https://docs.github.com/en/copilot}{Documentación oficial de GitHub Copilot}
+		\item \href{https://code.visualstudio.com/docs}{Documentación de Visual Studio Code}
+		\item \href{https://www.latex-project.org/help/}{Documentación oficial de LaTeX}
+		\item \href{https://mirror.utexas.edu/ctan/info/lshort/spanish/lshort-esp.pdf}{LaTeX en español - Guía rápida}
+	\end{itemize}
+	
+	\subsection{Recursos para Electrónica en LaTeX}
+	
+	\begin{itemize}
+		\item \href{https://www.ctan.org/tikz}{TikZ - Diagramas y circuitos}
+		\item \href{https://github.com/martin-ueding/tikz-circuits}{TikZ Circuits - Librería de circuitos}
+		\item \href{https://www.overleaf.com/learn/latex/LaTeX_in_Engineering}{LaTeX para Ingeniería}
+	\end{itemize}
+	
+	\subsection{Comandos Útiles de Git}
+	
+	\begin{lstlisting}[language=bash, caption=Comandos Git básicos]
+		# Clonar el repositorio del curso
+		git clone https://github.com/lrocag-dev/UNTELS_LATEX_IA.git
+		
+		# Entrar a la carpeta
+		cd UNTELS_LATEX_IA
+		
+		# Crear tu carpeta personal
+		mkdir estudiantes/tu_nombre_apellido
+		
+		# Subir tus ejercicios
+		git add estudiantes/tu_nombre_apellido/
+		git commit -m "Ejercicios - Tu Nombre"
+		git push origin main
+	\end{lstlisting}
+	
+	\newpage
+	
+	% ============================================
+	% CONCLUSIÓN
+	% ============================================
+	
+	\section{Conclusión}
+	
+	GitHub Copilot transforma la experiencia de escritura en LaTeX, convirtiendo tareas tediosas en procesos rápidos e intuitivos. Con esta guía, los estudiantes de Ingeniería Electrónica podrán:
+	
+	\begin{itemize}
+		\item Crear documentos académicos profesionales con mínimo esfuerzo
+		\item Generar ecuaciones complejas automáticamente
+		\item Diseñar tablas y diagramas de circuitos con simples descripciones
+		\item Enfocarse en el contenido técnico en lugar de la sintaxis
+	\end{itemize}
+	
+	\begin{center}
+		\fcolorbox{azulprofundo}{grisclaro}{
+			\begin{minipage}{0.8\textwidth}
+				\centering
+				\vspace{0.3cm}
+				\textcolor{azulprofundo}{\textbf{\faLightbulb[regular] Recuerda}}
+				\vspace{0.1cm}
+				
+				\textbf{GitHub Copilot es GRATIS para estudiantes} \\
+				a través del GitHub Student Pack.
+				
+				\vspace{0.3cm}
+				\href{https://education.github.com}{education.github.com}
+				\vspace{0.3cm}
+			\end{minipage}
+		}
+	\end{center}
+	
+	\vspace{1cm}
+	
+	\begin{flushright}
+		\textit{Prof. lrocag-dev} \\
+		\textit{Universidad Nacional Tecnológica de Lima Sur}
+	\end{flushright}
+	
+	\newpage
+	
+	% ============================================
+	% APÉNDICE: CHEATSHEET RÁPIDO
+	% ============================================
+	
+	\appendix
+	\section{Cheatsheet Rápido}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}ll@{}}
+			\toprule
+			\textbf{Para obtener...} & \textbf{Escribe...} \\
+			\midrule
+			Ecuación simple & \codigo{\% Ecuacion de la Ley de Ohm:} \\
+			Ecuación compleja & \codigo{\% Funcion de transferencia de filtro pasa bajos:} \\
+			Matriz & \codigo{\% Matriz de admitancias para circuito de 2 nodos:} \\
+			Tabla & \codigo{\% Tabla de resultados de experimento:} \\
+			Figura & \codigo{\% Insertar figura "circuito.png" con caption:} \\
+			Lista & \codigo{\% Lista de materiales necesarios:} \\
+			Sección & \codigo{\% Seccion sobre analisis de circuitos RLC:} \\
+			Referencia & \codigo{\% Referencia bibliografica del libro de Boylestad:} \\
+			Circuito TikZ & \codigo{\% Circuito amplificador operacional inversor con TikZ:} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Cheatsheet rápido para prompts}
+		\label{tab:cheatsheet}
+	\end{table}
+	
+	\begin{center}
+		\textbf{\faBullseye Para ayuda inmediata:} \comando{Ctrl+Shift+I} y escribe tu pregunta en español.
+	\end{center}
+	
+\end{document}
