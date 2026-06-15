@@ -1,0 +1,1342 @@
+\documentclass[11pt,letterpaper]{article}
+
+% ============================================
+% PAQUETES PARA MAQUETACIÓN PROFESIONAL
+% ============================================
+
+% Codificación e idioma
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{csquotes}
+\usepackage{fontawesome5}
+% Márgenes y geometría
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm]{geometry}
+
+% Tipografía profesional
+\usepackage{mathptmx}      % Times New Roman para texto
+\usepackage{helvet}        % Helvética para títulos
+\usepackage{courier}       % Courier para código
+\usepackage[T1]{fontenc}
+
+% Colores elegantes
+\usepackage{xcolor}
+\definecolor{azulprofundo}{RGB}{0, 56, 147}
+\definecolor{azulclaro}{RGB}{41, 128, 185}
+\definecolor{verdeexito}{RGB}{39, 174, 96}
+\definecolor{naranja}{RGB}{230, 126, 34}
+\definecolor{grisclaro}{RGB}{236, 240, 241}
+\definecolor{gristexto}{RGB}{52, 73, 94}
+\definecolor{codigofondo}{RGB}{245, 245, 245}
+\definecolor{codegreen}{RGB}{34, 139, 34}
+\definecolor{codegray}{RGB}{128, 128, 128}
+
+% Gráficos y figuras
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+
+% Tablas profesionales
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{longtable}
+
+% Código y formato
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+
+% Encabezados y pies de página
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+% Ecuaciones matemáticas
+\usepackage{amsmath, amssymb, amsthm}
+
+% Enlaces y referencias
+\usepackage[colorlinks=true, linkcolor=azulprofundo, urlcolor=azulprofundo, citecolor=azulprofundo]{hyperref}
+
+% Índice mejorado
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% Notas al pie modernas
+\usepackage[bottom]{footmisc}
+
+% Para evitar líneas huérfanas
+\usepackage[all]{nowidow}
+
+% Letras capitales
+\usepackage{lettrine}
+
+% Para recuadros y cajas
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% ============================================
+% CONFIGURACIÓN DE LISTINGS (código)
+% ============================================
+
+\lstset{
+	language=[LaTeX]TeX,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{azulprofundo}\bfseries,
+	commentstyle=\color{codegray}\itshape,
+	stringstyle=\color{verdeexito},
+	backgroundcolor=\color{codigofondo},
+	frame=single,
+	framerule=0pt,
+	framesep=5pt,
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=2,
+	numbers=left,
+	numberstyle=\tiny\color{codegray},
+	numbersep=5pt,
+	captionpos=b,
+	xleftmargin=10pt,
+	xrightmargin=5pt,
+		literate={°}{\textdegree}{1} 
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{ñ}{{\~n}}1 {Ñ}{{\~N}}1 {ü}{{\"u}}1 {Ü}{{\"U}}1
+}
+
+% ============================================
+% CONFIGURACIÓN DE ENCABEZADOS
+% ============================================
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{azulprofundo}{\footnotesize UNTELS - Ingeniería Electrónica}}
+\fancyhead[R]{\textcolor{azulprofundo}{\footnotesize \leftmark}}
+\fancyfoot[C]{\textcolor{codegray}{\thepage\ / \pageref{LastPage}}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{azulprofundo}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0pt}
+
+% ============================================
+% COMANDOS PERSONALIZADOS
+% ============================================
+
+\newcommand{\titulo}[1]{\textcolor{azulprofundo}{\textbf{\huge #1}}}
+\newcommand{\subtitulo}[1]{\textcolor{azulclaro}{\large \textit{#1}}}
+\newcommand{\nota}[1]{\textcolor{azulclaro}{\textbf{\faThumbtack #1}}}
+\newcommand{\advertencia}[1]{\textcolor{naranja}{\textbf{\faExclamationTriangle #1}}}
+\newcommand{\tip}[1]{\textcolor{verdeexito}{\textbf{\faLightbulb[regular] #1}}}
+\newcommand{\importante}[1]{\textcolor{azulprofundo}{\textbf{\faKey #1}}}
+\newcommand{\ejercicio}[1]{\textcolor{naranja}{\textbf{\faPen Ejercicio #1}}}
+\newcommand{\codigo}[1]{\texttt{\textcolor{codegray}{#1}}}
+\newcommand{\comando}[1]{\textcolor{azulprofundo}{\texttt{#1}}}
+\newcommand{\paquete}[1]{\textcolor{verdeexito}{\texttt{#1}}}
+\newcommand{\urlcolorido}[1]{\textcolor{azulclaro}{\underline{#1}}}
+\newcommand{\comentario}[1]{}
+% ============================================
+% CAJAS PERSONALIZADAS
+% ============================================
+
+\newtcolorbox{cajateoria}{
+	colback=grisclaro,
+	colframe=azulprofundo,
+	coltitle=white,
+	title=\faBookOpen Teoría Fundamental,
+	fonttitle=\bfseries,
+	rounded corners,
+	arc=5pt,
+	breakable
+}
+
+\newtcolorbox{cajaejemplo}{
+	colback=codigofondo,
+	colframe=verdeexito,
+	coltitle=white,
+	title=\faLaptop Ejemplo Práctico,
+	fonttitle=\bfseries,
+	rounded corners,
+	arc=5pt,
+	breakable
+}
+
+\newtcolorbox{cajanota}{
+	colback=azulclaro!10,
+	colframe=azulclaro,
+	coltitle=white,
+	title=\faThumbtack Nota Importante,
+	fonttitle=\bfseries,
+	rounded corners,
+	arc=5pt,
+	breakable
+}
+
+% ============================================
+% INICIO DEL DOCUMENTO
+% ============================================
+
+\begin{document}
+	
+	% ============================================
+	% PORTADA
+	% ============================================
+	
+%	\begin{titlepage}
+%		\centering
+%		\vspace*{1cm}
+%		
+%		% Logo simulado (opcional)
+%		\begin{center}
+%			\Large \textcolor{azulprofundo}{\textbf{UNTELS}}
+%		\end{center}
+%		\vspace{0.3cm}
+%		\textcolor{codegray}{\rule{0.4\textwidth}{0.5pt}}
+%		\vspace{0.3cm}
+%		
+%		{\large \textbf{Universidad Nacional Tecnológica de Lima Sur}}
+%		
+%		\vspace{1cm}
+%		
+%		{\large \textbf{Facultad de Ingeniería Electrónica}}
+%		
+%		\vspace{1.5cm}
+%		
+%		\rule{0.7\textwidth}{1pt}\\
+%		\vspace{0.3cm}
+%		{\titulo{Módulo 1}}
+%		\vspace{0.2cm}
+%		{\LARGE Fundamentos de \LaTeX}\\
+%		{\Large y Entornos de Trabajo}
+%		\vspace{0.3cm}
+%		\rule{0.7\textwidth}{1pt}
+%		
+%		\vspace{1.5cm}
+%		
+%		\begin{minipage}{0.8\textwidth}
+%			\centering
+%			\textbf{Curso Taller:} \\
+%			\textit{Introducción a LaTeX potenciada por Inteligencia Artificial}
+%		\end{minipage}
+%		
+%		\vspace{1.5cm}
+%		
+%		\begin{minipage}{0.7\textwidth}
+%			\centering
+%			\textbf{Profesor:}\\
+%			lrocag-dev
+%		\end{minipage}
+%		
+%		\vfill
+%		
+%		{\large \today}
+%		
+%		\vspace*{1cm}
+%	\end{titlepage}
+		\begin{titlepage}
+		\centering
+		\vspace*{1cm}
+		
+		\includegraphics[width=0.4\textwidth]{logo_untels.png}
+		\vspace{1cm}
+		
+		{\Huge \textbf{Curso Taller}}\\
+		\vspace{0.5cm}
+		{\Large Introducción a {\LaTeX} potenciada por Inteligencia Artificial}
+		\vspace{2cm}
+		
+		\rule{0.7\textwidth}{1pt}\\
+		\vspace{0.3cm}
+		{\titulo{Módulo 1}}\\
+		\vspace{0.2cm}
+		{\LARGE Fundamentos de \LaTeX}\\
+		{\Large y Entornos de Trabajo}	\\	
+		\vspace{0.3cm}
+		\rule{0.7\textwidth}{1pt}
+		
+		\vspace{1.5cm}
+			
+		\begin{minipage}{0.7\textwidth}
+			\centering
+			\textbf{Autor:}\\
+			Luis Roca Galindo
+		\end{minipage}
+		
+		\vfill
+		
+		{\large \today}
+		
+		\vspace*{1cm}
+	\end{titlepage}
+	% ============================================
+	% TABLA DE CONTENIDO
+	% ============================================
+	
+	\tableofcontents
+	\newpage
+	
+	% ============================================
+	% INTRODUCCIÓN DEL MÓDULO
+	% ============================================
+	
+	\section{Introducción al Módulo}
+	
+	\lettrine{E}{l} presente módulo constituye la base fundamental para el dominio de \LaTeX, el sistema de composición de textos más potente y profesional utilizado en el ámbito académico y científico.
+	
+	A lo largo de este módulo, los estudiantes de Ingeniería Electrónica aprenderán a:
+	\begin{itemize}
+		\item Instalar y configurar los entornos de trabajo más utilizados
+		\item Comprender la estructura básica de un documento \LaTeX
+		\item Utilizar comandos esenciales para formato de texto
+		\item Insertar ecuaciones matemáticas y símbolos especiales
+		\item Gestionar tablas, imágenes y referencias bibliográficas
+	\end{itemize}
+	
+	\subsection*{Objetivos del Módulo}
+	\begin{itemize}
+		\item Al finalizar este módulo, el estudiante será capaz de crear documentos académicos profesionales utilizando \LaTeX.
+	\end{itemize}
+	
+	\subsection*{Estructura del Módulo}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lll@{}}
+			\toprule
+			\textbf{Tema} & \textbf{Duración estimada} & \textbf{Ejercicios} \\
+			\midrule
+			1. Instalación y configuración & 45 min & 1 \\
+			2. Estructura básica & 30 min & 2 \\
+			3. Comandos esenciales & 60 min & 3 \\
+			4. Ecuaciones y símbolos & 45 min & 2 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Distribución del módulo}
+		\label{tab:distribucion}
+	\end{table}
+	
+	\newpage
+	
+	% ============================================
+	% TEMA 1: INSTALACIÓN Y CONFIGURACIÓN
+	% ============================================
+	
+	\section{Instalación y Configuración de Entornos \LaTeX}
+	
+	\subsection{¿Qué es \LaTeX?}
+	
+	\LaTeX \ (pronunciado "Látex" o "Látek") es un sistema de composición de textos de alta calidad, utilizado especialmente para documentos científicos y técnicos. A diferencia de los procesadores de texto tradicionales (como Microsoft Word), \LaTeX \ se basa en el principio de \textbf{separar el contenido del formato}.
+	
+	\begin{cajateoria}
+		\textbf{Ventajas de \LaTeX:}
+		\begin{itemize}
+			\item Ecuaciones matemáticas de calidad profesional
+			\item Referencias cruzadas automáticas (figuras, tablas, ecuaciones)
+			\item Gestión bibliográfica integrada
+			\item Control total sobre el formato
+			\item Estabilidad y compatibilidad multiplataforma
+			\item Gratuito y de código abierto
+		\end{itemize}
+	\end{cajateoria}
+	
+	\subsection{Distribuciones de \LaTeX}
+	
+	Antes de comenzar a escribir, necesitamos instalar una \textbf{distribución} de \LaTeX, que incluye el compilador y las librerías básicas.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lll@{}}
+			\toprule
+			\textbf{Distribución} & \textbf{Sistema operativo} & \textbf{Recomendación} \\
+			\midrule
+			MiKTeX & Windows & \faCheckSquare Recomendado \\
+			TeX Live & Windows, Mac, Linux & Opción completa \\
+			MacTeX & macOS & Para Mac \\
+			\bottomrule
+		\end{tabular}
+		\caption{Distribuciones de \LaTeX}
+		\label{tab:distribuciones}
+	\end{table}
+	
+	\subsubsection{Instalación de MiKTeX en Windows 11}
+	
+	\begin{enumerate}
+		\item Descargar MiKTeX desde \url{https://miktex.org}
+		\item Ejecutar el instalador \codigo{basic-miktex-xxx.exe}
+		\item Elegir \textbf{"Install for all users"} (requiere permisos de administrador)
+		\item En \textbf{"Install missing packages on the fly"} seleccionar \textbf{"Yes"}
+		\item Completar la instalación y cerrar
+	\end{enumerate}
+	
+	\begin{cajanota}
+		\textbf{Configuración importante:} Seleccionar "Yes" para la instalación automática de paquetes garantiza que nunca te falte una librería necesaria al compilar.
+	\end{cajanota}
+	
+	\subsection{Editores de \LaTeX}
+	
+	Aunque podemos escribir \LaTeX \ en cualquier editor de texto, los editores especializados ofrecen ventajas como resaltado de sintaxis, autocompletado y compilación integrada.
+	
+	\subsubsection{Opción 1: TeXstudio (Recomendado para local)}
+	
+	\textbf{Ventajas:}
+	\begin{itemize}
+		\item Gratuito y de código abierto
+		\item Resaltado de sintaxis avanzado
+		item Visor de PDF integrado
+		\item Asistente para ecuaciones y tablas
+		\item Corrección ortográfica incluida
+	\end{itemize}
+	
+	\textbf{Instalación:}
+	\begin{enumerate}
+		\item Descargar desde \url{https://texstudio.org}
+		\item Ejecutar el instalador
+		\item Aceptar configuración por defecto
+	\end{enumerate}
+	
+	\subsubsection{Opción 2: Overleaf (Online)}
+	
+	\textbf{Ventajas:}
+	\begin{itemize}
+		\item No requiere instalación (funciona en navegador)
+		\item Colaboración en tiempo real
+		\item Control de versiones integrado
+		\item Plantillas académicas predefinidas
+		\item Ideal para trabajar en equipo
+	\end{itemize}
+	
+	\textbf{Acceso:}
+	\begin{enumerate}
+		\item Ir a \url{https://overleaf.com}
+		\item Registrarse con correo institucional
+		\item Crear nuevo proyecto
+	\end{enumerate}
+	
+	\begin{cajaejemplo}
+		\textbf{Primer documento en Overleaf:}
+		\begin{enumerate}
+			\item Iniciar sesión en Overleaf
+			\item Click en "New Project" → "Blank Project"
+			\item Eliminar el contenido predeterminado
+			\item Escribir tu primer documento (ver sección siguiente)
+			\item Click en "Recompile" (Ctrl+Enter)
+		\end{enumerate}
+	\end{cajaejemplo}
+	
+	\newpage
+	
+	% ============================================
+	% TEMA 2: ESTRUCTURA BÁSICA DE UN DOCUMENTO
+	% ============================================
+	
+	\section{Estructura Básica de un Documento \LaTeX}
+	
+	\subsection{Preámbulo del Documento}
+	
+	Todo documento \LaTeX \ comienza con un \textbf{preámbulo}, donde se definen las características generales del documento.
+	
+	\begin{lstlisting}[caption=Estructura del preámbulo]
+		\documentclass[12pt,letterpaper]{article}
+		\usepackage[utf8]{inputenc}
+		\usepackage[spanish]{babel}
+		\usepackage{amsmath, amssymb}
+		\usepackage{graphicx}
+		
+		\title{Título del Documento}
+		\author{Autor del Documento}
+		\date{\today}
+	\end{lstlisting}
+	
+	\begin{cajateoria}
+		\textbf{Elementos del preámbulo:}
+		\begin{itemize}
+			\item \comando{\textbackslash documentclass\{...\}} : Define el tipo de documento (article, report, book, beamer)
+			\item \comando{\textbackslash usepackage\{...\}} : Carga librerías adicionales
+			\item \comando{\textbackslash title\{...\}} : Define el título
+			\item \comando{\textbackslash author\{...\}} : Define el autor
+			\item \comando{\textbackslash date\{...\}} : Define la fecha
+		\end{itemize}
+	\end{cajateoria}
+	
+	\subsection{Cuerpo del Documento}
+	
+	El contenido del documento se escribe dentro del entorno \comando{\textbackslash begin\{document\}} y \comando{\textbackslash end\{document\}}.
+	
+	\begin{lstlisting}[caption=Documento completo mínimo]
+		\documentclass[12pt]{article}
+		\usepackage[utf8]{inputenc}
+		\usepackage[spanish]{babel}
+		
+		\title{Mi Primer Documento}
+		\author{Estudiante UNTELS}
+		\date{\today}
+		
+		\begin{document}
+			
+			\maketitle
+			
+			\section{Introducción}
+			Este es mi primer documento en \LaTeX.
+			
+			\section{Desarrollo}
+			Aquí va el contenido principal.
+			
+			\section{Conclusiones}
+			Aprendí a crear un documento básico.
+			
+		\end{document}
+	\end{lstlisting}
+	
+	\subsection{Secciones y Capítulos}
+	
+	\LaTeX \ permite organizar el documento jerárquicamente:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}ll@{}}
+			\toprule
+			\textbf{Comando} & \textbf{Nivel} \\
+			\midrule
+			\codigo{\textbackslash part\{...\}} & Parte (máximo nivel) \\
+			\codigo{\textbackslash chapter\{...\}} & Capítulo (solo en book/report) \\
+			\codigo{\textbackslash section\{...\}} & Sección \\
+			\codigo{\textbackslash subsection\{...\}} & Subsección \\
+			\codigo{\textbackslash subsubsection\{...\}} & Subsubsección \\
+			\codigo{\textbackslash paragraph\{...\}} & Párrafo \\
+			\bottomrule
+		\end{tabular}
+		\caption{Jerarquía de secciones}
+		\label{tab:secciones}
+	\end{table}
+	
+	\begin{cajaejemplo}
+		\textbf{Ejemplo de estructura jerárquica:}
+		\begin{lstlisting}
+			\section{Análisis de Circuitos}
+			\subsection{Circuitos en Serie}
+			\subsubsection{Cálculo de Resistencia Equivalente}
+			En un circuito serie, la resistencia equivalente es...
+		\end{lstlisting}
+	\end{cajaejemplo}
+	
+	\subsection{Compilación del Documento}
+	
+	Para generar el PDF a partir del archivo \codigo{.tex}, se debe compilar:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}ll@{}}
+			\toprule
+			\textbf{Método} & \textbf{Instrucción} \\
+			\midrule
+			TeXstudio & Click en "Build \& View" (F5) \\
+			Overleaf & Click en "Recompile" (Ctrl+Enter) \\
+			Línea de comandos & \codigo{pdflatex documento.tex} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Métodos de compilación}
+		\label{tab:compilacion}
+	\end{table}
+	
+	\begin{nota}
+		La primera compilación puede tardar unos segundos mientras se instalan los paquetes necesarios. Las compilaciones posteriores serán más rápidas.
+	\end{nota}
+	
+	\newpage
+	
+	% ============================================
+	% TEMA 3: COMANDOS ESENCIALES
+	% ============================================
+	
+	\section{Comandos Esenciales}
+	
+	\subsection{Formato de Texto}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lll@{}}
+			\toprule
+			\textbf{Efecto} & \textbf{Comando} & \textbf{Ejemplo} \\
+			\midrule
+			Negrita & \codigo{\textbackslash textbf\{...\}} & \textbf{texto en negrita} \\
+			Cursiva & \codigo{\textbackslash textit\{...\}} & \textit{texto en cursiva} \\
+			Subrayado & \codigo{\textbackslash underline\{...\}} & \underline{texto subrayado} \\
+			Texto pequeño & \codigo{\textbackslash small ...} & \small{texto pequeño} \\
+			Texto grande & \codigo{\textbackslash large ...} & \large{texto grande} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Formatos de texto básicos}
+		\label{tab:formato}
+	\end{table}
+	
+	\subsection{Listas}
+	
+	\LaTeX \ permite crear listas ordenadas y no ordenadas:
+	
+	\begin{cajaejemplo}
+		\textbf{Lista no ordenada (itemize):}
+		\begin{lstlisting}
+			\begin{itemize}
+				\item Primer elemento
+				\item Segundo elemento
+				\item Tercer elemento
+			\end{itemize}
+		\end{lstlisting}
+		
+		\textbf{Lista ordenada (enumerate):}
+		\begin{lstlisting}
+			\begin{enumerate}
+				\item Primer paso
+				\item Segundo paso
+				\item Tercer paso
+			\end{enumerate}
+		\end{lstlisting}
+		
+		\textbf{Lista con descripciones (description):}
+		\begin{lstlisting}
+			\begin{description}
+				\item[LED] Diodo emisor de luz
+				\item[Resistencia] Componente que limita corriente
+				\item[Capacitor] Almacena carga eléctrica
+			\end{description}
+		\end{lstlisting}
+	\end{cajaejemplo}
+	
+	\subsection{Tablas}
+	
+	Las tablas en \LaTeX \ se crean con el entorno \codigo{tabular}:
+	
+	\begin{cajaejemplo}
+		\textbf{Tabla básica:}
+		\begin{lstlisting}
+			\begin{table}[h]
+				\centering
+				\caption{Componentes electrónicos}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					\textbf{Componente} & \textbf{Símbolo} & \textbf{Unidad} \\
+					\hline
+					Resistencia & R & $\Omega$ \\
+					Capacitor & C & F \\
+					Inductor & L & H \\
+					\hline
+				\end{tabular}
+				\label{tab:componentes}
+			\end{table}
+		\end{lstlisting}
+	\end{cajaejemplo}
+	
+	\begin{cajateoria}
+		\textbf{Especificadores de columnas:}
+		\begin{itemize}
+			\item \codigo{l} : Columna alineada a la izquierda
+			\item \codigo{c} : Columna centrada
+			\item \codigo{r} : Columna alineada a la derecha
+			\item \codigo{|} : Línea vertical entre columnas
+			\item \codigo{\textbackslash hline} : Línea horizontal
+		\end{itemize}
+	\end{cajateoria}
+	
+	\subsection{Imágenes}
+	
+	Para insertar imágenes, se utiliza el paquete \paquete{graphicx}:
+	
+	\begin{cajaejemplo}
+		\textbf{Inserción de imagen:}
+		\begin{lstlisting}
+			\usepackage{graphicx} % En el preámbulo
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.7\textwidth]{diagrama_circuito.png}
+				\caption{Diagrama de un circuito RC}
+				\label{fig:circuito}
+			\end{figure}
+		\end{lstlisting}
+	\end{cajaejemplo}
+	
+	\begin{nota}
+		Las imágenes deben estar en la misma carpeta que el documento \codigo{.tex} o en una subcarpeta especificada con \comando{\textbackslash graphicspath\{\{figuras/\}\}}.
+	\end{nota}
+	
+	\subsection{Referencias Bibliográficas}
+	
+	\LaTeX \ gestiona las referencias bibliográficas mediante BibTeX:
+	
+	\begin{cajaejemplo}
+		\textbf{Creación del archivo \codigo{referencias.bib}:}
+		\begin{lstlisting}
+			@book{boylestad2022,
+				title={Electrónica: Teoría de circuitos},
+				author={Boylestad, Robert L.},
+				year={2022},
+				publisher={Pearson}
+			}
+			
+			@article{floyd2020,
+				title={Dispositivos electrónicos},
+				author={Floyd, Thomas L.},
+				journal={Pearson Educación},
+				year={2020}
+			}
+		\end{lstlisting}
+		
+		\textbf{Cita en el documento:}
+		\begin{lstlisting}
+			Según \cite{boylestad2022}, la ley de Ohm establece...
+			
+			\bibliographystyle{ieeetr}
+			\bibliography{referencias}
+		\end{lstlisting}
+	\end{cajaejemplo}
+	
+	\newpage
+	
+	% ============================================
+	% TEMA 4: ECUACIONES Y SÍMBOLOS MATEMÁTICOS
+	% ============================================
+	
+	\section{Ecuaciones y Símbolos Matemáticos}
+	
+	\subsection{Modos Matemáticos}
+	
+	\LaTeX \ ofrece dos modos para escribir matemáticas:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lll@{}}
+			\toprule
+			\textbf{Modo} & \textbf{Comando} & \textbf{Ejemplo} \\
+			\midrule
+			En línea & \codigo{\$...\$} & $E = mc^2$ \\
+			En línea alternativo & \codigo{\textbackslash(...\textbackslash)} & \(E = mc^2\) \\
+			Modo display &\codigo{\textbackslash[} \codigo{...} \codigo{\textbackslash]}
+			 & $\displaystyle E = mc^2$ \\
+			Display numerado & \codigo{\textbackslash begin\{equation\} ... \textbackslash end\{equation\}} & $\displaystyle E = mc^2$ \hfill (1)  \\
+			\bottomrule
+		\end{tabular}
+		\caption{Modos matemáticos en \LaTeX}
+		\label{tab:modos}
+	\end{table}
+%	\begin{table}[H]
+%		\centering
+%		\begin{tabular}{@{}lll@{}}
+%			\toprule
+%			\textbf{Modo} & \textbf{Comando} & \textbf{Ejemplo} \\
+%			\midrule
+%			En línea & \codigo{\$...\$} & $E = mc^2$ \\
+%			En línea alternativo & \codigo{\textbackslash(...\textbackslash)} & \(E = mc^2\) \\
+%			Modo display & \codigo{\$ \$...\$ \$} & $$E = mc^2$$ \\
+%			Display numerado & \codigo{\textbackslash begin\{equation\}...\textbackslash end\{equation\}} & (1) \\
+%			\bottomrule
+%		\end{tabular}
+%		\caption{Modos matemáticos}
+%		\label{tab:modos}
+%	\end{table}
+	
+	\subsection{Símbolos Matemáticos Básicos}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}ll@{}}
+			\toprule
+			\textbf{Símbolo} & \textbf{Comando \LaTeX} \\
+			\midrule
+			$\alpha$ & \codigo{\textbackslash alpha} \\
+			$\beta$ & \codigo{\textbackslash beta} \\
+			$\gamma$ & \codigo{\textbackslash gamma} \\
+			$\pi$ & \codigo{\textbackslash pi} \\
+			$\Omega$ & \codigo{\textbackslash Omega} \\
+			$\infty$ & \codigo{\textbackslash infty} \\
+			$\sum$ & \codigo{\textbackslash sum} \\
+			$\int$ & \codigo{\textbackslash int} \\
+			$\sqrt{2}$ & \codigo{\textbackslash sqrt\{2\}} \\
+			$\frac{a}{b}$ & \codigo{\textbackslash frac\{a\}\{b\}} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Símbolos matemáticos básicos}
+		\label{tab:simbulos}
+	\end{table}
+	
+	\subsection{Ecuaciones en Electrónica}
+	
+	\begin{cajaejemplo}
+		\textbf{Ejemplos de ecuaciones para Ingeniería Electrónica:}
+		
+		\begin{lstlisting}
+			% Ley de Ohm
+			\begin{equation}
+				V = I \cdot R
+				\label{eq:ohm}
+			\end{equation}
+			
+			% Potencia eléctrica
+			\begin{equation}
+				P = V \cdot I = I^2 \cdot R = \frac{V^2}{R}
+				\label{eq:potencia}
+			\end{equation}
+			
+			% Reactancia capacitiva
+			\begin{equation}
+				X_C = \frac{1}{2\pi f C}
+				\label{eq:xc}
+			\end{equation}
+			
+			% Reactancia inductiva
+			\begin{equation}
+				X_L = 2\pi f L
+				\label{eq:xl}
+			\end{equation}
+			
+			% Impedancia en circuito RLC serie
+			\begin{equation}
+				Z = \sqrt{R^2 + (X_L - X_C)^2}
+				\label{eq:impedancia}
+			\end{equation}
+			
+			% Frecuencia de resonancia
+			\begin{equation}
+				f_0 = \frac{1}{2\pi\sqrt{LC}}
+				\label{eq:resonancia}
+			\end{equation}
+		\end{lstlisting}
+	\end{cajaejemplo}
+	
+	\subsection{Ecuaciones con Subíndices y Superíndices}
+	
+	\begin{cajaejemplo}
+		\begin{lstlisting}
+			% Subíndices
+			$V_{in}$    % Voltaje de entrada
+			$V_{out}$   % Voltaje de salida
+			$R_1, R_2$  % Resistencias
+			
+			% Superíndices
+			$x^2$       % x al cuadrado
+			$10^{-3}$   % 10 elevado a -3 (mili)
+			
+			% Combinados
+			$a_{ij}^{2}$ % a sub i,j al cuadrado
+		\end{lstlisting}
+		
+		Resultado: $V_{in}$, $V_{out}$, $R_1, R_2$, $x^2$, $10^{-3}$, $a_{ij}^{2}$
+	\end{cajaejemplo}
+	
+	\subsection{Ecuaciones en Varias Líneas}
+	
+	\begin{cajaejemplo}
+		\textbf{Sistema de ecuaciones:}
+		\begin{lstlisting}
+			\begin{equation}
+				\begin{cases}
+					V_1 = I_1 R_1 + I_2 R_2 \\
+					V_2 = I_2 R_2 + I_3 R_3 \\
+					I_1 = I_2 + I_3
+				\end{cases}
+				\label{eq:sistema}
+			\end{equation}
+		\end{lstlisting}
+		
+		Resultado:
+		\begin{equation}
+			\begin{cases}
+				V_1 = I_1 R_1 + I_2 R_2 \\
+				V_2 = I_2 R_2 + I_3 R_3 \\
+				I_1 = I_2 + I_3
+			\end{cases}
+		\end{equation}
+	\end{cajaejemplo}
+	
+	\subsection{Matrices}
+	
+	\begin{cajaejemplo}
+		\textbf{Matriz de admitancias:}
+		\begin{lstlisting}
+			\begin{equation}
+				Y = \begin{bmatrix}
+					Y_1 + Y_2 & -Y_2 \\
+					-Y_2 & Y_2 + Y_3
+				\end{bmatrix}
+				\label{eq:matriz}
+			\end{equation}
+		\end{lstlisting}
+		
+		Resultado:
+		\begin{equation}
+			Y = \begin{bmatrix}
+				Y_1 + Y_2 & -Y_2 \\
+				-Y_2 & Y_2 + Y_3
+			\end{bmatrix}
+		\end{equation}
+	\end{cajaejemplo}
+	
+	\subsection{Referencias Cruzadas}
+	
+	\begin{cajaejemplo}
+		\textbf{Referenciar ecuaciones, figuras y tablas:}
+		\begin{lstlisting}
+			Como se muestra en la ecuación \ref{eq:ohm}, la relación...
+			La Figura \ref{fig:circuito} ilustra...
+			Los datos de la Tabla \ref{tab:componentes} indican...
+		\end{lstlisting}
+	\end{cajaejemplo}
+	
+	\begin{importante}
+		Las referencias cruzadas requieren \textbf{dos compilaciones}: una para generar las etiquetas y otra para resolver las referencias.
+	\end{importante}
+	
+	\newpage
+	
+	% ============================================
+	% EJERCICIOS PRÁCTICOS
+	% ============================================
+	
+	\section{Ejercicios Prácticos}
+	
+	\subsection{Ejercicio 1: Configuración del Entorno}
+	
+	\ejercicio{1} Instalar y configurar \TeX studio o Overleaf, y crear un documento en blanco con tu nombre y fecha.
+	
+	\subsection{Ejercicio 2: Estructura Básica}
+	
+	\ejercicio{2} Crear un documento que contenga:
+	\begin{itemize}
+		\item Título: "Mi Primer Documento \LaTeX"
+		\item Autor: Tu nombre completo
+		\item Fecha actual
+		\item Al menos 3 secciones
+		\item Una subsección dentro de la sección 2
+	\end{itemize}
+	
+	\subsection{Ejercicio 3: Comandos Esenciales}
+	
+	\ejercicio{3} Crear un documento que incluya:
+	\begin{itemize}
+		\item Una lista no ordenada de 5 componentes electrónicos
+		\item Una lista ordenada con los pasos para medir voltaje
+		\item Una tabla con 4 filas y 3 columnas sobre valores nominales y medidos de resistencias
+		\item Una imagen (puede ser un diagrama simple dibujado a mano y escaneado)
+	\end{itemize}
+	
+	\subsection{Ejercicio 4: Ecuaciones Matemáticas}
+	
+	\ejercicio{4} Escribir el siguiente conjunto de ecuaciones en \LaTeX:
+	\begin{itemize}
+		\item Ley de Ohm ($V = I \cdot R$)
+		\item Ley de Ohm para potencia ($P = V \cdot I$)
+		\item Reactancia capacitiva ($X_C = 1/(2\pi f C)$)
+		\item Ley de voltajes de Kirchhoff ($\sum V = 0$)
+		\item Impedancia en un circuito RLC serie ($Z = \sqrt{R^2 + (X_L - X_C)^2}$)
+	\end{itemize}
+	
+	\subsection{Ejercicio 5: Documento Completo}
+	
+	\ejercicio{5} Elaborar un documento completo que incluya todos los elementos vistos en el módulo: portada, índice, secciones, ecuaciones, tablas, imágenes y referencias bibliográficas. El tema debe estar relacionado con Ingeniería Electrónica.
+	
+	\newpage
+	
+	% ============================================
+	% RECURSOS ADICIONALES
+	% ============================================
+	
+	\section{Recursos Adicionales}
+	
+	\subsection{Documentación de Referencia}
+	
+	\begin{itemize}
+		\item \href{https://www.latex-project.org/help/}{Documentación oficial de \LaTeX}
+		\item \href{https://mirror.utexas.edu/ctan/info/lshort/spanish/lshort-esp.pdf}{LaTeX en español - Guía rápida (lshort)}
+		\item \href{https://www.overleaf.com/learn}{Overleaf Learn - Tutoriales y ejemplos}
+		\item \href{https://tex.stackexchange.com}{TeX Stack Exchange - Comunidad de preguntas y respuestas}
+	\end{itemize}
+	
+	\subsection{Símbolos Matemáticos}
+	
+	\begin{itemize}
+		\item \href{https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols}{Lista completa de símbolos matemáticos en \LaTeX}
+		\item \href{https://detexify.kirelabs.org}{Detexify - Dibuja el símbolo y encuentra el comando}
+	\end{itemize}
+	
+	\subsection{Plantillas para Ingeniería Electrónica}
+	
+	\begin{itemize}
+		\item Plantilla para informes de laboratorio
+		\item Plantilla para artículos IEEE
+		\item Plantilla para tesis y trabajos de grado
+	\end{itemize}
+	
+	\begin{cajanota}
+		Todas las plantillas están disponibles en el repositorio del curso:
+		\url{https://github.com/lrocag-dev/UNTELS_LATEX_IA}
+	\end{cajanota}
+	
+	\newpage
+	
+	% ============================================
+	% CONCLUSIÓN DEL MÓDULO
+	% ============================================
+	
+	\section{Conclusión del Módulo}
+	
+	Al finalizar este módulo, los estudiantes han adquirido los conocimientos fundamentales para trabajar con \LaTeX, incluyendo:
+	
+	\begin{itemize}
+		\item Instalación y configuración de entornos de trabajo
+		\item Estructura básica de documentos académicos
+		\item Comandos esenciales para formato, listas, tablas e imágenes
+		\item Inserción de ecuaciones y símbolos matemáticos
+		\item Gestión de referencias bibliográficas
+	\end{itemize}
+	
+\begin{center}
+	\fcolorbox{verdeexito}{grisclaro}{
+		\begin{minipage}{0.85\textwidth}
+			\centering
+			\vspace{0.3cm}
+			\textcolor{verdeexito}{\textbf{\faCheck Checklist de aprendizaje}}
+			\vspace{0.2cm}
+			
+			\begin{tabular}{@{}ll@{}}
+				\hline
+				\multicolumn{2}{c}{\textbf{Módulo 1 - Competencias adquiridas}} \\
+				\hline
+				& \\
+				\multicolumn{2}{l}{\faCheckSquare\, Instalar y configurar MiKTeX o TeX Live} \\
+				\multicolumn{2}{l}{\faCheckSquare\, Configurar TeXstudio o Overleaf} \\
+				\multicolumn{2}{l}{\faCheckSquare\, Crear un documento con estructura básica} \\
+				\multicolumn{2}{l}{\faCheckSquare\, Utilizar secciones y subsecciones} \\
+				\multicolumn{2}{l}{\faCheckSquare\, Aplicar formato de texto (negrita, cursiva)} \\
+				\multicolumn{2}{l}{\faCheckSquare\, Crear listas ordenadas y no ordenadas} \\
+				\multicolumn{2}{l}{\faCheckSquare\, Insertar tablas con formato profesional} \\
+				\multicolumn{2}{l}{\faCheckSquare\, Incluir imágenes y figuras} \\
+				\multicolumn{2}{l}{\faCheckSquare\, Escribir ecuaciones matemáticas} \\
+				\multicolumn{2}{l}{\faCheckSquare\, Gestionar referencias bibliográficas} \\
+				\multicolumn{2}{l}{\faCheckSquare\, Compilar documentos correctamente} \\
+				& \\
+				\hline
+			\end{tabular}
+			\vspace{0.3cm}
+		\end{minipage}
+	}
+\end{center}
+
+\vspace{0.5cm}
+
+El siguiente módulo profundizará en el uso de herramientas de \textbf{Inteligencia Artificial} para potenciar la productividad en \LaTeX, permitiendo generar código automáticamente, corregir errores y optimizar documentos académicos.
+
+\newpage
+
+% ============================================
+% ANEXOS
+% ============================================
+
+\appendix
+\section{Anexos}
+
+\subsection{Cheatsheet Rápido de Comandos \LaTeX}
+
+\begin{longtable}{|p{0.35\textwidth}|p{0.55\textwidth}|}
+	\hline
+	\textbf{Comando} & \textbf{Función} \\
+	\hline
+	\endfirsthead
+	\hline
+	\textbf{Comando} & \textbf{Función} \\
+	\hline
+	\endhead
+	\hline
+	\multicolumn{2}{c}{\textit{Continúa en la siguiente página}} \\
+	\hline
+	\endfoot
+	\hline
+	\endlastfoot
+	
+	% Formato de texto
+	\codigo{\textbackslash textbf\{texto\}} & Negrita \\
+	\codigo{\textbackslash textit\{texto\}} & Cursiva \\
+	\codigo{\textbackslash underline\{texto\}} & Subrayado \\
+	\codigo{\textbackslash texttt\{texto\}} & Monoespaciado \\
+	
+	% Secciones
+	\codigo{\textbackslash section\{...\}} & Sección \\
+	\codigo{\textbackslash subsection\{...\}} & Subsección \\
+	\codigo{\textbackslash subsubsection\{...\}} & Subsubsección \\
+	
+	% Listas
+	\codigo{\textbackslash begin\{itemize\}...\textbackslash end\{itemize\}} & Lista con viñetas \\
+	\codigo{\textbackslash begin\{enumerate\}...\textbackslash end\{enumerate\}} & Lista numerada \\
+	\codigo{\textbackslash begin\{description\}...\textbackslash end\{description\}} & Lista descriptiva \\
+	
+	% Tablas
+	\codigo{\textbackslash begin\{tabular\}\{llr\}...\textbackslash end\{tabular\}} & Tabla básica \\
+	\codigo{\textbackslash hline} & Línea horizontal \\
+	\codigo{\&} & Separador de columnas \\
+	\codigo{\textbackslash\textbackslash} & Salto de fila \\
+	
+	% Figuras
+	\codigo{\textbackslash includegraphics[width=0.5\textbackslash textwidth]\{imagen.jpg\}} & Insertar imagen \\
+	\codigo{\textbackslash begin\{figure\}[h]} & Entorno de figura \\
+	\codigo{\textbackslash caption\{...\}} & Título de figura/tabla \\
+	\codigo{\textbackslash label\{fig:nombre\}} & Etiqueta para referenciar \\
+	
+	% Ecuaciones
+	\codigo{\$...\$} & Modo matemático en línea \\
+	\codigo{\textbackslash[...\textbackslash]} & Modo matemático display \\
+	\codigo{\textbackslash begin\{equation\}...\textbackslash end\{equation\}} & Ecuación numerada \\
+	\codigo{\textbackslash frac\{a\}\{b\}} & Fracción \\
+	\codigo{\textbackslash sqrt\{x\}} & Raíz cuadrada \\
+	\codigo{\_\{sub\}} & Subíndice \\
+	\codigo{\^\{sup\}} & Superíndice \\
+	
+	% Símbolos comunes
+	\codigo{\textbackslash alpha, \textbackslash beta, \textbackslash gamma} & Letras griegas \\
+	\codigo{\textbackslash pi} & $\pi$ \\
+	\codigo{\textbackslash infty} & $\infty$ \\
+	\codigo{\textbackslash sum} & $\sum$ \\
+	\codigo{\textbackslash int} & $\int$ \\
+	
+	% Referencias
+	\codigo{\textbackslash cite\{clave\}} & Citar referencia \\
+	\codigo{\textbackslash ref\{etiqueta\}} & Referenciar figura/tabla/ecuación \\
+	\codigo{\textbackslash label\{clave\}} & Crear etiqueta \\
+	
+\end{longtable}
+
+\subsection{Plantilla Rápida para Informes}
+
+\begin{lstlisting}[caption=Plantilla mínima para informe de laboratorio]
+	\documentclass[12pt]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[spanish]{babel}
+	\usepackage{amsmath, amssymb}
+	\usepackage{graphicx}
+	\usepackage[margin=1in]{geometry}
+	
+	\title{Informe de Laboratorio N°1}
+	\author{Tu Nombre Completo}
+	\date{\today}
+	
+	\begin{document}
+		
+		\maketitle
+		
+		\tableofcontents
+		\newpage
+		
+		\section{Objetivos}
+		\begin{itemize}
+			\item Objetivo 1
+			\item Objetivo 2
+		\end{itemize}
+		
+		\section{Marco Teórico}
+		\begin{equation}
+			V = I \cdot R
+			\label{eq:ohm}
+		\end{equation}
+		
+		\section{Metodología}
+		
+		\section{Resultados}
+		\begin{table}[h]
+			\centering
+			\caption{Mediciones realizadas}
+			\begin{tabular}{|c|c|}
+				\hline
+				\textbf{Medición} & \textbf{Valor} \\
+				\hline
+				1 &  \\
+				2 &  \\
+				\hline
+			\end{tabular}
+			\label{tab:mediciones}
+		\end{table}
+		
+		\section{Conclusiones}
+		
+	\end{document}
+\end{lstlisting}
+
+\subsection{Errores Comunes y Soluciones}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{@{}p{0.4\textwidth}p{0.55\textwidth}@{}}
+		\toprule
+		\textbf{Error} & \textbf{Solución} \\
+		\midrule
+		\codigo{! Undefined control sequence} & Falta un paquete o comando mal escrito \\
+		\codigo{! Missing \$ inserted} & Olvidaste cerrar modo matemático \\
+		\codigo{! LaTeX Error: File `*.sty' not found} & Instalar el paquete faltante con MiKTeX \\
+		\codigo{! Emergency stop} & Error grave, revisar la línea indicada \\
+		No aparecen las referencias & Compilar dos veces: pdfLaTeX → BibTeX → pdfLaTeX \\
+		Las imágenes no se ven & Verificar ruta y nombre del archivo \\
+		\bottomrule
+	\end{tabular}
+	\caption{Errores comunes en \LaTeX}
+	\label{tab:errores}
+\end{table}
+
+\newpage
+
+% ============================================
+% REFERENCIAS BIBLIOGRÁFICAS
+% ============================================
+
+\begin{thebibliography}{9}
+	
+	\bibitem{lshort}
+	Oetiker, T., Partl, H., Hyna, I., \& Schlegl, E. (2020).
+	\textit{La introducción no tan corta a LaTeX2e}.
+	\url{https://mirror.utexas.edu/ctan/info/lshort/spanish/lshort-esp.pdf}
+	
+	\bibitem{overleaf}
+	Overleaf. (2024).
+	\textit{Documentación de LaTeX}.
+	\url{https://www.overleaf.com/learn}
+	
+	\bibitem{latexproject}
+	The LaTeX Project. (2024).
+	\textit{LaTeX: A document preparation system}.
+	\url{https://www.latex-project.org}
+	
+	\bibitem{latexwiki}
+	Wikilibros. (2024).
+	\textit{Manual de LaTeX}.
+	\url{https://es.wikibooks.org/wiki/Manual_de_LaTeX}
+	
+\end{thebibliography}
+
+\newpage
+
+% ============================================
+% EJERCICIOS DE REPASO
+% ============================================
+
+\section{Ejercicios de Repaso}
+
+\subsection*{Ejercicio de Repaso 1}
+
+Escribe el código \LaTeX \ necesario para generar el siguiente texto con formato:
+
+\begin{quote}
+	\textbf{Introducción a los circuitos eléctricos}
+	
+	Un \textit{circuito eléctrico} es una interconexión de componentes eléctricos que permite el flujo de electrones. Los elementos básicos incluyen:
+	\begin{itemize}
+		\item Resistencias ($\Omega$)
+		\item Capacitores (F)
+		\item Inductores (H)
+	\end{itemize}
+\end{quote}
+
+\subsection*{Ejercicio de Repaso 2}
+
+Completa el siguiente código para que muestre correctamente la ecuación de la Ley de Ohm:
+
+\begin{lstlisting}
+	\begin{equation}
+		V = ___ \cdot ___
+		\label{eq:ohm_completa}
+	\end{equation}
+\end{lstlisting}
+
+\subsection*{Ejercicio de Repaso 3}
+
+Corrige los errores en el siguiente código:
+
+\begin{lstlisting}
+	\documentclass{article}
+	\usepackage[utf8]{inputenc}
+	\begin{document}
+		\section{Introducción}
+		Texto de ejemplo.
+		\begin{equation}
+			E = mc^2
+		\end{decuation}
+		\section{Conclusion}
+	
+\end{lstlisting}
+
+\newpage
+
+% ============================================
+% SOLUCIONES A EJERCICIOS DE REPASO
+% ============================================
+
+\section{Soluciones a Ejercicios de Repaso}
+
+\subsection*{Solución Ejercicio 1}
+
+\begin{lstlisting}
+	\textbf{Introducción a los circuitos eléctricos}
+	
+	Un \textit{circuito eléctrico} es una interconexión de componentes 
+	eléctricos que permite el flujo de electrones. Los elementos básicos 
+	incluyen:
+	\begin{itemize}
+		\item Resistencias ($\Omega$)
+		\item Capacitores (F)
+		item Inductores (H)
+	\end{itemize}
+\end{lstlisting}
+
+\subsection*{Solución Ejercicio 2}
+
+\begin{lstlisting}
+	\begin{equation}
+		V = I \cdot R
+		\label{eq:ohm_completa}
+	\end{equation}
+\end{lstlisting}
+
+\subsection*{Solución Ejercicio 3}
+
+\begin{lstlisting}
+	\documentclass{article}
+	\usepackage[utf8]{inputenc}
+	\begin{document}
+		\section{Introducción}
+		Texto de ejemplo.
+		\begin{equation}
+			E = mc^2
+		\end{equation}
+		\section{Conclusiones}
+	\end{document}
+\end{lstlisting}
+
+\newpage
+
+% ============================================
+% GLOSARIO DE TÉRMINOS
+% ============================================
+
+\section{Glosario de Términos}
+
+\begin{longtable}{@{}p{0.25\textwidth}p{0.65\textwidth}@{}}
+	\toprule
+	\textbf{Término} & \textbf{Definición} \\
+	\midrule
+	\endfirsthead
+	\toprule
+	\textbf{Término} & \textbf{Definición} \\
+	\midrule
+	\endhead
+	\bottomrule
+	\endfoot
+	
+	Preámbulo & Sección inicial del documento donde se definen la clase, paquetes y configuración general \\
+	\midrule
+	Paquete & Conjunto de macros y comandos que extienden las funcionalidades de \LaTeX \\
+	\midrule
+	Entorno & Bloque de código delimitado por \codigo{\textbackslash begin\{...\}} y \codigo{\textbackslash end\{...\}} \\
+	\midrule
+	Modo matemático & Contexto especial donde se interpretan comandos matemáticos \\
+	\midrule
+	Compilación & Proceso de transformar código \LaTeX \ en un documento PDF \\
+	\midrule
+	Referencia cruzada & Enlace interno a una figura, tabla, ecuación o sección \\
+	\midrule
+	BibTeX & Herramienta para gestionar referencias bibliográficas \\
+	\midrule
+	Tipografía & Estilo y apariencia de los caracteres y texto \\
+	
+\end{longtable}
+
+\end{document}
