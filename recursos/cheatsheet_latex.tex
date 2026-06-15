@@ -1,0 +1,397 @@
+\documentclass[10pt,landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+% Configuración de página
+\geometry{
+    paper=a4paper,
+    left=0.5cm,
+    right=0.5cm,
+    top=0.5cm,
+    bottom=0.5cm,
+    landscape
+}
+
+% Colores
+\definecolor{azulprofundo}{RGB}{0, 56, 147}
+\definecolor{azulclaro}{RGB}{41, 128, 185}
+\definecolor{verdeexito}{RGB}{39, 174, 96}
+\definecolor{grisclaro}{RGB}{236, 240, 241}
+
+% Configuración de secciones
+\setlength{\columnsep}{0.5cm}
+\setlength{\columnseprule}{0.2pt}
+
+% Comandos personalizados
+\newcommand{\comando}[1]{\texttt{\textcolor{azulprofundo}{#1}}}
+\newcommand{\codigo}[1]{\texttt{\textcolor{azulclaro}{#1}}}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \textbf{Cheatsheet \LaTeX}}
+    \vspace{0.2cm}
+    
+    {\large Referencia rápida de comandos para estudiantes de ingeniería}
+    \vspace{0.5cm}
+    
+    \rule{0.8\textwidth}{0.5pt}
+\end{center}
+
+\begin{multicols}{3}
+
+% ============================================
+% ESTRUCTURA DEL DOCUMENTO
+% ============================================
+\tcbox[colback=grisclaro, colframe=azulprofundo, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{azulprofundo}{📄 ESTRUCTURA DEL DOCUMENTO}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Comando} & \textbf{Función} \\
+    \midrule
+    \comando{\textbackslash documentclass\{...\}} & Tipo de documento \\
+    \comando{\textbackslash usepackage\{...\}} & Cargar paquete \\
+    \comando{\textbackslash begin\{document\}} & Inicio del cuerpo \\
+    \comando{\textbackslash end\{document\}} & Fin del cuerpo \\
+    \comando{\textbackslash title\{...\}} & Título del documento \\
+    \comando{\textbackslash author\{...\}} & Autor \\
+    \comando{\textbackslash date\{...\}} & Fecha \\
+    \comando{\textbackslash maketitle} & Genera la portada \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% CLASES DE DOCUMENTO
+% ============================================
+\tcbox[colback=grisclaro, colframe=azulprofundo, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{azulprofundo}{📚 CLASES DE DOCUMENTO}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Clase} & \textbf{Uso} \\
+    \midrule
+    \comando{article} & Artículos, informes cortos \\
+    \comando{report} & Informes largos, tesis \\
+    \comando{book} & Libros \\
+    \comando{beamer} & Presentaciones \\
+    \comando{IEEEtran} & Artículos IEEE \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% SECCIONES
+% ============================================
+\tcbox[colback=grisclaro, colframe=azulprofundo, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{azulprofundo}{📑 SECCIONES}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Comando} & \textbf{Nivel} \\
+    \midrule
+    \comando{\textbackslash section\{...\}} & Sección \\
+    \comando{\textbackslash subsection\{...\}} & Subsección \\
+    \comando{\textbackslash subsubsection\{...\}} & Subsubsección \\
+    \comando{\textbackslash paragraph\{...\}} & Párrafo \\
+    \comando{\textbackslash part\{...\}} & Parte \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% FORMATO DE TEXTO
+% ============================================
+\tcbox[colback=grisclaro, colframe=azulprofundo, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{azulprofundo}{✏️ FORMATO DE TEXTO}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Comando} & \textbf{Efecto} \\
+    \midrule
+    \comando{\textbackslash textbf\{...\}} & \textbf{Negrita} \\
+    \comando{\textbackslash textit\{...\}} & \textit{Cursiva} \\
+    \comando{\textbackslash underline\{...\}} & \underline{Subrayado} \\
+    \comando{\textbackslash texttt\{...\}} & \texttt{Monoespaciado} \\
+    \comando{\textbackslash textsc\{...\}} & \textsc{Versalitas} \\
+    \comando{\textbackslash small} & \small{Pequeño} \\
+    \comando{\textbackslash large} & \large{Grande} \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% MATEMÁTICAS
+% ============================================
+\tcbox[colback=grisclaro, colframe=verdeexito, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{verdeexito}{📐 MATEMÁTICAS}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Comando} & \textbf{Resultado} \\
+    \midrule
+    \comando{\$...\$} & Modo inline \\
+    \comando{\textbackslash[...\textbackslash]} & Modo display \\
+    \comando{\textbackslash begin\{equation\}} & Ec. numerada \\
+    \comando{\textbackslash frac\{a\}\{b\}} & $\frac{a}{b}$ \\
+    \comando{\textbackslash sqrt\{x\}} & $\sqrt{x}$ \\
+    \comando{\textbackslash sqrt[n]\{x\}} & $\sqrt[n]{x}$ \\
+    \comando{x\_\{i\}} & $x_i$ \\
+    \comando{x\^\{n\}} & $x^n$ \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% SÍMBOLOS MATEMÁTICOS
+% ============================================
+\tcbox[colback=grisclaro, colframe=verdeexito, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{verdeexito}{🔣 SÍMBOLOS MATEMÁTICOS}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Comando} & \textbf{Símbolo} \\
+    \midrule
+    \comando{\textbackslash alpha} & $\alpha$ \\
+    \comando{\textbackslash beta} & $\beta$ \\
+    \comando{\textbackslash gamma} & $\gamma$ \\
+    \comando{\textbackslash pi} & $\pi$ \\
+    \comando{\textbackslash Omega} & $\Omega$ \\
+    \comando{\textbackslash infty} & $\infty$ \\
+    \comando{\textbackslash sum} & $\sum$ \\
+    \comando{\textbackslash int} & $\int$ \\
+    \comando{\textbackslash prod} & $\prod$ \\
+    \comando{\textbackslash partial} & $\partial$ \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% OPERADORES
+% ============================================
+\tcbox[colback=grisclaro, colframe=verdeexito, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{verdeexito}{⚡ OPERADORES}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Comando} & \textbf{Símbolo} \\
+    \midrule
+    \comando{\textbackslash cdot} & $\cdot$ \\
+    \comando{\textbackslash times} & $\times$ \\
+    \comando{\textbackslash div} & $\div$ \\
+    \comando{\textbackslash pm} & $\pm$ \\
+    \comando{\textbackslash mp} & $\mp$ \\
+    \comando{\textbackslash leq} & $\leq$ \\
+    \comando{\textbackslash geq} & $\geq$ \\
+    \comando{\textbackslash neq} & $\neq$ \\
+    \comando{\textbackslash approx} & $\approx$ \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% LISTAS
+% ============================================
+\tcbox[colback=grisclaro, colframe=azulprofundo, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{azulprofundo}{📋 LISTAS}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Entorno} & \textbf{Tipo} \\
+    \midrule
+    \comando{itemize} & Viñetas \\
+    \comando{enumerate} & Numerada \\
+    \comando{description} & Descriptiva \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.3cm}
+
+\textbf{Ejemplo itemize:}
+\begin{lstlisting}[language=TeX, basicstyle=\ttfamily\scriptsize]
+\begin{itemize}
+    \item Elemento 1
+    \item Elemento 2
+\end{itemize}
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+% ============================================
+% TABLAS
+% ============================================
+\tcbox[colback=grisclaro, colframe=azulprofundo, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{azulprofundo}{📊 TABLAS}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Comando} & \textbf{Función} \\
+    \midrule
+    \comando{tabular} & Entorno de tabla \\
+    \comando{\textbackslash hline} & Línea horizontal \\
+    \comando{\&} & Separador de columnas \\
+    \comando{\textbackslash\textbackslash} & Salto de fila \\
+    \comando{l} & Columna izquierda \\
+    \comando{c} & Columna centrada \\
+    \comando{r} & Columna derecha \\
+    \comando{|} & Línea vertical \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% FIGURAS
+% ============================================
+\tcbox[colback=grisclaro, colframe=azulprofundo, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{azulprofundo}{🖼️ FIGURAS}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Comando} & \textbf{Función} \\
+    \midrule
+    \comando{\textbackslash includegraphics[ancho]\{archivo\}} & Insertar imagen \\
+    \comando{\textbackslash begin\{figure\}[h]} & Entorno de figura \\
+    \comando{\textbackslash caption\{...\}} & Título \\
+    \comando{\textbackslash label\{fig:...\}} & Etiqueta \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% REFERENCIAS
+% ============================================
+\tcbox[colback=grisclaro, colframe=azulprofundo, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{azulprofundo}{🔗 REFERENCIAS}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Comando} & \textbf{Función} \\
+    \midrule
+    \comando{\textbackslash label\{clave\}} & Crear etiqueta \\
+    \comando{\textbackslash ref\{clave\}} & Referenciar \\
+    \comando{\textbackslash pageref\{clave\}} & Referencia a página \\
+    \comando{\textbackslash cite\{clave\}} & Citar bibliografía \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% ECUACIONES DE ELECTRÓNICA
+% ============================================
+\tcbox[colback=grisclaro, colframe=verdeexito, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{verdeexito}{🔌 ECUACIONES DE ELECTRÓNICA}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Ecuación} & \textbf{Código} \\
+    \midrule
+    $V = I \cdot R$ & \comando{V = I \textbackslash cdot R} \\
+    $P = V \cdot I$ & \comando{P = V \textbackslash cdot I} \\
+    $X_C = \frac{1}{2\pi f C}$ & \comando{X\_C = \textbackslash frac\{1\}\{2\textbackslash pi f C\}} \\
+    $X_L = 2\pi f L$ & \comando{X\_L = 2\textbackslash pi f L} \\
+    $Z = \sqrt{R^2 + (X_L - X_C)^2}$ & \comando{Z = \textbackslash sqrt\{R\^2 + (X\_L - X\_C)\^2\}} \\
+    $f_0 = \frac{1}{2\pi\sqrt{LC}}$ & \comando{f\_0 = \textbackslash frac\{1\}\{2\textbackslash pi\textbackslash sqrt\{LC\}\}} \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% COMANDOS PARA MÁRGENES
+% ============================================
+\tcbox[colback=grisclaro, colframe=azulprofundo, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{azulprofundo}{📏 CONFIGURACIÓN DE PÁGINA}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Comando} & \textbf{Función} \\
+    \midrule
+    \comando{\textbackslash usepackage\{geometry\}} & Cargar paquete \\
+    \comando{\textbackslash geometry\{margin=1in\}} & Márgenes de 1 pulgada \\
+    \comando{\textbackslash geometry\{top=2cm, bottom=2cm\}} & Márgenes personalizados \\
+    \comando{\textbackslash pagestyle\{empty\}} & Sin numeración \\
+    \comando{\textbackslash pagenumbering\{roman\}} & Numeración romana \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================
+% PAQUETES ESENCIALES
+% ============================================
+\tcbox[colback=grisclaro, colframe=azulprofundo, arc=3pt, boxsep=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt]{
+    \textbf{\textcolor{azulprofundo}{📦 PAQUETES ESENCIALES}}
+}
+\vspace{0.3cm}
+
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Paquete} & \textbf{Uso} \\
+    \midrule
+    \comando{amsmath} & Matemáticas avanzadas \\
+    \comando{amssymb} & Símbolos matemáticos \\
+    \comando{graphicx} & Incluir imágenes \\
+    \comando{booktabs} & Tablas profesionales \\
+    \comando{geometry} & Márgenes \\
+    \comando{hyperref} & Enlaces interactivos \\
+    \comando{babel[spanish]} & Idioma español \\
+    \bottomrule
+\end{tabular}
+
+\end{multicols}
+
+\vspace{0.5cm}
+
+\begin{center}
+    \rule{0.8\textwidth}{0.5pt}
+    \vspace{0.3cm}
+    
+    \textbf{Referencia rápida de LaTeX} \\
+    Para más información: \texttt{https://github.com/lrocag-dev/UNTELS\_LATEX\_IA}
+    \vspace{0.3cm}
+\end{center}
+
+\end{document}
