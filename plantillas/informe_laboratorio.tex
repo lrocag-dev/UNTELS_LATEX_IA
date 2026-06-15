@@ -1,1 +1,116 @@
 
+\documentclass[12pt,letterpaper]{article}
+
+% Paquetes esenciales
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+% Datos del laboratorio
+\newcommand{\labnumero}{1}
+\newcommand{\labtitulo}{Ley de Ohm y Kirchhoff}
+\newcommand{\autor}{[Nombre del Estudiante]}
+\newcommand{\fecha}{\today}
+
+\begin{document}
+
+% ========== PORTADA ==========
+\begin{titlepage}
+    \centering
+    {\Large \textbf{Universidad Nacional Tecnológica de Lima Sur}}
+    \vspace{0.5cm}
+    
+    {\large \textbf{Facultad de Ingeniería Electrónica}}
+    \vspace{1cm}
+    
+    {\Huge \textbf{Informe de Laboratorio N°\labnumero}}
+    \vspace{0.3cm}
+    {\huge \textbf{\labtitulo}}
+    \vspace{1.5cm}
+    
+    {\large \textbf{Estudiante:} \autor}
+    \vspace{0.3cm}
+    
+    {\large \textbf{Fecha:} \fecha}
+    \vspace{1cm}
+    
+    \rule{0.6\textwidth}{0.5pt}
+    
+    \vfill
+    {\small \today}
+\end{titlepage}
+
+% ========== ÍNDICE ==========
+\tableofcontents
+\newpage
+
+% ========== SECCIONES ==========
+\section{Objetivos}
+\begin{itemize}
+    \item Objetivo general 1
+    \item Objetivo específico 1
+    \item Objetivo específico 2
+\end{itemize}
+
+\section{Marco Teórico}
+\subsection{Ley de Ohm}
+\begin{equation}
+    V = I \cdot R
+    \label{eq:ohm}
+\end{equation}
+
+\subsection{Leyes de Kirchhoff}
+\begin{equation}
+    \sum V = 0 \quad \text{(LVK)}
+\end{equation}
+\begin{equation}
+    \sum I = 0 \quad \text{(LCK)}
+\end{equation}
+
+\section{Materiales y Equipos}
+\begin{itemize}
+    \item Fuente de voltaje DC (0-30V)
+    \item Multímetro digital
+    \item Resistencias: 100Ω, 220Ω, 330Ω, 470Ω, 1kΩ
+    \item Protoboard
+    \item Cables de conexión
+\end{itemize}
+
+\section{Procedimiento}
+\begin{enumerate}
+    \item Medir el valor real de cada resistencia
+    \item Armar el circuito de la Figura \ref{fig:circuito}
+    \item Aplicar voltajes de 1V a 10V
+    \item Registrar mediciones
+\end{enumerate}
+
+\section{Resultados}
+\begin{table}[H]
+    \centering
+    \caption{Mediciones realizadas}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{V entrada (V)} & \textbf{I medida (mA)} & \textbf{R calculada (Ω)} \\
+        \hline
+        1.0 & 9.8 & 102.0 \\
+        3.0 & 29.5 & 101.7 \\
+        5.0 & 49.2 & 101.6 \\
+        7.0 & 68.9 & 101.6 \\
+        9.0 & 88.6 & 101.6 \\
+        \hline
+    \end{tabular}
+    \label{tab:mediciones}
+\end{table}
+
+\section{Conclusiones}
+\begin{itemize}
+    \item Conclusión 1
+    \item Conclusión 2
+\end{itemize}
+
+\end{document}
