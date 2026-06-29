@@ -151,3 +151,85 @@ latexocr
 | Ejercicio 2 |	Escribir matriz de admitancias para un circuito de 2 nodos |
 | Ejercicio 3 |	Usar Mathpix o ChatGPT para convertir imagen de ecuación a LaTeX |
 
+## Tablas, Figuras y Diagramas con IA
+### 3.1 Tablas en LaTeX (30 min)
+```latex
+\begin{table}[h]
+\centering
+\caption{Valores medidos vs teóricos}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Componente} & \textbf{Valor Teórico} & \textbf{Valor Medido} \\
+\hline
+R1 & 100 Ω & 98.5 Ω \\
+R2 & 220 Ω & 221.3 Ω \\
+C1 & 10 μF & 9.8 μF \\
+\hline
+\end{tabular}
+\label{tab:mediciones}
+\end{table}
+```
+### 3.2 Figuras (30 min)
+```latex
+\usepackage{graphicx}
+\graphicspath{{figuras/}}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{circuito_rc.png}
+\caption{Circuito RC serie}
+\label{fig:circuito_rc}
+\end{figure}
+```
+### 3.3 Diagramas de circuitos con TikZ (30 min)
+```latex
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC}
+
+\begin{tikzpicture}[circuit ee IEC]
+    \draw (0,0) to [resistor={info={R}}] (2,0)
+                to [capacitor={info={C}}] (4,0)
+                to [battery={info={V}}] (6,0);
+\end{tikzpicture}
+```
+### Práctica Guiada (1.5 horas)
+### Ejemplo 1: Generar tabla con IA
+### Prompt para ChatGPT:
+
+```text
+Crea una tabla en LaTeX con los siguientes datos de un experimento de 
+carga de capacitor:
+
+Tiempo (ms): 0, 10, 20, 30, 40, 50
+Voltaje (V): 0, 2.1, 3.5, 4.3, 4.7, 4.9
+
+La tabla debe tener título y etiqueta.
+``` 
+### Ejemplo 2: Generar código TikZ con IA
+### Prompt:
+
+```text
+Genera el código TikZ para dibujar un circuito amplificador operacional 
+inversor con:
+- R1 = 10kΩ en la entrada
+- R2 = 100kΩ en retroalimentación
+- Fuente de entrada Vin
+- Voltaje de salida Vout
+```
+### Ejemplo 3: Diagramas de flujo con IA
+### Prompt:
+
+```text
+Genera código LaTeX para un diagrama de flujo del proceso de medición:
+- Inicio
+- Medir voltaje
+- ¿V > umbral? (Sí: Activar alarma, No: Continuar)
+- Registrar datos
+- Fin
+````
+#### Ejercicios (1 hora)
+| Ejercicio     | Descripción                                              | 
+|---------------|----------------------------------------------------------|
+| Ejercicio 1 | Crear tabla de resultados de un experimento de ley de Ohm (5 mediciones)  |
+| Ejercicio 2 | Insertar figura y referenciarla desde el texto |
+| Ejercicio 3 | Dibujar circuito RC con TikZ o generar imagen con IA   |
