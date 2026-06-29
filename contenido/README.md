@@ -1,5 +1,12 @@
 # Fundamentos de LaTeX + IA
 ## Duración: 2 horas
+## 🛠️ Herramientas necesarias
+- [Overleaf](https://www.overleaf.com) (recomendado) o
+- [VS Code](https://code.visualstudio.com) + LaTeX Workshop
+- [ChatGPT](https://chat.openai.com)
+- [Mathpix](https://mathpix.com) (opcional)
+- [Generador de tablas](https://www.tablesgenerator.com/markdown_tables#)
+- [Detexify](https://detexify.kirelabs.org)
 ## Contenido Teórico (1 hora)
 1.1 ¿Qué es LaTeX? (15 min)
 - Diferencia entre LaTeX vs Word
