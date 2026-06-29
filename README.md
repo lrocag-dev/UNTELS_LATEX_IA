@@ -41,6 +41,7 @@ Overleaf: Seguir setup/configurar_overleaf.md
 |--------|----------------------------------------------|-------------------------------|
 | 1      | Fundamentos de LaTeX y Entornos de Trabajo   | [Módulo 1](guias/guia_modulo_1.pdf) |
 | 2      | LaTeX Potenciado por Inteligencia Artificial | [Módulo 2](guias/guia_modulo_2.pdf)    |
+| 3      | Contenido del curso | [Guia del curso](contenido/README.md)    |
 
 ## Contenido del Módulo 1
 - Instalación y configuración de entornos LaTeX (TeXstudio, Overleaf)
