@@ -664,23 +664,28 @@
 		\textbf{Creación del archivo \codigo{referencias.bib}:}
 		\begin{lstlisting}
 			@book{boylestad2022,
-				title={Electrónica: Teoría de circuitos},
-				author={Boylestad, Robert L.},
-				year={2022},
-				publisher={Pearson}
+				author={Boylestad, Robert L. and Nashelsky, Louis},
+				title={Electrónica: Teoría de circuitos y dispositivos electrónicos},
+				edition={11},
+				publisher={Pearson Educación},
+				year={2022}
 			}
 			
-			@article{floyd2020,
-				title={Dispositivos electrónicos},
-				author={Floyd, Thomas L.},
-				journal={Pearson Educación},
-				year={2020}
+			@article{shannon1948,
+				author={Shannon, Claude E.},
+				title={A mathematical theory of communication},
+				journal={Bell System Technical Journal},
+				volume={27}, number={3}, pages={379--423},
+				year={1948}
 			}
 		\end{lstlisting}
+		
+		\textbf{Cada tipo de fuente tiene sus campos:} \codigo{@book} usa \codigo{publisher}; \codigo{@article} usa \codigo{journal}, \codigo{volume} y \codigo{pages}. No coloque la editorial en \codigo{journal}.
 		
 		\textbf{Cita en el documento:}
 		\begin{lstlisting}
 			Según \cite{boylestad2022}, la ley de Ohm establece...
+			% Para estilo APA 7 vea el Módulo 3 (biblatex + biber)
 			
 			\bibliographystyle{ieeetr}
 			\bibliography{referencias}
