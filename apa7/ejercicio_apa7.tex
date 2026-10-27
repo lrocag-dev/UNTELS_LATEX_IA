@@ -1,0 +1,65 @@
+% EJERCICIO 9: corrige los 10 errores marcados con «% ERROR n».
+% Compila con: latexmk -pdf ejercicio_apa7.tex
+\documentclass[stu,12pt,a4paper,floatsintext]{apa7}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}   % ERROR 1: las tablas se rotulan «Cuadro»
+\usepackage{booktabs}
+\usepackage[style=apa,backend=biber,sortcites=true,sorting=nyt]{biblatex}
+% ERROR 2: faltan csquotes y el mapeo de idioma de biblatex-apa
+\addbibresource{ejercicio_apa7.bib}
+
+\title{Acondicionamiento de señales con amplificadores operacionales}
+% ERROR 3: falta el título corto (encabezado de página)
+\authorsnames{Estudiante Ejemplo}
+\authorsaffiliations{Universidad Nacional Tecnológica de Lima Sur}
+\course{IE-205: Electrónica Analógica}
+\professor{Docente Ejemplo}
+\duedate{27 de octubre de 2026}
+\abstract{Informe sobre amplificadores operacionales.}  % ERROR 4: el resumen debe tener 150-250 palabras
+\keywords{amplificador operacional, ganancia, acondicionamiento de señales}
+
+\AtBeginDocument{\renewcommand{\notelabel}{Nota}}
+\begin{document}
+\maketitle
+
+\section{Introducción}
+El amplificador operacional es un bloque fundamental del análisis de circuitos
+analógicos \cite{sedra2020}.   % ERROR 5: falta el paréntesis APA
+ Como señala \parencite{boylestad2023}   % ERROR 6: cita narrativa con el comando equivocado
+, la ganancia
+en lazo cerrado depende de la razón entre resistencias.
+
+El formato de este informe sigue el manual de la \textcite{apa2020}.
+
+\section{Resultados}
+La Tabla 1 muestra   % ERROR 7: referencia escrita a mano
+ la ganancia para tres valores de $R_f$.
+
+\begin{table}[htbp]
+  \caption{Ganancia del amplificador inversor}
+  \label{tab:ganancia}
+  \centering
+  \begin{threeparttable}
+  \begin{tabular}{|c|c|}   % ERROR 8: APA no usa líneas verticales ni \hline
+    \hline
+    $R_f$ (k$\Omega$) & Ganancia $-R_f/R_1$ \\
+    \hline
+    10 & $-1$ \\
+    47 & $-4{,}7$ \\
+    100 & $-10$ \\
+    \hline
+  \end{tabular}
+  \begin{tablenotes}[para]
+    \item \textit{Nota.} Con $R_1 = 10$~k$\Omega$.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+\section{Uso de inteligencia artificial}
+Se utilizó ChatGPT para   % ERROR 9: falta citar la herramienta
+ depurar errores de compilación
+del código \LaTeX. Las fuentes fueron verificadas por el autor.
+
+\printbibliography[title={Referencias}]
+\end{document}

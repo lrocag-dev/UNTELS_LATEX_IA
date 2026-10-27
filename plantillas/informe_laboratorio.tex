@@ -3,13 +3,18 @@
 
 % Paquetes esenciales
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{booktabs}
+\usepackage{siunitx}   % unidades: \SI{100}{\ohm}, \si{\milli\ampere}
+\sisetup{locale=FR, output-decimal-marker={,}}
+\usepackage{circuitikz} % diagramas de circuitos
 \usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage[hidelinks]{hyperref}
 
 % Datos del laboratorio
 \newcommand{\labnumero}{1}
@@ -74,9 +79,9 @@
 
 \section{Materiales y Equipos}
 \begin{itemize}
-    \item Fuente de voltaje DC (0-30V)
+    \item Fuente de voltaje DC (\SIrange{0}{30}{\volt})
     \item Multímetro digital
-    \item Resistencias: 100Ω, 220Ω, 330Ω, 470Ω, 1kΩ
+    \item Resistencias: \SIlist{100;220;330;470}{\ohm}, \SI{1}{\kilo\ohm}
     \item Protoboard
     \item Cables de conexión
 \end{itemize}
@@ -84,25 +89,38 @@
 \section{Procedimiento}
 \begin{enumerate}
     \item Medir el valor real de cada resistencia
-    \item Armar el circuito de la Figura \ref{fig:circuito}
+    \item Armar el circuito de la Figura~\ref{fig:circuito}
     \item Aplicar voltajes de 1V a 10V
     \item Registrar mediciones
 \end{enumerate}
 
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[battery1, l=$V_s$] (0,3)
+                    to[R, l=$R$] (4,3)
+                    to[short, -*] (4,0) -- (0,0);
+    \end{circuitikz}
+    \caption{Circuito serie para verificar la Ley de Ohm}
+    \label{fig:circuito}
+\end{figure}
+
 \section{Resultados}
+La Tabla~\ref{tab:mediciones} resume las mediciones.
+
 \begin{table}[H]
     \centering
     \caption{Mediciones realizadas}
-    \begin{tabular}{|c|c|c|}
-        \hline
-        \textbf{V entrada (V)} & \textbf{I medida (mA)} & \textbf{R calculada (Ω)} \\
-        \hline
+    \begin{tabular}{ccc}
+        \toprule
+        $V_{\text{ent}}$ (V) & $I$ (mA) & $R$ calculada ($\Omega$) \\
+        \midrule
         1.0 & 9.8 & 102.0 \\
         3.0 & 29.5 & 101.7 \\
         5.0 & 49.2 & 101.6 \\
         7.0 & 68.9 & 101.6 \\
         9.0 & 88.6 & 101.6 \\
-        \hline
+        \bottomrule
     \end{tabular}
     \label{tab:mediciones}
 \end{table}

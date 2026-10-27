@@ -41,3 +41,11 @@ env/
 # Archivos de respaldo
 *.bak
 *.backup
+
+# biblatex / biber
+*.bcf
+*.run.xml
+*.bbl-SAVE-ERROR
+*.fff
+*.ttt
+*.xdv

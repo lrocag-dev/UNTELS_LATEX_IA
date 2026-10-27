@@ -12,6 +12,8 @@ Capacitar a los estudiantes en el uso de LaTeX para la elaboración de documento
 |---------|-----------|
 | `guias/` | Módulos del curso en formato LaTeX y PDF |
 | `plantillas/` | Plantillas para informes, artículos, tesis |
+| `ejemplos/` | Ejemplos compilables (ecuaciones, tablas, figuras, circuitos) |
+| `apa7/` | **Módulo 3:** formato APA 7 con LaTeX (plantilla, `.bib`, ejercicio) |
 | `ejercicios/` | Ejercicios prácticos por módulo |
 | `soluciones/` | Soluciones de referencia |
 | `recursos/` | Cheatsheets, guías de prompts, referencias |
@@ -41,7 +43,8 @@ Overleaf: Seguir setup/configurar_overleaf.md
 |--------|----------------------------------------------|-------------------------------|
 | 1      | Fundamentos de LaTeX y Entornos de Trabajo   | [Módulo 1](guias/guia_modulo_1.pdf) |
 | 2      | LaTeX Potenciado por Inteligencia Artificial | [Módulo 2](guias/guia_modulo_2.pdf)    |
-| 3      | Contenido del curso | [Guia del curso](contenido/README.md)    |
+| 3      | Formato APA 7 con LaTeX (+ IA) | [Módulo 3](apa7/README.md) |
+| —      | Contenido del curso | [Guia del curso](contenido/README.md)    |
 
 ## Contenido del Módulo 1
 - Instalación y configuración de entornos LaTeX (TeXstudio, Overleaf)
@@ -69,6 +72,13 @@ Overleaf: Seguir setup/configurar_overleaf.md
 | 6	        | Conversión con Mathpix	                    | ejercicios/ejercicio6_mathpix.tex     | 
 | 7       	| Comparación de herramientas IA              | ejercicios/ejercicio7_comparacion.tex | 
 | 8	        | Artículo académico avanzado	                | ejercicios/ejercicio8_avanzado.tex    | 
+## Contenido del Módulo 3
+- Reglas de APA 7 y qué automatiza LaTeX (clase `apa7`, `biblatex-apa`, `biber`)
+- Citas narrativas y parentéticas, autor corporativo, `et al.`
+- Archivo `.bib` con un ejemplo de cada tipo de fuente
+- Cómo citar y reconocer herramientas de IA; verificación de referencias
+- Ejercicio 9: corregir un documento con errores APA
+
 # Herramientas Recomendadas
 | Herramienta	| Función	| Enlace	| Costo |
 |-----------|-----------------------------------------|---------------|------------------------|

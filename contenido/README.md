@@ -17,6 +17,8 @@
 ```latex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
 \usepackage{amsmath, amssymb}
 
 \title{Mi primer documento LaTeX}
@@ -80,7 +82,7 @@ Genera el código completo.
 ### 2.1 Sintaxis básica de ecuaciones (30 min)
 ```latex
 % Modo inline: $E = mc^2$
-% Modo display: $$E = mc^2$$ o \[E = mc^2\]
+% Modo display: \[E = mc^2\] (evita $$...$$: rompe el espaciado)
 
 % Ecuaciones numeradas
 \begin{equation}
@@ -159,17 +161,18 @@ latexocr
 ## Tablas, Figuras y Diagramas con IA
 ### 3.1 Tablas en LaTeX (30 min)
 ```latex
-\begin{table}[h]
+% Requiere: \usepackage{booktabs, siunitx}
+\begin{table}[htbp]
 \centering
 \caption{Valores medidos vs teóricos}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Componente} & \textbf{Valor Teórico} & \textbf{Valor Medido} \\
-\hline
-R1 & 100 Ω & 98.5 Ω \\
-R2 & 220 Ω & 221.3 Ω \\
-C1 & 10 μF & 9.8 μF \\
-\hline
+\begin{tabular}{lcc}
+\toprule
+Componente & Valor teórico & Valor medido \\
+\midrule
+$R_1$ & \SI{100}{\ohm} & \SI{98,5}{\ohm} \\
+$R_2$ & \SI{220}{\ohm} & \SI{221,3}{\ohm} \\
+$C_1$ & \SI{10}{\micro\farad} & \SI{9,8}{\micro\farad} \\
+\bottomrule
 \end{tabular}
 \label{tab:mediciones}
 \end{table}
@@ -188,14 +191,13 @@ C1 & 10 μF & 9.8 μF \\
 ```
 ### 3.3 Diagramas de circuitos con TikZ (30 min)
 ```latex
-\usepackage{tikz}
-\usetikzlibrary{circuits.ee.IEC}
+\usepackage{circuitikz}   % más simple y completo que tikz puro
 
-\begin{tikzpicture}[circuit ee IEC]
-    \draw (0,0) to [resistor={info={R}}] (2,0)
-                to [capacitor={info={C}}] (4,0)
-                to [battery={info={V}}] (6,0);
-\end{tikzpicture}
+\begin{circuitikz}[american]
+    \draw (0,0) to[battery1, l=$V$] (0,3)
+                to[R, l=$R$] (3,3)
+                to[C, l=$C$] (3,0) -- (0,0);
+\end{circuitikz}
 ```
 ### Práctica Guiada (1.5 horas)
 ### Ejemplo 1: Generar tabla con IA
@@ -280,15 +282,17 @@ Genera código LaTeX para un diagrama de flujo del proceso de medición:
     publisher={Pearson}
 }
 
-@article{floyd2020,
-    title={Dispositivos electrónicos},
-    author={Floyd, Thomas L.},
-    journal={Pearson Educación},
-    year={2020}
+@article{shannon1948,
+    title={A mathematical theory of communication},
+    author={Shannon, Claude E.},
+    journal={Bell System Technical Journal},
+    volume={27}, number={3}, pages={379--423},
+    year={1948}
 }
 
 % Citar en el documento
 Según Boylestad \cite{boylestad2022}, ...
+% Para APA 7 usa biblatex + biber: ver apa7/README.md
 ```
 ### 4.3 Plantilla para informe de laboratorio (30 min)
 ```latex
@@ -504,3 +508,17 @@ documento académico profesional.
 Revisa este documento LaTeX y sugiere 5 mejoras específicas 
 para hacerlo más profesional: [pegar código]
 ```
+
+## Módulo 3: Formato APA 7.ª edición con LaTeX (2 horas)
+Contenido completo en [`apa7/README.md`](../apa7/README.md).
+
+| Bloque | Tema | Tiempo |
+|---|---|---|
+| 3.1 | Reglas APA 7 y qué automatiza LaTeX (clase `apa7`, modos `stu`/`man`) | 20 min |
+| 3.2 | Citas con `biblatex-apa`: `\parencite`, `\textcite`, autor corporativo, `et al.` | 25 min |
+| 3.3 | Archivo `.bib` y tipos de fuente (libro, artículo, web, software, tesis) | 20 min |
+| 3.4 | Citar y reconocer herramientas de IA; verificar referencias | 20 min |
+| 3.5 | **Ejercicio 9:** corregir un documento con 10 errores APA | 35 min |
+
+Ejemplos ejecutables: [`apa7/articulo_apa7.tex`](../apa7/articulo_apa7.tex),
+[`apa7/ejercicio_apa7.tex`](../apa7/ejercicio_apa7.tex).

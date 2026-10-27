@@ -1,0 +1,70 @@
+% SOLUCIÓN del Ejercicio 9 (para el instructor)
+\documentclass[stu,12pt,a4paper,floatsintext]{apa7}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage[style=apa,backend=biber,sortcites=true,sorting=nyt]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\addbibresource{referencias_apa.bib}
+
+\title{Acondicionamiento de señales con amplificadores operacionales}
+\shorttitle{Acondicionamiento de señales}
+\authorsnames{Estudiante Ejemplo}
+\authorsaffiliations{Universidad Nacional Tecnológica de Lima Sur}
+\course{IE-205: Electrónica Analógica}
+\professor{Docente Ejemplo}
+\duedate{27 de octubre de 2026}
+\abstract{Este informe breve resume cómo un amplificador operacional en configuración
+inversora permite acondicionar señales de bajo nivel antes de su digitalización. Se
+revisan la ganancia en lazo cerrado, el efecto del ancho de banda y los criterios para
+elegir resistencias, y se contrastan los resultados con la bibliografía de referencia.
+El trabajo también ilustra el uso de LaTeX con el estilo APA 7: portada, citas
+narrativas y parentéticas, tablas sin líneas verticales y lista de referencias
+generada automáticamente. Se declara además el uso de una herramienta de inteligencia
+artificial para depurar el código, de acuerdo con la política de integridad académica.
+Finalmente, se discuten limitaciones del modelo ideal y recomendaciones prácticas para
+laboratorio. Los resultados muestran que la ganancia teórica se cumple dentro de la tolerancia de los componentes mientras la frecuencia de operación permanezca muy por debajo del producto ganancia-ancho de banda del dispositivo, lo que respalda el uso del modelo ideal como primera aproximación de diseño.}
+\keywords{amplificador operacional, ganancia, acondicionamiento de señales}
+
+\AtBeginDocument{\renewcommand{\notelabel}{Nota}}
+\begin{document}
+\maketitle
+
+\section{Introducción}
+El amplificador operacional es un bloque fundamental del análisis de circuitos
+analógicos \parencite{sedra2020}. Como señala \textcite{boylestad2023}, la ganancia
+en lazo cerrado depende de la razón entre resistencias.
+
+El formato de este informe sigue el manual de la \textcite{apa2020}.
+
+\section{Resultados}
+La Tabla~\ref{tab:ganancia} muestra la ganancia para tres valores de $R_f$.
+
+\begin{table}[htbp]
+  \caption{Ganancia del amplificador inversor}
+  \label{tab:ganancia}
+  \centering
+  \begin{threeparttable}
+  \begin{tabular}{cc}
+    \toprule
+    $R_f$ (k$\Omega$) & Ganancia $-R_f/R_1$ \\
+    \midrule
+    10 & $-1$ \\
+    47 & $-4{,}7$ \\
+    100 & $-10$ \\
+    \bottomrule
+  \end{tabular}
+  \begin{tablenotes}[para]
+    \item \textit{Nota.} Con $R_1 = 10$~k$\Omega$.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+\section{Uso de inteligencia artificial}
+Se utilizó ChatGPT \parencite{openai_chatgpt} para depurar errores de compilación
+del código \LaTeX. Las fuentes fueron verificadas por el autor.
+
+\printbibliography[title={Referencias}]
+\end{document}

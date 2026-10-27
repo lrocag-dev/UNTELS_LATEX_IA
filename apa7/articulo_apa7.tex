@@ -1,0 +1,126 @@
+% ============================================================
+% Plantilla APA 7.ª edición (modo estudiante) con LaTeX
+% Compilar:  pdflatex -> biber -> pdflatex -> pdflatex
+%        o:  latexmk -pdf articulo_apa7.tex
+% En Overleaf: Menu > Compiler = pdfLaTeX; biber se ejecuta solo.
+% ============================================================
+\documentclass[stu,12pt,a4paper,floatsintext]{apa7}
+% Modos: stu = estudiante | man = manuscrito | jou = revista | doc = documento
+% Para Letter (EE. UU.) use letterpaper en lugar de a4paper.
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}  % es-tabla: «Tabla» en vez de «Cuadro»
+\usepackage{csquotes}                        % obligatorio con biblatex + babel
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{caption}
+
+% --- Bibliografía: biblatex-apa + biber ---------------------
+\usepackage[style=apa,backend=biber,sortcites=true,sorting=nyt]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\addbibresource{referencias_apa.bib}
+
+% --- Portada (modo estudiante) -------------------------------
+\title{Respuesta transitoria de un circuito RC: verificación experimental}
+\shorttitle{Circuito RC}   % encabezado de página (máx. 50 caracteres)
+\authorsnames{Nombre Apellido}
+\authorsaffiliations{Facultad de Ingeniería Electrónica, Universidad Nacional Tecnológica de Lima Sur}
+\course{IE-101: Circuitos Eléctricos}
+\professor{Dr. Nombre Apellido}
+\duedate{27 de octubre de 2026}
+
+\abstract{%
+  El resumen APA tiene entre 150 y 250 palabras, en un solo párrafo sin sangría.
+  Describa el problema, el método, los resultados principales y la conclusión.
+  Este ejemplo reproduce la estructura de un informe breve sobre la carga de un
+  capacitor y muestra cómo citar, numerar tablas y figuras, y generar la lista
+  de referencias automáticamente.}
+\keywords{circuito RC, respuesta transitoria, constante de tiempo, APA 7, LaTeX}
+
+\AtBeginDocument{\renewcommand{\notelabel}{Nota}}
+
+\begin{document}
+\maketitle
+
+% apa7 repite el título (negrita, centrado) al inicio del cuerpo.
+% Nivel 1 = \section (centrado, negrita); nivel 2 = \subsection; nivel 3 = \subsubsection.
+
+\subsection{Introducción}
+El comportamiento transitorio de los circuitos de primer orden es un tema
+central en el análisis de circuitos \parencite{boylestad2023}. Según
+\textcite{sedra2020}, la constante de tiempo determina la rapidez de respuesta
+del sistema. Las normas de formato siguen el manual de la
+\textcite{apa2020}, y el trabajo se compuso con el paquete
+\textcite{weiss_apa7}.
+
+\subsubsection{Citas de ejemplo}
+Una cita \emph{narrativa} integra al autor en la oración:
+\textcite{shannon1948} formalizó la teoría de la información. Una cita
+\emph{entre paréntesis} lo coloca al final \parencite{kasneci2023}. Con dos
+fuentes: \parencite{vaswani2017,shannon1948}. Con página:
+\parencite[p.~381]{shannon1948}. Con más de tres autores, biblatex-apa abrevia
+automáticamente a «et al.» (\cite{kasneci2023}).
+
+\subsection{Método}
+La carga de un capacitor sigue la ecuación~\eqref{eq:carga}:
+\begin{equation}
+  v_C(t) = V_{in}\left(1 - e^{-t/\tau}\right), \qquad \tau = RC
+  \label{eq:carga}
+\end{equation}
+
+\subsection{Resultados}
+La Tabla~\ref{tab:carga} resume las mediciones y la Figura~\ref{fig:carga}
+muestra la curva obtenida.
+
+% APA 7: número en negrita, título en cursiva, sin líneas verticales.
+\begin{table}[htbp]
+  \caption{Voltaje en el capacitor durante la carga}
+  \label{tab:carga}
+  \centering
+  \begin{threeparttable}
+  \begin{tabular}{cc}
+    \toprule
+    Tiempo (ms) & Voltaje (V) \\
+    \midrule
+    0  & 0{,}0 \\
+    10 & 2{,}1 \\
+    20 & 3{,}5 \\
+    30 & 4{,}3 \\
+    40 & 4{,}7 \\
+    50 & 4{,}9 \\
+    \bottomrule
+  \end{tabular}
+  \begin{tablenotes}[para]
+    \item \textit{Nota.} $V_{in} = 5$~V, $R = 10$~k$\Omega$, $C = 3{,}3$~\textmu F.
+    Datos ilustrativos.
+  \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+% Figura sin archivo externo: usa un recuadro para que compile siempre.
+\begin{figure}[htbp]
+  \caption{Curva de carga del capacitor}
+  \label{fig:carga}
+  \centering
+  \fbox{\parbox{0.7\textwidth}{\centering\vspace{2cm}%
+    Reemplace por \texttt{\textbackslash includegraphics\{curva.pdf\}}%
+    \vspace{2cm}}}
+  \figurenote{Elaboración propia. Si la figura proviene de otra
+  fuente, cite: Adaptado de \textit{título}, por Autor, año, editorial.}
+\end{figure}
+
+\subsection{Discusión}
+Los valores medidos concuerdan con el modelo teórico, con diferencias
+atribuibles a la tolerancia de los componentes.
+
+\subsection{Uso de herramientas de IA}
+En APA 7, el texto generado por IA se reconoce explícitamente. Ejemplo:
+\emph{Para depurar el código \LaTeX\ se consultó ChatGPT}
+\parencite{openai_chatgpt}; la verificación y la redacción final son del autor.
+
+% Referencias: se generan automáticamente.
+\printbibliography[title={Referencias}]
+
+\end{document}

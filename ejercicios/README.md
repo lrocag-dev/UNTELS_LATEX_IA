@@ -65,3 +65,10 @@ Elaborar artículo estilo IEEE (4-5 páginas) con apoyo de IA.
 git add estudiantes/tu_nombre/
 git commit -m "Ejercicios moduloX - Tu Nombre"
 git push origin main
+
+## Módulo 3: APA 7
+| Ejercicio | Descripción | Archivo |
+|-----------|-------------|---------|
+| 9 | Corregir un documento APA 7 con 10 errores | [`apa7/ejercicio_apa7.tex`](../apa7/ejercicio_apa7.tex) |
+
+> Ejemplos resueltos de los Módulos 1 y 2: carpeta [`ejemplos/`](../ejemplos/).

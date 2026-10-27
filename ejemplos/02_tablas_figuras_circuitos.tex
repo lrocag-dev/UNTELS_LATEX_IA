@@ -1,0 +1,98 @@
+% Ejemplo 2: tabla profesional, figura referenciada y circuito con circuitikz
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{locale=FR, output-decimal-marker={,}}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[hidelinks]{hyperref}
+
+\title{Tablas, figuras y circuitos}
+\author{Estudiante UNTELS}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Tabla con \texttt{booktabs} y \texttt{siunitx}}
+La Tabla~\ref{tab:carga} reúne la carga de un capacitor. Las columnas \texttt{S}
+alinean los decimales automáticamente. Nota: sin líneas verticales y con solo tres
+reglas horizontales (\verb|\toprule|, \verb|\midrule|, \verb|\bottomrule|).
+
+\begin{table}[htbp]
+  \centering
+  \caption{Carga de un capacitor ($V_{in}=\SI{5}{\volt}$, $\tau=\SI{10}{\milli\second}$)}
+  \label{tab:carga}
+  \begin{tabular}{S[table-format=2.0] S[table-format=1.2] S[table-format=1.2]}
+    \toprule
+    {$t$ (\si{\milli\second})} & {$v_C$ medido (\si{\volt})} & {$v_C$ teórico (\si{\volt})} \\
+    \midrule
+     0 & 0,00 & 0,00 \\
+    10 & 3,10 & 3,16 \\
+    20 & 4,35 & 4,32 \\
+    30 & 4,70 & 4,75 \\
+    40 & 4,90 & 4,91 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Gráfica generada desde los datos}
+La Figura~\ref{fig:curva} se dibuja con \texttt{pgfplots}: no depende de un archivo
+de imagen externo y mantiene la tipografía del documento.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[width=0.8\linewidth, height=6cm, xlabel={$t$ (ms)}, ylabel={$v_C$ (V)},
+                 grid=both, legend pos=south east, xmin=0, ymin=0]
+      \addplot[domain=0:40, samples=60, thick] {5*(1-exp(-x/10))};
+      \addplot[only marks, mark=*] coordinates {(0,0)(10,3.10)(20,4.35)(30,4.70)(40,4.90)};
+      \legend{Teórico, Medido}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Curva de carga del capacitor}
+  \label{fig:curva}
+\end{figure}
+
+\section{Circuito RC con \texttt{circuitikz}}
+\begin{figure}[htbp]
+  \centering
+  \begin{circuitikz}[american]
+    \draw (0,0) to[battery1, l=$V_{in}$] (0,3)
+                to[R, l=$R$] (3,3)
+                to[C, l=$C$, v=$v_C$] (3,0) -- (0,0);
+  \end{circuitikz}
+  \caption{Circuito RC serie}
+  \label{fig:rc}
+\end{figure}
+
+\section{Diagrama de flujo (TikZ)}
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[node distance=1.2cm, every node/.style={font=\small},
+      caja/.style={rectangle, draw, rounded corners, minimum width=3cm, minimum height=0.8cm, align=center},
+      deci/.style={diamond, draw, aspect=2.5, align=center, inner sep=1pt}]
+    \usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+    \node[caja] (ini) {Inicio};
+    \node[caja, below=of ini] (med) {Medir voltaje};
+    \node[deci, below=of med] (umb) {$V>V_{umbral}$?};
+    \node[caja, right=2cm of umb] (ala) {Activar alarma};
+    \node[caja, below=of umb] (reg) {Registrar datos};
+    \node[caja, below=of reg] (fin) {Fin};
+    \draw[-{Stealth}] (ini) -- (med);
+    \draw[-{Stealth}] (med) -- (umb);
+    \draw[-{Stealth}] (umb) -- node[above]{Sí} (ala);
+    \draw[-{Stealth}] (umb) -- node[left]{No} (reg);
+    \draw[-{Stealth}] (ala) |- (reg);
+    \draw[-{Stealth}] (reg) -- (fin);
+  \end{tikzpicture}
+  \caption{Proceso de medición con alarma}
+  \label{fig:flujo}
+\end{figure}
+
+\end{document}

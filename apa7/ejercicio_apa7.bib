@@ -1,0 +1,117 @@
+% Bibliografía del ejercicio 9. Contiene el ERROR 10.
+% ============================================================
+% Referencias de ejemplo para APA 7 con biblatex-apa + biber
+% Cada entrada ilustra un TIPO distinto de fuente.
+% Los datos de las entradas marcadas "ficticio" son inventados
+% solo para practicar; NO las cites en trabajos reales.
+% ============================================================
+% Libro con edición
+@book{boylestad2023,
+  author    = {Boylestad, Robert L. and Nashelsky, Louis},
+  title     = {Electrónica: Teoría de circuitos y dispositivos electrónicos},
+  edition   = {11},
+  year      = {2023},
+  publisher = {Pearson Educación},
+  langid    = {spanish}
+}
+
+@book{sedra2020,
+  author    = {Sedra, Adel S. and Smith, Kenneth C.},
+  title     = {Microelectronic circuits},
+  edition   = {8},
+  year      = {2020},
+  publisher = {Oxford University Press},
+  langid    = {english}
+}
+
+% ERROR 10 (en la entrada siguiente): el campo doi va sin https://doi.org/
+% Manual de estilo (autor corporativo)
+@book{apa2020,
+  author    = {{American Psychological Association}},
+  title     = {Publication manual of the {American Psychological Association}},
+  edition   = {7},
+  year      = {2020},
+  publisher = {American Psychological Association},
+  doi       = {https://doi.org/10.1037/0000165-000},
+  langid    = {english}
+}
+
+% Artículo de revista con DOI
+@article{shannon1948,
+  author  = {Shannon, Claude E.},
+  title   = {A mathematical theory of communication},
+  journaltitle = {Bell System Technical Journal},
+  year    = {1948},
+  volume  = {27},
+  number  = {3},
+  pages   = {379--423},
+  doi     = {10.1002/j.1538-7305.1948.tb01338.x},
+  langid  = {english}
+}
+
+@article{kasneci2023,
+  author  = {Kasneci, Enkelejda and Sessler, Kathrin and Küchemann, Stefan and Bannert, Maria and Dementieva, Daryna and Fischer, Frank and Gasser, Urs and Groh, Georg and Günnemann, Stephan and Hüllermeier, Eyke and Krusche, Stephan and Kutyniok, Gitta and Michaeli, Tilman and Nerdel, Claudia and Pfeffer, Jürgen and Poquet, Oleksandra and Sailer, Michael and Schmidt, Albrecht and Seidel, Tina and Kasneci, Gjergji},
+  title   = {{ChatGPT} for good? {O}n opportunities and challenges of large language models for education},
+  journaltitle = {Learning and Individual Differences},
+  year    = {2023},
+  volume  = {103},
+  eid     = {102274},
+  doi     = {10.1016/j.lindif.2023.102274},
+  langid  = {english}
+}
+
+% Artículo en conferencia
+@inproceedings{vaswani2017,
+  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Łukasz and Polosukhin, Illia},
+  title     = {Attention is all you need},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {30},
+  year      = {2017},
+  pages     = {5998--6008},
+  langid    = {english}
+}
+
+% Página web / documento de organización
+@online{unesco2021,
+  author  = {{UNESCO}},
+  title   = {Recomendación sobre la ética de la inteligencia artificial},
+  year    = {2021},
+  url     = {https://unesdoc.unesco.org/ark:/48223/pf0000380455_spa},
+  langid  = {spanish}
+}
+
+% Software / paquete LaTeX (verifique versión y año en CTAN)
+@software{weiss_apa7,
+  author  = {Weiss, Daniel A.},
+  title   = {{apa7}: Format documents in {APA} style (7th edition)},
+  year    = {2022},
+  url     = {https://ctan.org/pkg/apa7},
+  langid  = {english}
+}
+
+% Herramienta de IA generativa (APA 7: el autor es la empresa)
+@software{openai_chatgpt,
+  author  = {{OpenAI}},
+  title   = {{ChatGPT} [Modelo de lenguaje de gran tamaño]},
+  year    = {2025},
+  url     = {https://chatgpt.com},
+  langid  = {spanish}
+}
+
+@software{anthropic_claude,
+  author  = {{Anthropic}},
+  title   = {Claude [Modelo de lenguaje de gran tamaño]},
+  year    = {2025},
+  url     = {https://claude.ai},
+  langid  = {spanish}
+}
+
+% Tesis (ficticio, solo para practicar)
+@thesis{quispe2024,
+  author      = {Quispe Mamani, Rosa},
+  title       = {Diseño de un filtro activo pasa bajos para acondicionamiento de señales biomédicas},
+  type        = {Tesis de licenciatura},
+  institution = {Universidad Nacional Tecnológica de Lima Sur},
+  year        = {2024},
+  langid      = {spanish}
+}
