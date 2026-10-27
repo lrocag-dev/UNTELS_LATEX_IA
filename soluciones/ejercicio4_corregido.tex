@@ -1,0 +1,59 @@
+% SOLUCIÓN Ejercicio 4 — documento corregido
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{locale=FR, output-decimal-marker={,}}
+\usepackage{circuitikz}
+\usepackage[hidelinks]{hyperref}
+
+\title{Ley de Ohm}
+\author{Estudiante}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introducción}
+La ley de Ohm establece que
+\begin{equation}
+  V = I\cdot R
+  \label{eq:ohm}
+\end{equation}
+Para dos resistencias en serie, por la ecuación~\eqref{eq:ohm} y la LVK,
+\begin{equation}
+  R_{eq} = R_1 + R_2
+\end{equation}
+
+\section{Resultados}
+Los resultados se ven en la Tabla~\ref{tab:ohm} y en la Figura~\ref{fig:ohm}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Mediciones de voltaje y corriente}
+  \label{tab:ohm}
+  \begin{tabular}{S[table-format=1.1] S[table-format=2.1]}
+    \toprule
+    {$V$ (\si{\volt})} & {$I$ (\si{\milli\ampere})} \\
+    \midrule
+    1,0 & 9,8 \\
+    5,0 & 49,2 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\parbox{0.6\textwidth}{\centering\vspace{1.5cm}Figura aquí\vspace{1.5cm}}}
+  \caption{Montaje experimental}
+  \label{fig:ohm}
+\end{figure}
+\end{document}
+
+% Cambios (ver soluciones/README.md): babel español y fontenc; «Introducción» con tilde;
+% \\ vacíos eliminados; $$ -> equation; «V = I x R» -> $V=I\cdot R$ numerada;
+% referencias manuales -> \ref con label; tabla sin líneas verticales (booktabs),
+% con caption/label; decimales con coma y siunitx; figura con caption/label.

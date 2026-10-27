@@ -1,0 +1,93 @@
+% SOLUCIÓN Ejercicio 3 — Informe: amplificador operacional inversor
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{locale=FR, output-decimal-marker={,}}
+\usepackage{circuitikz}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+
+\begin{document}
+\begin{titlepage}
+  \centering
+  {\Large Universidad Nacional Tecnológica de Lima Sur\par}
+  {\large Facultad de Ingeniería Electrónica\par}
+  \vspace{2cm}
+  {\Huge\bfseries Circuito Amplificador Operacional Inversor\par}
+  \vspace{1cm}
+  {\large Informe de Laboratorio N.° 3\par}
+  \vfill
+  {\large Estudiante UNTELS\par}
+  {\large \today\par}
+\end{titlepage}
+\tableofcontents
+\newpage
+
+\section{Objetivos}
+\begin{itemize}
+  \item Verificar la ganancia en lazo cerrado del amplificador inversor.
+  \item Comparar la salida medida con la teórica.
+\end{itemize}
+
+\section{Marco teórico}
+Con un amplificador operacional ideal, la tierra virtual en la entrada inversora conduce a
+\begin{equation}
+  A_v = \frac{V_{out}}{V_{in}} = -\frac{R_f}{R_1}
+  \label{eq:ganancia}
+\end{equation}
+y la salida queda limitada por la alimentación:
+\begin{equation}
+  |V_{out}| \le V_{sat} \approx V_{CC} - \SI{1,5}{\volt}
+  \label{eq:sat}
+\end{equation}
+
+\section{Circuito}
+La Figura~\ref{fig:inversor} muestra el montaje con $R_1=\SI{10}{\kilo\ohm}$ y $R_f=\SI{100}{\kilo\ohm}$.
+\begin{figure}[htbp]
+  \centering
+  \begin{circuitikz}[american]
+    \draw (0,0) node[op amp] (A) {};
+    \draw (A.-) -- ++(-0.6,0) coordinate (fb);
+    \draw (fb) to[R=$R_1$, -o] ++(-2.2,0) node[left] {$V_{in}$};
+    \draw (A.+) -- ++(-0.4,0) node[ground] {};
+    \draw (fb) to[short, *-] ++(0,1.7) coordinate (top);
+    \draw (top) to[R=$R_f$] (top -| A.out) -- (A.out);
+    \draw (A.out) to[short, *-o] ++(1,0) node[right] {$V_{out}$};
+  \end{circuitikz}
+  \caption{Amplificador operacional inversor}
+  \label{fig:inversor}
+\end{figure}
+
+\section{Resultados}
+Por la ecuación~\eqref{eq:ganancia}, $A_v=-10$. La Tabla~\ref{tab:res} contiene valores
+\emph{simulados} (reemplace por sus mediciones).
+\begin{table}[htbp]
+  \centering
+  \caption{Tensión de salida del inversor ($A_v=-10$)}
+  \label{tab:res}
+  \begin{tabular}{S[table-format=1.2] S[table-format=-2.2] S[table-format=-2.2]}
+    \toprule
+    {$V_{in}$ (\si{\volt})} & {$V_{out}$ teórico (\si{\volt})} & {$V_{out}$ medido (\si{\volt})} \\
+    \midrule
+    0,10 & -1,00 & -0,98 \\
+    0,20 & -2,00 & -1,97 \\
+    0,50 & -5,00 & -4,95 \\
+    0,80 & -8,00 & -7,93 \\
+    1,00 & -10,00 & -9,90 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Conclusiones}
+La salida medida no difiere más del 2\,\% de la teórica; la diferencia se atribuye a la
+tolerancia de las resistencias y a la ganancia finita del operacional.
+
+\begin{thebibliography}{9}
+  \bibitem{sedra} Sedra, A. S., \& Smith, K. C. (2020). \emph{Microelectronic circuits} (8.\textsuperscript{a} ed.). Oxford University Press.
+  \bibitem{horowitz} Horowitz, P., \& Hill, W. (2015). \emph{The art of electronics} (3.\textsuperscript{a} ed.). Cambridge University Press.
+\end{thebibliography}
+\end{document}

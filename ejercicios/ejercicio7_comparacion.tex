@@ -1,0 +1,60 @@
+% ============================================================
+% EJERCICIO 7 — Comparación de herramientas de IA (Módulo 2)
+% Pida la MISMA tabla de 4x4 (resistencias) a dos o más IA con el MISMO prompt.
+% Datos para la tabla (use estos):
+%   Resistor | Nominal (ohm) | Medido (ohm) | Error (%)
+%   R1 | 100 | 98,5 | 1,5 ;  R2 | 220 | 221,3 | 0,6
+%   R3 | 330 | 327,9 | 0,6 ;  R4 | 470 | 475,2 | 1,1
+% ============================================================
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{locale=FR, output-decimal-marker={,}}
+\usepackage{circuitikz}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyvrb}
+
+\begin{document}
+\section{Prompt utilizado}
+\begin{Verbatim}[frame=single,fontsize=\small]
+TODO el mismo prompt para todas las herramientas
+\end{Verbatim}
+
+\section{Resultados por herramienta}
+% Repita la subsección por herramienta.
+\subsection{TODO Herramienta A}
+\begin{Verbatim}[frame=single,fontsize=\small]
+TODO código generado (sin editar)
+\end{Verbatim}
+\subsection{TODO Herramienta B}
+\begin{Verbatim}[frame=single,fontsize=\small]
+TODO código generado (sin editar)
+\end{Verbatim}
+
+\section{Comparación}
+\begin{table}[htbp]
+  \centering
+  \caption{Comparación de herramientas}
+  \label{tab:comparacion}
+  \begin{tabular}{lccc}
+    \toprule
+    Criterio & Herramienta A & Herramienta B & Herramienta C \\
+    \midrule
+    Compila sin cambios (sí/no) & TODO & TODO & TODO \\
+    Usa \texttt{booktabs}/\texttt{siunitx} & TODO & TODO & TODO \\
+    Errores a corregir (n.°) & TODO & TODO & TODO \\
+    Caption y label & TODO & TODO & TODO \\
+    Puntaje (1-5) & TODO & TODO & TODO \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Reflexión}
+% TODO ¿Cuál funcionó mejor y por qué? ¿Qué cambiaría en el prompt?
+\end{document}
+% RÚBRICA (20 pts): mismo prompt y código sin editar (5) · tabla comparativa con
+% criterios objetivos (6) · capturas adjuntas (3) · reflexión fundamentada (6)

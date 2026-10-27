@@ -1,0 +1,51 @@
+% ============================================================
+% EJERCICIO 8 — Artículo académico avanzado (Módulo 2)
+% 4-5 páginas, IA en TODAS las etapas (título, resumen, ecuaciones, tablas con
+% datos SIMULADOS declarados como tales, diagrama TikZ, corrección de estilo,
+% formato de bibliografía). Temas sugeridos: convertidores DC-DC, filtro activo
+% biomédico, MPPT solar, PID embebido.
+% Para el formato de referencias use APA 7: ver apa7/articulo_apa7.tex
+% ============================================================
+\documentclass[11pt,a4paper,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{locale=FR, output-decimal-marker={,}}
+\usepackage{circuitikz}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin=2cm]{geometry}
+
+\title{TODO Título}
+\author{TODO Autor\\ Universidad Nacional Tecnológica de Lima Sur}
+\date{\today}
+
+\begin{document}
+\twocolumn[
+  \maketitle
+  \begin{abstract}
+    % TODO 150-200 palabras: problema, método, resultados, conclusión.
+  \end{abstract}
+  \textbf{Palabras clave:} TODO, TODO, TODO
+  \vspace{1em}
+]
+
+\section{Introducción}
+\section{Marco teórico}
+\section{Metodología}
+% TODO ecuaciones + diagrama (circuitikz/tikz)
+\section{Resultados}
+% TODO tabla con datos simulados (declare que son simulados) y gráfica
+\section{Conclusiones}
+
+% TODO bibliografía (APA 7 con biblatex, ver apa7/) con fuentes verificadas
+
+\appendix
+\section{Declaración de uso de IA}
+% TODO herramienta, etapa, prompt, verificación realizada
+\end{document}
+% RÚBRICA (20 pts): estructura y redacción (5) · ecuaciones/figuras/tablas (5)
+% · bibliografía verificada y bien formateada (4) · uso de IA documentado (4)
+% · compila sin avisos (2)

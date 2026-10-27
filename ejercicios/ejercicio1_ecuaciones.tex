@@ -1,0 +1,46 @@
+% ============================================================
+% EJERCICIO 1 — Ecuaciones de electrónica (Módulos 1 y 2)
+% Objetivo : escribir 6 ecuaciones con buenas prácticas de LaTeX.
+% Tareas   : 1) Genera el código con una IA (guarda el prompt abajo).
+%            2) Complete cada TODO. 3) Compile sin errores ni avisos.
+% Entregable: este archivo + PDF.      Rúbrica (20 pts) al final.
+% PROMPT UTILIZADO (obligatorio): TODO pega aquí tu prompt
+% ============================================================
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{locale=FR, output-decimal-marker={,}}
+\usepackage{circuitikz}
+\usepackage[hidelinks]{hyperref}
+
+\title{Ecuaciones de electrónica}
+\author{TODO Nombre y apellidos}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Ecuaciones fundamentales}
+\begin{enumerate}
+  \item Ley de Ohm: % TODO  V = I \cdot R, con \begin{equation} y \label
+  \item Potencia eléctrica (tres formas equivalentes): % TODO
+  \item Reactancia capacitiva $X_C$: % TODO fracción con \frac
+  \item Reactancia inductiva $X_L$: % TODO
+  \item Impedancia RLC serie: % TODO raíz con \sqrt
+  \item Frecuencia de resonancia $f_0$: % TODO
+\end{enumerate}
+
+\section{Cálculo}
+% TODO Con $R=\SI{100}{\ohm}$, $L=\SI{10}{\milli\henry}$ y $C=\SI{1}{\micro\farad}$
+% calcule $f_0$ y escríbalo con siunitx. Cite una ecuación con \eqref{...}.
+
+\end{document}
+% ------------------------------------------------------------
+% RÚBRICA (20 pts): compila sin errores (4) · 6 ecuaciones correctas (6)
+% · equation + label + \eqref (3) · siunitx en el cálculo (3)
+% · prompt documentado y revisado críticamente (4)
+% ------------------------------------------------------------

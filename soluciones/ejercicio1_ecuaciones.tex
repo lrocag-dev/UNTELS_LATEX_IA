@@ -1,0 +1,45 @@
+% SOLUCIÓN Ejercicio 1
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{locale=FR, output-decimal-marker={,}}
+\usepackage{circuitikz}
+\usepackage[hidelinks]{hyperref}
+
+\title{Ecuaciones de electrónica}
+\author{Estudiante UNTELS}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Ecuaciones fundamentales}
+\begin{enumerate}
+  \item Ley de Ohm:
+    \begin{equation} V = I\cdot R \label{eq:ohm} \end{equation}
+  \item Potencia eléctrica:
+    \begin{equation} P = V I = I^{2}R = \frac{V^{2}}{R} \label{eq:potencia} \end{equation}
+  \item Reactancia capacitiva:
+    \begin{equation} X_C = \frac{1}{2\pi f C} \label{eq:xc} \end{equation}
+  \item Reactancia inductiva:
+    \begin{equation} X_L = 2\pi f L \label{eq:xl} \end{equation}
+  \item Impedancia RLC serie:
+    \begin{equation} Z = \sqrt{R^{2} + (X_L - X_C)^{2}} \label{eq:z} \end{equation}
+  \item Frecuencia de resonancia:
+    \begin{equation} f_0 = \frac{1}{2\pi\sqrt{LC}} \label{eq:f0} \end{equation}
+\end{enumerate}
+
+\section{Cálculo}
+Con $R=\SI{100}{\ohm}$, $L=\SI{10}{\milli\henry}$ y $C=\SI{1}{\micro\farad}$,
+la ecuación~\eqref{eq:f0} da
+\[
+  f_0 = \frac{1}{2\pi\sqrt{10\times10^{-3}\cdot 1\times10^{-6}}}
+      \approx \SI{1,59}{\kilo\hertz}.
+\]
+En resonancia $X_L=X_C$ y, por~\eqref{eq:z}, $Z=R=\SI{100}{\ohm}$.
+
+\end{document}
