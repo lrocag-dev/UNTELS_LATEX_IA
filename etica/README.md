@@ -55,7 +55,7 @@ editó el contenido y asume la plena responsabilidad por el trabajo. Todos los d
 experimentales fueron obtenidos y procesados por el/la autor/a; ningún resultado fue generado
 por IA. Los prompts y respuestas se conservan en [ubicación] y están disponibles a solicitud.
 ```
-La plantilla [`declaracion_uso_ia.tex`](declaracion_uso_ia.tex) incluye este texto y una tabla de registro.
+La plantilla [`declaracion_uso_ia.tex`](declaracion_uso_ia.tex) incluye este texto y una tabla de registro. En la plantilla de tesis ([`../plantillas/tesis_untels.tex`](../plantillas/tesis_untels.tex)) ya vienen integrados: el capítulo preliminar *Declaración de uso de herramientas de IA* (opciones A «sí usé» y B «no usé»), la sección *Uso de herramientas de IA* en Metodología y el *Apéndice A: Registro de uso*.
 
 ### 3.3 Cómo se cita (APA 7)
 APA trata a la herramienta como **software cuyo autor es la empresa**, y recomienda describir en el texto el *prompt* usado cuando se incorpora contenido generado:

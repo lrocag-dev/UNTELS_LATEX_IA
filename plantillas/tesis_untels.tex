@@ -25,6 +25,13 @@
 \usepackage{cite}
 \usepackage{appendix}
 \usepackage{listings}
+% Permite tildes y ñ dentro de lstlisting con inputenc utf8
+\lstset{
+    inputencoding=utf8, extendedchars=true,
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+             {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+             {ñ}{{\~n}}1 {Ñ}{{\~N}}1
+}
 \usepackage{xcolor}
 \usepackage{multirow}
 \usepackage{array}
@@ -141,6 +148,35 @@
 \addcontentsline{toc}{chapter}{AGRADECIMIENTOS}
 
 Agradezco a la Universidad Nacional Tecnológica de Lima Sur por brindarme la formación académica y profesional. A mi asesor, [Nombre], por su guía y paciencia durante el desarrollo de esta investigación. A mis compañeros y amigos, por su apoyo y motivación constante.
+
+% ============================================
+% DECLARACIÓN DE USO DE HERRAMIENTAS DE IA
+% ============================================
+% Obligatoria en esta plantilla. Si NO usó IA, deje solo el primer párrafo
+% alternativo y borre el resto. Más detalle: etica/README.md
+\newpage
+\chapter*{DECLARACIÓN DE USO DE HERRAMIENTAS DE INTELIGENCIA ARTIFICIAL}
+\addcontentsline{toc}{chapter}{DECLARACIÓN DE USO DE HERRAMIENTAS DE INTELIGENCIA ARTIFICIAL}
+
+% --- Opción A: SÍ se usó IA (adapte a lo que realmente hizo) ---
+Durante la elaboración de esta tesis, el autor utilizó [herramienta, modelo/versión, proveedor] entre [fecha de inicio] y [fecha de fin] con la finalidad de [finalidad concreta: depurar código \LaTeX, mejorar la redacción de la sección X, etc.]. Tras su uso, el autor revisó, verificó y editó el contenido generado y asume la plena responsabilidad por el trabajo presentado.
+
+\textbf{Datos y resultados.} Todos los datos experimentales fueron obtenidos y procesados por el autor; ningún dato ni resultado fue generado por inteligencia artificial. [Si hubo datos simulados: los datos de la Tabla [N.°] son simulados y así se rotulan en el texto.]
+
+\textbf{Referencias.} Todas las fuentes citadas fueron consultadas directamente por el autor; ninguna fue incorporada a partir de una lista generada por IA sin verificación.
+
+\textbf{Trazabilidad.} El registro de las consultas realizadas (fecha, modelo, \textit{prompt}, verificación y cambios) se presenta en el Apéndice~\ref{apx:registro-ia} y los \textit{prompts} y respuestas completos se conservan en [ubicación] a disposición del asesor y del jurado.
+
+% --- Opción B: NO se usó IA (borre la Opción A y use solo esto) ---
+% Durante la elaboración de esta tesis el autor no utilizó herramientas de inteligencia artificial generativa.
+
+\vspace{1cm}
+\begin{flushright}
+    [Lugar], [fecha] \\[1.5cm]
+    \rule{6cm}{0.4pt} \\
+    {[Nombre y apellidos del autor]} \\
+    DNI {[N.°]}
+\end{flushright}
 
 % ============================================
 % RESUMEN
@@ -299,6 +335,11 @@ Descriptiva / Correlacional / Explicativa.
     \label{tab:instrumentos}
 \end{table}
 
+\section{Uso de Herramientas de Inteligencia Artificial}
+% Complete SOLO si la IA influyó en el método (análisis de datos, código, simulación).
+% Para el uso editorial o de formato basta la Declaración inicial.
+Las herramientas de IA empleadas, su finalidad y la forma de verificación de sus resultados se describen a continuación: [herramienta y versión]; [tarea: p.\,ej. script de ajuste de curvas]; [verificación: p.\,ej. se comprobaron dos puntos manualmente y se contrastó con la simulación]. El código generado se incluye en el Apéndice [X] y fue ejecutado con los datos medidos por el autor.
+
 \section{Procedimiento Experimental}
 \subsection{Etapa 1: Diseño y simulación}
 \subsection{Etapa 2: Implementación}
@@ -439,6 +480,25 @@ int main() {
 % APÉNDICES
 % ============================================
 \begin{appendices}
+\chapter{REGISTRO DE USO DE HERRAMIENTAS DE IA}
+\label{apx:registro-ia}
+% Una fila por uso relevante. Guarde también los prompts completos (Git, carpeta, etc.).
+\begin{longtable}{>{\raggedright}p{2.6cm}>{\raggedright}p{3cm}>{\raggedright}p{3.4cm}>{\raggedright\arraybackslash}p{5.2cm}}
+    \caption{Registro de consultas a herramientas de IA}\label{tab:registro-ia}\\
+    \toprule
+    \textbf{Fecha y modelo} & \textbf{Parte de la tesis} & \textbf{Prompt (resumen)} & \textbf{Verificación y cambios realizados} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    \textbf{Fecha y modelo} & \textbf{Parte de la tesis} & \textbf{Prompt (resumen)} & \textbf{Verificación y cambios realizados} \\
+    \midrule
+    \endhead
+    \bottomrule
+    \endfoot
+    {[AAAA-MM-DD, modelo]} & {[Capítulo/sección]} & {[Resumen del prompt]} & {[Qué comprobó y qué cambió o rechazó]} \\
+    {[\dots]} & {[\dots]} & {[\dots]} & {[\dots]} \\
+\end{longtable}
+
 \chapter{MANUAL DE USUARIO}
 Contenido del manual de usuario del sistema desarrollado.
 

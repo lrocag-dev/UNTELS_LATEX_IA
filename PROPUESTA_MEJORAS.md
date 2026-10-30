@@ -29,7 +29,7 @@ Revisión realizada el 2026-10-27 compilando las plantillas con TeX Live 2023. L
 2. ~~Auditar `recursos/referencias.bib`~~ ✅ hecho. Pendiente: confirmar con el ejemplar de biblioteca edición/año de los libros marcados *VERIFICAR* y el DOI de las entradas de IA.
 3. **Un criterio de evaluación por módulo** (rúbrica de 20 pts, como en el Ejercicio 9) y una evaluación de entrada/salida de 10 preguntas.
 4. **Módulo de "depuración con IA"**: banco de 10 errores reales de compilación (`Undefined control sequence`, `Missing $ inserted`, `File not found`…), con el log y el prompt que ayuda a resolverlos.
-5. ~~Integridad académica~~ ✅ Módulo 4 (`etica/`). Pendiente: incluir la declaración en `plantillas/tesis_untels.tex`.
+5. ~~Integridad académica~~ ✅ Módulo 4 (`etica/`). La declaración ya está en `plantillas/tesis_untels.tex`.
 6. **CI**: workflow de GitHub Actions (`latexmk`) que compile `plantillas/`, `ejemplos/` y `apa7/` en cada PR, para que no vuelva a haber plantillas rotas.
 7. **Compatibilidad de motores**: unificar `inputenc`/`fontenc` (pdfLaTeX) o migrar a LuaLaTeX/XeLaTeX con `fontspec`; documentar la elección en `setup/`.
 8. **Plantilla de tesis UNTELS con APA 7** (`biblatex-apa`) como opción además de IEEE.
