@@ -29,6 +29,11 @@ y no tienen solución única).
 |---|---|---|---|
 | 9 | Corregir un documento APA 7 con 10 errores | [apa7/ejercicio_apa7.tex](../apa7/ejercicio_apa7.tex) | [solución](../apa7/solucion_ejercicio_apa7.tex) |
 
+## Módulo 4: Ética
+| Ejercicio | Descripción | Archivo |
+|---|---|---|
+| 10 | Declaración de uso de IA, registro de prompts y verificación de referencias | [etica/declaracion_uso_ia.tex](../etica/declaracion_uso_ia.tex) (instrucciones en [etica/README.md](../etica/README.md) §9) |
+
 Ejemplos de apoyo: [`../ejemplos/`](../ejemplos/).
 
 ## Cómo compilar

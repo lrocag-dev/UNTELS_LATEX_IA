@@ -6,6 +6,8 @@ Un **prompt** es la instrucción que le das a un modelo de Inteligencia Artifici
 
 > **Principio clave:** La calidad del resultado es directamente proporcional a la claridad de tu instrucción.
 
+> ⚠️ **Uso responsable.** Los prompts son una ayuda, no una fuente. **No pidas a la IA referencias, datos experimentales ni resultados** para presentarlos como propios: pueden ser inventados. Verifica todo, declara el uso de IA y guarda tus prompts. Ver [`etica/README.md`](../etica/README.md).
+
 ---
 
 ## Estructura de un Prompt Efectivo

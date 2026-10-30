@@ -1,0 +1,90 @@
+% ============================================================
+% Declaración de uso de IA + registro de prompts (Módulo 4)
+% Inserte las secciones 1-3 en su tesis/informe (apéndice o después de la
+% declaración de originalidad). La sección 4 (checklist) es para su control.
+% Reemplace todos los TODO con información real. No declare lo que no hizo.
+% Compilar: pdflatex declaracion_uso_ia.tex (dos veces)
+% ============================================================
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{csquotes}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\usepackage{xcolor}
+
+\title{Declaración de uso de herramientas de inteligencia artificial}
+\author{TODO Nombre y apellidos \\ Universidad Nacional Tecnológica de Lima Sur}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Declaración}
+Durante la preparación de este trabajo, el/la autor/a utilizó
+\todo{herramienta, modelo/versión, proveedor} entre el \todo{fecha} y el \todo{fecha}
+para \todo{finalidad concreta, p.\,ej. depurar código \LaTeX\ y mejorar la redacción de la sección 2}.
+Tras su uso, el/la autor/a revisó, verificó y editó el contenido, y asume la plena
+responsabilidad por el trabajo.
+
+\medskip
+\noindent
+\textbf{Datos y resultados.} \todo{Elija y adapte:}
+Todos los datos experimentales fueron obtenidos y procesados por el/la autor/a;
+ningún dato ni resultado fue generado por IA. \emph{(o)} Los datos de la Tabla~\todo{n}
+son \textbf{simulados} y así se rotulan en el texto.
+
+\medskip
+\noindent
+\textbf{Referencias.} Todas las fuentes citadas fueron consultadas directamente por el/la autor/a;
+ninguna fue tomada de una lista generada por IA sin verificación.
+
+\medskip
+\noindent
+\textbf{Disponibilidad.} Los \emph{prompts} y respuestas se conservan en
+\todo{ubicación, p.\,ej. repositorio Git privado} y están disponibles a solicitud del asesor.
+
+\Needspace{10\baselineskip}
+\section{Registro de uso}
+\begin{longtable}{>{\raggedright}p{2.2cm}>{\raggedright}p{2.6cm}>{\raggedright}p{3.4cm}>{\raggedright\arraybackslash}p{5.4cm}}
+  \toprule
+  Fecha y modelo & Parte del trabajo & \emph{Prompt} (resumen) & Verificación y cambios hechos \\
+  \midrule
+  \endhead
+  \todo{2026-10-30, modelo} & \todo{Cap. 2, TikZ} & \todo{«Genera un circuito inversor…»}
+    & \todo{Simulé el circuito; corregí la polaridad del opamp} \\
+  \todo{} & \todo{} & \todo{} & \todo{} \\
+  \todo{} & \todo{} & \todo{} & \todo{} \\
+  \bottomrule
+\end{longtable}
+
+\section{Verificación de referencias}
+\begin{tabular}{p{7cm}cp{4.5cm}}
+  \toprule
+  Referencia & ¿Abierta y leída? & Observación \\
+  \midrule
+  \todo{Autor (año). Título…} & $\square$ & \todo{DOI comprobado en doi.org} \\
+  \todo{} & $\square$ & \todo{} \\
+  \bottomrule
+\end{tabular}
+
+\section{Lista de control previa a la entrega}
+\begin{itemize}[label=$\square$]
+  \item Conozco y cumplo la política de IA de mi curso, asesor o revista.
+  \item Toda referencia fue abierta por mí y verifiqué cada DOI.
+  \item Todo dato procede de mis mediciones, de simulaciones declaradas o de fuentes citadas.
+  \item Reproduje o comprobé ecuaciones, código y circuitos por mi cuenta.
+  \item No usé datos confidenciales ni personales en herramientas públicas.
+  \item Declaré el uso de IA (herramienta, versión, fecha, finalidad, verificación).
+  \item Cité la herramienta en APA~7 cuando incorporé su contenido.
+  \item Pasé la revisión de similitud exigida por mi universidad.
+  \item Puedo explicar y defender cada parte del trabajo.
+\end{itemize}
+
+\end{document}

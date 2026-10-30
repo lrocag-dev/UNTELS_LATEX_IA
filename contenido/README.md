@@ -522,3 +522,8 @@ Contenido completo en [`apa7/README.md`](../apa7/README.md).
 
 Ejemplos ejecutables: [`apa7/articulo_apa7.tex`](../apa7/articulo_apa7.tex),
 [`apa7/ejercicio_apa7.tex`](../apa7/ejercicio_apa7.tex).
+
+## Módulo 4: Publicación ética de resultados obtenidos con IA (1,5 horas)
+Contenido completo en [`etica/README.md`](../etica/README.md): niveles de uso, qué declarar,
+riesgos (referencias y datos inventados), registro de prompts, casos y checklist.
+Plantilla: [`etica/declaracion_uso_ia.tex`](../etica/declaracion_uso_ia.tex).

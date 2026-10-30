@@ -13,6 +13,7 @@ Capacitar a los estudiantes en el uso de LaTeX para la elaboración de documento
 | `guias/` | Módulos del curso en formato LaTeX y PDF |
 | `plantillas/` | Plantillas para informes, artículos, tesis |
 | `ejemplos/` | Ejemplos compilables (ecuaciones, tablas, figuras, circuitos) |
+| `etica/` | **Módulo 4:** publicación ética de resultados obtenidos con IA |
 | `apa7/` | **Módulo 3:** formato APA 7 con LaTeX (plantilla, `.bib`, ejercicio) |
 | `ejercicios/` | Ejercicios prácticos por módulo |
 | `soluciones/` | Soluciones de referencia |
@@ -44,6 +45,7 @@ Overleaf: Seguir setup/configurar_overleaf.md
 | 1      | Fundamentos de LaTeX y Entornos de Trabajo   | [Módulo 1](guias/guia_modulo_1.pdf) |
 | 2      | LaTeX Potenciado por Inteligencia Artificial | [Módulo 2](guias/guia_modulo_2.pdf)    |
 | 3      | Formato APA 7 con LaTeX (+ IA) | [Módulo 3](apa7/README.md) |
+| 4      | Publicación ética con IA | [Módulo 4](etica/README.md) |
 | —      | Contenido del curso | [Guia del curso](contenido/README.md)    |
 
 ## Contenido del Módulo 1
@@ -78,6 +80,13 @@ Overleaf: Seguir setup/configurar_overleaf.md
 - Archivo `.bib` con un ejemplo de cada tipo de fuente
 - Cómo citar y reconocer herramientas de IA; verificación de referencias
 - Ejercicio 9: corregir un documento con errores APA
+
+## Contenido del Módulo 4
+- Principios: responsabilidad, transparencia, integridad de datos y confidencialidad
+- Niveles de uso de IA y qué declarar en tesis, artículos e informes
+- Declaración de uso de IA, registro de prompts y cita APA 7 de herramientas
+- Riesgos: referencias y datos inventados, fuga de información, figuras generadas
+- Casos para discutir, checklist de entrega y Ejercicio 10
 
 # Herramientas Recomendadas
 | Herramienta	| Función	| Enlace	| Costo |
