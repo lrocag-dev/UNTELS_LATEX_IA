@@ -12,6 +12,7 @@
 % ============================================
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
+\usepackage{csquotes}      % requerido por biblatex con babel
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{graphicx}
 \usepackage{float}
@@ -22,7 +23,6 @@
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{setspace}
-\usepackage{cite}
 \usepackage{appendix}
 \usepackage{listings}
 % Permite tildes y ñ dentro de lstlisting con inputenc utf8
@@ -36,6 +36,16 @@
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{rotating}
+
+% ============================================
+% BIBLIOGRAFÍA: APA 7.ª EDICIÓN (biblatex-apa + biber)
+% ============================================
+% Compilar: pdflatex -> biber -> pdflatex -> pdflatex  (o: latexmk -pdf tesis_untels.tex)
+% ¡Use BIBER, no BibTeX! En Overleaf: Menu > Compiler pdfLaTeX (biber automático).
+% Guía completa: apa7/README.md
+\usepackage[style=apa, backend=biber, sortcites=true, sorting=nyt]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\addbibresource{referencias.bib}   % copie aquí su .bib (modelo: apa7/referencias_apa.bib)
 
 % ============================================
 % CONFIGURACIÓN DE MÁRGENES (ESTILO UNTELS)
@@ -266,7 +276,9 @@ Identificar las restricciones encontradas durante el desarrollo.
 
 \section{Bases Teóricas}
 \subsection{Principios fundamentales}
-La presente investigación se fundamenta en los principios de la electrónica analógica y digital.
+La presente investigación se fundamenta en los principios de la electrónica analógica y digital \parencite{boylestad2022}.
+% Citas APA 7: \parencite{clave} -> (Autor, año) | \textcite{clave} -> Autor (año)
+% | \parencite[p.~25]{clave} -> (Autor, año, p. 25). No use \cite (sin paréntesis).
 
 \subsection{Leyes y teoremas}
 La Ley de Ohm establece la relación entre voltaje, corriente y resistencia:
@@ -468,13 +480,9 @@ int main() {
 % ============================================
 % REFERENCIAS BIBLIOGRÁFICAS
 % ============================================
-\bibliographystyle{ieeetr}
-\bibliography{referencias}
-
-% Si no tienes archivo .bib, usa this:
-% \begin{thebibliography}{99}
-% \bibitem{boylestad2022} R. L. Boylestad and L. Nashelsky, \textit{Electrónica: Teoría de circuitos}, 11th ed. México: Pearson, 2022.
-% \end{thebibliography}
+% Los títulos de libros y revistas en cursiva, la sangría francesa y el orden
+% alfabético los aplica biblatex-apa automáticamente.
+\printbibliography[title={REFERENCIAS BIBLIOGRÁFICAS}, heading=bibintoc]
 
 % ============================================
 % APÉNDICES

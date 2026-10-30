@@ -33,7 +33,7 @@ APA (American Psychological Association) es el estilo más usado en ciencias e i
 | Cuándo usarlo | Trabajos que **deben** seguir APA completo | Ya tienes un formato institucional (p. ej. plantilla UNTELS) y solo necesitas citas/referencias APA |
 | Modos | `stu` (estudiante), `man` (manuscrito), `jou` (revista), `doc` (documento) | — |
 
-Esta guía usa el camino A. Para el B basta con copiar las líneas de bibliografía de la sección 4.
+Esta guía usa el camino A. Para el B basta con copiar las líneas de bibliografía de la sección 4. La plantilla de tesis [`../plantillas/tesis_untels.tex`](../plantillas/tesis_untels.tex) ya usa el camino B (clase `book` institucional + `biblatex-apa` + `biber`).
 
 ## 3. Estructura mínima (clase `apa7`)
 

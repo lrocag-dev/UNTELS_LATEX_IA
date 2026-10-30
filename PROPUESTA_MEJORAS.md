@@ -32,6 +32,6 @@ Revisión realizada el 2026-10-27 compilando las plantillas con TeX Live 2023. L
 5. ~~Integridad académica~~ ✅ Módulo 4 (`etica/`). La declaración ya está en `plantillas/tesis_untels.tex`.
 6. **CI**: workflow de GitHub Actions (`latexmk`) que compile `plantillas/`, `ejemplos/` y `apa7/` en cada PR, para que no vuelva a haber plantillas rotas.
 7. **Compatibilidad de motores**: unificar `inputenc`/`fontenc` (pdfLaTeX) o migrar a LuaLaTeX/XeLaTeX con `fontspec`; documentar la elección en `setup/`.
-8. **Plantilla de tesis UNTELS con APA 7** (`biblatex-apa`) como opción además de IEEE.
+8. ~~Plantilla de tesis con APA 7~~ ✅ `plantillas/tesis_untels.tex` usa `biblatex-apa` + `biber`. Pendiente: confirmar con la Unidad de Investigación si UNTELS exige APA 7 o IEEE para tesis.
 9. **Accesibilidad**: texto alternativo en figuras (`\pdftooltip`/PDF/UA) y paleta de colores apta para daltonismo en las guías.
 10. **Diapositivas Beamer** del curso reutilizando la plantilla existente.
